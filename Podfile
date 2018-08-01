@@ -2,14 +2,16 @@
 # platform :ios, '9.0'
 
 target 'noStoryboard' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  source 'https://github.com/CocoaPods/Specs.git'
+  platform :ios, '10.0'
   use_frameworks!
+  
 
   # Pods for noStoryboard
 
   target 'noStoryboardTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'SnapKit', '~> 4.0.0'
   end
 
   target 'noStoryboardUITests' do
