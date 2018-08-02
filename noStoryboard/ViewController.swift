@@ -25,6 +25,13 @@ class ViewController: UIViewController {
         setupHeaderAndTitleLabel()
         
         let frame = self.view.frame
+        //MARK: - SNAPKIT
+        self.view.snp.makeConstraints {(make) in
+            make.top.equalTo(view)
+            make.bottom.equalTo(view)
+            make.left.equalTo(view)
+            make.right.equalTo(view)
+        }
         //MARK: - layout is an instance of UICollectionViewFlowLayout()
         let layout = UICollectionViewFlowLayout()
         
@@ -32,12 +39,6 @@ class ViewController: UIViewController {
         numbersCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         self.view.addSubview(numbersCollectionView)
         
-//        numbersCollectionView.snp.makeConstraints {(make) in
-//            make.top.equalTo(view)
-//            make.bottom.equalTo(view)
-//            make.left.equalTo(view)
-//            make.right.equalTo(view)
-//        }
         
         numbersCollectionView.translatesAutoresizingMaskIntoConstraints = false
         numbersCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
@@ -65,6 +66,10 @@ class ViewController: UIViewController {
         headerView.addSubview(titleLabel)
         
         // Set position of views using constraints
+        headerView.snp.makeConstraints { (make) in
+            make.width.equalTo(view)
+        }
+        
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         headerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true

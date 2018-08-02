@@ -12,7 +12,6 @@ target 'noStoryboard' do
 
   target 'noStoryboardTests' do
     inherit! :search_paths
-    pod 'SnapKit', '~> 4.0.0'
   end
 
   target 'noStoryboardUITests' do
