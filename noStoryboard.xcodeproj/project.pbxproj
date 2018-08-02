@@ -11,7 +11,8 @@
 		0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */; };
 		0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99D8210B6A4B00901A39 /* Assets.xcassets */; };
-		0A1A9A002111E73300901A39 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99FF2111E73300901A39 /* Cell.swift */; };
+		0AFD32CA2113371200FC2801 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD32C92113371200FC2801 /* NumberCollectionViewCell.swift */; };
+		0AFD32CC2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD32CB2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
 		ECC5F96BAA2D78BD953AE50E /* Pods_noStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */; };
@@ -43,7 +44,8 @@
 		0A1A99DD210B6A4B00901A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A1A99E2210B6A4B00901A39 /* noStoryboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = noStoryboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1A99ED210B6A4B00901A39 /* noStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = noStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A1A99FF2111E73300901A39 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		0AFD32C92113371200FC2801 /* NumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCollectionViewCell.swift; sourceTree = "<group>"; };
+		0AFD32CB2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersCollectionViewDelegateAndDataSource.swift; sourceTree = "<group>"; };
 		2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboard/Pods-noStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		2A17ADF94073420749BF0C36 /* Pods-noStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboardUITests/Pods-noStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_noStoryboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +123,8 @@
 			children = (
 				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
 				0A1A99D0210B6A4000901A39 /* ViewController.swift */,
-				0A1A99FF2111E73300901A39 /* Cell.swift */,
+				0AFD32C92113371200FC2801 /* NumberCollectionViewCell.swift */,
+				0AFD32CB2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift */,
 				0A1A99D8210B6A4B00901A39 /* Assets.xcassets */,
 				0A1A99DD210B6A4B00901A39 /* Info.plist */,
 				0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */,
@@ -348,7 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */,
-				0A1A9A002111E73300901A39 /* Cell.swift in Sources */,
+				0AFD32CA2113371200FC2801 /* NumberCollectionViewCell.swift in Sources */,
+				0AFD32CC2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */,
 			);
@@ -503,7 +507,8 @@
 			baseConfigurationReference = 2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = noStoryboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -511,6 +516,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinWang.noStoryboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,7 +527,8 @@
 			baseConfigurationReference = B9CC599A50E7AFE321175400 /* Pods-noStoryboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = noStoryboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -529,6 +536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinWang.noStoryboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
