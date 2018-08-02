@@ -32,7 +32,12 @@ class ViewController: UIViewController {
         numbersCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         self.view.addSubview(numbersCollectionView)
         
-        ///numbersCollectionView.snp
+//        numbersCollectionView.snp.makeConstraints {(make) in
+//            make.top.equalTo(view)
+//            make.bottom.equalTo(view)
+//            make.left.equalTo(view)
+//            make.right.equalTo(view)
+//        }
         
         numbersCollectionView.translatesAutoresizingMaskIntoConstraints = false
         numbersCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
