@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0FA876211382860045A942 /* NumbersCollectionViewDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD32CB2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift */; };
+		0A0FA877211382860045A942 /* NumbersCollectionViewDelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD32CB2113379300FC2801 /* NumbersCollectionViewDelegateAndDataSource.swift */; };
+		0A0FA878211382890045A942 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD32C92113371200FC2801 /* NumberCollectionViewCell.swift */; };
+		0A0FA8792113828A0045A942 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD32C92113371200FC2801 /* NumberCollectionViewCell.swift */; };
+		0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
+		0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
+		0A0FA87C211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
+		0A0FA87D211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
 		0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
 		0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */; };
@@ -362,6 +370,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0FA87C211382910045A942 /* AppDelegate.swift in Sources */,
+				0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */,
+				0A0FA876211382860045A942 /* NumbersCollectionViewDelegateAndDataSource.swift in Sources */,
+				0A0FA878211382890045A942 /* NumberCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +381,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0FA87D211382910045A942 /* AppDelegate.swift in Sources */,
+				0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */,
+				0A0FA877211382860045A942 /* NumbersCollectionViewDelegateAndDataSource.swift in Sources */,
+				0A0FA8792113828A0045A942 /* NumberCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +407,7 @@
 		0A1A99F4210B6A4B00901A39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -451,6 +468,7 @@
 		0A1A99F5210B6A4B00901A39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -506,14 +524,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = noStoryboard/Info.plist;
+				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinWang.noStoryboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -526,14 +547,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9CC599A50E7AFE321175400 /* Pods-noStoryboard.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = noStoryboard/Info.plist;
+				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinWang.noStoryboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -546,7 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A32CFE3F336B14F2C0644761 /* Pods-noStoryboardTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = noStoryboardTests/Info.plist;
@@ -567,7 +591,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD980FB93AA12D6461AC7A7F /* Pods-noStoryboardTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = noStoryboardTests/Info.plist;
@@ -588,7 +612,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCB1169CC585AFC135C98738 /* Pods-noStoryboardUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = noStoryboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -608,7 +632,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A17ADF94073420749BF0C36 /* Pods-noStoryboardUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = noStoryboardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

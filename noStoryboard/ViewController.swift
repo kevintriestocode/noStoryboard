@@ -8,6 +8,8 @@
 //  Copied from @Dougly
 
 import UIKit
+import SnapKit
+
 
 class ViewController: UIViewController {
 
@@ -45,13 +47,13 @@ class ViewController: UIViewController {
     func setupHeaderAndTitleLabel() {
         // Initialize views and add them to the ViewController's view
         headerView = UIView()
-        headerView.backgroundColor = .red
+        headerView.backgroundColor = .white
         self.view.addSubview(headerView)
         
         titleLabel = UILabel()
-        titleLabel.text = "NUMBERS"
+        titleLabel.text = "\(Date())"
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 20)
+        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 14)
         headerView.addSubview(titleLabel)
         
         // Set position of views using constraints
