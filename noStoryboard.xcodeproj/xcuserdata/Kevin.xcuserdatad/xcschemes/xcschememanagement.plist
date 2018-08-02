@@ -4,10 +4,28 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>noStoryboard.xcscheme</key>
+		<key>noStoryboard.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0A1A99CA210B6A4000901A39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0A1A99E1210B6A4B00901A39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0A1A99EC210B6A4B00901A39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

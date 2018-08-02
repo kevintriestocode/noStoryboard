@@ -8,6 +8,7 @@
 //  Copied from @Dougly
 
 import UIKit
+import Foundation
 import SnapKit
 
 
@@ -30,6 +31,8 @@ class ViewController: UIViewController {
         //MARK: - numbersCollectionView is an instance of UICollection
         numbersCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         self.view.addSubview(numbersCollectionView)
+        
+        ///numbersCollectionView.snp
         
         numbersCollectionView.translatesAutoresizingMaskIntoConstraints = false
         numbersCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
