@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import Foundation
 import SnapKit
-
 
 class ViewController: UIViewController {
     
     var screen: UIView!
     var centerLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +34,15 @@ class ViewController: UIViewController {
         centerLabel.snp.makeConstraints { (make) in
             make.center.equalTo(screen)
         }
+        centerLabel.isUserInteractionEnabled = true
+        let centerLabelGesture = UITapGestureRecognizer(target: self, action: #selector(centerLabelTapped))
+        centerLabel.addGestureRecognizer(centerLabelGesture)
+    }
+    
+    
+    
+    @objc func centerLabelTapped() {
+        centerLabel.text = "Ouch, you tapped me!"
     }
     
 }
