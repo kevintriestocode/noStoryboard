@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Foundation
 
 class ViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class ViewController: UIViewController {
         screen = UIView()
         centerLabel = UILabel()
         
-        view.addSubview(screen)
+        self.view.addSubview(screen)
         screen.addSubview(centerLabel)
         
         screen.backgroundColor = .white
@@ -31,8 +32,12 @@ class ViewController: UIViewController {
         }
         
         centerLabel.text = "I hope I'm centered."
+        centerLabel.textAlignment = .center
+        centerLabel.backgroundColor = .gray
         centerLabel.snp.makeConstraints { (make) in
             make.center.equalTo(screen)
+            make.width.equalTo(200)
+            make.height.equalTo(100)
         }
         centerLabel.isUserInteractionEnabled = true
         let centerLabelGesture = UITapGestureRecognizer(target: self, action: #selector(centerLabelTapped))
@@ -42,7 +47,20 @@ class ViewController: UIViewController {
     
     
     @objc func centerLabelTapped() {
-        centerLabel.text = "Ouch, you tapped me!"
+        let phrases = [
+            "Ouch, you tapped me!",
+            "I'm over here!",
+            "Tap me, tap me!",
+            "Oh, too slow :P"
+        ]
+        
+        centerLabel.text = phrases[Int(arc4random_uniform(4))]
+        centerLabel.snp.remakeConstraints { (make) in
+            make.centerX.equalTo(screen).offset(Int(arc4random_uniform(100))-Int(arc4random_uniform(100)))
+            make.centerY.equalTo(screen).offset(Int(arc4random_uniform(200))-Int(arc4random_uniform(200)))
+            make.width.equalTo(200)
+            make.height.equalTo(100)
+        }
     }
     
 }
