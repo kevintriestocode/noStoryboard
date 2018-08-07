@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F189211A0A1700F58519 /* LaunchScreen.xib */; };
 		0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A0FA87C211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A08F189211A0A1700F58519 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		0A0FA87E211387220045A942 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0FA8812113875D0045A942 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
 		0A0FA8862113875D0045A942 /* Pods-noStoryboard.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-noStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				0A1A99D8210B6A4B00901A39 /* Assets.xcassets */,
 				0A1A99DD210B6A4B00901A39 /* Info.plist */,
 				0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */,
+				0A08F189211A0A1700F58519 /* LaunchScreen.xib */,
 			);
 			path = noStoryboard;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */,
 				0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
