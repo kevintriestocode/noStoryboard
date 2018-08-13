@@ -1,0 +1,6 @@
+framework module MDFRobotoFontLoader {
+  umbrella header "MDFRobotoFontLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}
