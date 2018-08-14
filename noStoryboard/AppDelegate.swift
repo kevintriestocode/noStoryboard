@@ -9,10 +9,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
     let window = UIWindow(frame: UIScreen.main.bounds)
-    window.rootViewController = ViewController()
-    window.makeKeyAndVisible()
     
+    //  My instance of UINavigationController()
+    //  root == ViewController() Class... as defined in ViewController.swift
     let navigationController = UINavigationController(rootViewController: ViewController())
+    
+    window.rootViewController = UINavigationController(rootViewController: navigationController)
+    window.makeKeyAndVisible()
     
     self.window = window
     

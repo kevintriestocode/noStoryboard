@@ -22,7 +22,9 @@ class ViewController: UIViewController {
         
     self.view.addSubview(screen)
     screen.addSubview(centerLabel)
-        
+    
+    
+    
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
       make.top.equalTo(view)
