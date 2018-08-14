@@ -3,21 +3,22 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  
   var window: UIWindow?
-
+  
+  var navigationController: UINavigationController?
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    // Override point for customization after application launch.
     
-    let window = UIWindow(frame: UIScreen.main.bounds)
+    window = UIWindow(frame: UIScreen.main.bounds)
     
-    //  My instance of UINavigationController()
-    //  root == ViewController() Class... as defined in ViewController.swift
-    let navigationController = UINavigationController(rootViewController: ViewController())
-    
-    window.rootViewController = UINavigationController(rootViewController: navigationController)
-    window.makeKeyAndVisible()
-    
-    self.window = window
+    if let window = window {
+      let mainVC = ViewController()
+      navigationController = UINavigationController(rootViewController: mainVC)
+      window.rootViewController = navigationController
+      window.makeKeyAndVisible()
+    }
     
     return true
   }

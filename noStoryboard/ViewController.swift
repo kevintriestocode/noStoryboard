@@ -23,8 +23,6 @@ class ViewController: UIViewController {
     self.view.addSubview(screen)
     screen.addSubview(centerLabel)
     
-    
-    
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
       make.top.equalTo(view)
@@ -33,7 +31,7 @@ class ViewController: UIViewController {
       make.bottom.equalTo(view)
     }
         
-    centerLabel.text = "I hope I'm centered."
+    centerLabel.text = "Settings."
     centerLabel.textAlignment = .center
     centerLabel.backgroundColor = .gray
     centerLabel.snp.makeConstraints { (make) in
@@ -48,22 +46,23 @@ class ViewController: UIViewController {
   
   // MARK: - Push next VC to top of navigation stack
   @objc func centerLabelTapped() {
-    let phrases = [
-      "Ouch, you tapped me!",
-      "I'm over here!",
-      "Tap me, tap me!",
-      "Oh, too slow :P"
-    ]
     
-    centerLabel.text = phrases[Int(arc4random_uniform(4))]
-    centerLabel.snp.remakeConstraints { (make) in
-      make.centerX.equalTo(screen).offset(Int(arc4random_uniform(100))-Int(arc4random_uniform(100)))
-      make.centerY.equalTo(screen).offset(Int(arc4random_uniform(200))-Int(arc4random_uniform(200)))
-      make.width.equalTo(200)
-      make.height.equalTo(100)
-    }
+    let settingsVC = SettingsViewController()
+    self.navigationController?.pushViewController(settingsVC, animated: true)
+    
+    // TODO: - Remove this
+//    let phrases = [
+//      "Ouch, you tapped me!",
+//      "I'm over here!",
+//      "Tap me, tap me!",
+//      "Oh, too slow :P"
+//    ]
+//    centerLabel.text = phrases[Int(arc4random_uniform(4))]
+//    centerLabel.snp.remakeConstraints { (make) in
+//      make.centerX.equalTo(screen).offset(Int(arc4random_uniform(100))-Int(arc4random_uniform(100)))
+//      make.centerY.equalTo(screen).offset(Int(arc4random_uniform(200))-Int(arc4random_uniform(200)))
+//      make.width.equalTo(200)
+//      make.height.equalTo(100)
+//    }
   }
-  
-  // MARK: - Navgation Controller
-  
 }
