@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SettingsViewController: UIViewController {
+public class SettingsViewController: UIViewController {
   
   var screen: UIView!
   var notice: UILabel!
   
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
     screen = UIView()
     notice = UILabel()
@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
     
     view.addSubview(screen)
     
-    screen.backgroundColor = UIColor(red: 70, green: 120, blue: 95, alpha: 1)
+    screen.backgroundColor = UIColor(red: 70/255, green: 120/255, blue: 95/255, alpha: 1)
     screen.snp.makeConstraints { (make) in
       make.top.right.left.bottom.equalTo(view)
     }
@@ -34,5 +34,7 @@ class SettingsViewController: UIViewController {
     notice.snp.makeConstraints { (make) in
       make.center.equalTo(view)
     }
+    
+    
   }
 }

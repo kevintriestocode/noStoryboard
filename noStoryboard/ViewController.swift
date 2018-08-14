@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   
   var screen: UIView!
   var centerLabel: UILabel!
-    
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     screen = UIView()
@@ -49,6 +49,8 @@ class ViewController: UIViewController {
     
     let settingsVC = SettingsViewController()
     self.navigationController?.pushViewController(settingsVC, animated: true)
+    self.navigationController?.navigationBar.barStyle = .black
+    self.navigationController?.navigationBar.tintColor = .white
     
     // TODO: - Remove this
 //    let phrases = [
