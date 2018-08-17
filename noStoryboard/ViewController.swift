@@ -11,20 +11,24 @@ import SnapKit
 import Foundation
 
 class ViewController: UIViewController {
-  
   var screen: UIView!
   var settingsLabel: UILabel!
   var addOnListViewLabel: UILabel!
+  var purpleButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     screen = UIView()
     settingsLabel = UILabel()
     addOnListViewLabel = UILabel()
+    purpleButton = UIButton()
+    
+    title = "Page One"
     
     view.addSubview(screen)
     screen.addSubview(settingsLabel)
     screen.addSubview(addOnListViewLabel)
+    screen.addSubview(purpleButton)
     
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
@@ -33,13 +37,18 @@ class ViewController: UIViewController {
       make.left.equalTo(view)
       make.bottom.equalTo(view)
     }
-        
+    
+    navigationController?.navigationBar.barStyle = .black
+    navigationController?.navigationBar.tintColor = .white
+    
+    // MARK: - Settings Label
     settingsLabel.text = "Settings"
     settingsLabel.textAlignment = .center
     settingsLabel.backgroundColor = .gray
+    settingsLabel.layer.cornerRadius = 9
+    settingsLabel.layer.masksToBounds = true
     settingsLabel.snp.makeConstraints { (make) in
       make.centerX.equalTo(screen)
-//      make.top.equalTo(self.topLayoutGuide.bottomAnchor as! ConstraintRelatableTarget)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
       make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
@@ -48,9 +57,12 @@ class ViewController: UIViewController {
     let settingsLabelGesture = UITapGestureRecognizer(target: self, action: #selector(settingsLabelTapped))
     settingsLabel.addGestureRecognizer(settingsLabelGesture)
     
+    // MARK: - Add On List Label
     addOnListViewLabel.text = "Add On List"
     addOnListViewLabel.textAlignment = .center
     addOnListViewLabel.backgroundColor = .gray
+    addOnListViewLabel.layer.cornerRadius = 9
+    addOnListViewLabel.layer.masksToBounds = true
     addOnListViewLabel.snp.makeConstraints { (make) in
       make.top.equalTo(settingsLabel.snp.bottom).offset(5)
       make.width.equalTo(screen).inset(5)
@@ -60,6 +72,21 @@ class ViewController: UIViewController {
     addOnListViewLabel.isUserInteractionEnabled = true
     let addOnListViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(addOnListViewLabelTapped))
     addOnListViewLabel.addGestureRecognizer(addOnListViewLabelGesture)
+  
+    // MARK: - Alternate Settings Button
+    
+    purpleButton.backgroundColor = .gray
+    purpleButton.layer.cornerRadius = 9
+    purpleButton.layer.masksToBounds = true
+    purpleButton.snp.makeConstraints { (make) in
+      make.top.equalTo(addOnListViewLabel.snp.bottom).offset(5)
+      make.width.equalTo(screen).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(screen)
+    }
+    purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDown)
+    purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragExit)
+    purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragEnter)
   }
   
   // MARK: - Push next VC to top of navigation stack
@@ -70,12 +97,20 @@ class ViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = .white
   }
   
-  let addOnListVC = AddOnListTableViewController()
-  
   @objc func addOnListViewLabelTapped() {
+    let addOnListVC = AddOnListTableViewController()
     self.navigationController?.pushViewController(addOnListVC, animated: true)
-    self.navigationController?.title = "Add On Things"
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
+  }
+  
+  @objc func togglePurple() {
+    if purpleButton.backgroundColor == .gray {
+      purpleButton.backgroundColor = .purple
+    } else {
+      purpleButton.backgroundColor = .gray
+    }
+    
+    
   }
 }

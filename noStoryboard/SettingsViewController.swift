@@ -24,7 +24,6 @@ public class SettingsViewController: UIViewController {
     
     view.addSubview(screen)
     
-//    screen.backgroundColor = UIColor(red: 70/255, green: 120/255, blue: 95/255, alpha: 1)
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
       make.top.right.left.bottom.equalTo(view)
