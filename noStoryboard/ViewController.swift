@@ -39,8 +39,9 @@ class ViewController: UIViewController {
     settingsLabel.backgroundColor = .gray
     settingsLabel.snp.makeConstraints { (make) in
       make.centerX.equalTo(screen)
-      make.top.equalTo(screen).offset(100)
-      make.width.equalTo(200)
+//      make.top.equalTo(self.topLayoutGuide.bottomAnchor as! ConstraintRelatableTarget)
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
+      make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
     }
     settingsLabel.isUserInteractionEnabled = true
@@ -51,8 +52,8 @@ class ViewController: UIViewController {
     addOnListViewLabel.textAlignment = .center
     addOnListViewLabel.backgroundColor = .gray
     addOnListViewLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(settingsLabel.snp.bottom).offset(10)
-      make.width.equalTo(200)
+      make.top.equalTo(settingsLabel.snp.bottom).offset(5)
+      make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
       make.centerX.equalTo(screen)
     }
