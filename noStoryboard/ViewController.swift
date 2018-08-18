@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragEnter)
   }
   
-  // MARK: - Push next VC to top of navigation stack
+  // MARK: - Push VCs in reponse to tap gesture
   @objc func settingsLabelTapped() {
     let settingsVC = SettingsViewController()
     self.navigationController?.pushViewController(settingsVC, animated: true)
@@ -104,6 +104,7 @@ class ViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = .white
   }
   
+  // MARK: - Purple Toggle Function
   @objc func togglePurple() {
     if purpleButton.backgroundColor == .gray {
       purpleButton.backgroundColor = .purple
