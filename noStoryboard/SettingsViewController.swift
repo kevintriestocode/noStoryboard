@@ -34,7 +34,5 @@ public class SettingsViewController: UIViewController {
     notice.snp.makeConstraints { (make) in
       make.center.equalTo(view)
     }
-    
-    
   }
 }

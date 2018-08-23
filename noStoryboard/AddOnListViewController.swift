@@ -12,26 +12,33 @@ import SnapKit
 
 public class AddOnListTableViewController: UIViewController {
  
-  var screen: UIView!
   var tableView: UITableView!
   
   public override func viewDidLoad() {
     super.viewDidLoad()
-    screen = UIView()
-    tableView = UITableView()
+    tableView = UITableView(frame: .zero, style: .plain)
+    
+    tableView.delegate = self as? UITableViewDelegate
+    tableView.dataSource = self as? UITableViewDataSource
+    
+    tableView.separatorStyle = .singleLine
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 60
+    
     
     title = "Add On Things"
     
-    view.addSubview(screen)
-    
-    screen.backgroundColor = .white
-    screen.snp.makeConstraints { (make) in
-      make.top.right.left.bottom.equalTo(view)
-    }
-    screen.addSubview(tableView)
-    
+    setupViews()
+    setupConstraints()
+  }
+  
+  func setupViews() {
+    view.addSubview(tableView)
+  }
+  
+  func setupConstraints() {
     tableView.snp.makeConstraints { (make) in
-      make.top.right.left.bottom.equalTo(screen)
+      make.top.right.left.bottom.equalTo(view)
     }
   }
 }

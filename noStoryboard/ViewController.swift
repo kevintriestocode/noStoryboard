@@ -15,6 +15,7 @@ class ViewController: UIViewController {
   var settingsLabel: UILabel!
   var addOnListViewLabel: UILabel!
   var purpleButton: UIButton!
+  var buttonLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     settingsLabel = UILabel()
     addOnListViewLabel = UILabel()
     purpleButton = UIButton()
+    buttonLabel = UILabel()
     
     title = "Page One"
     
@@ -40,6 +42,7 @@ class ViewController: UIViewController {
     
     navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.tintColor = .white
+    navigationController?.navigationBar.isHidden = true
     
     // MARK: - Settings Label
     settingsLabel.text = "Settings"
@@ -74,7 +77,7 @@ class ViewController: UIViewController {
     addOnListViewLabel.addGestureRecognizer(addOnListViewLabelGesture)
   
     // MARK: - Alternate Settings Button
-    
+    purpleButton.addSubview(buttonLabel)
     purpleButton.backgroundColor = .gray
     purpleButton.layer.cornerRadius = 9
     purpleButton.layer.masksToBounds = true
@@ -87,6 +90,18 @@ class ViewController: UIViewController {
     purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDown)
     purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragExit)
     purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragEnter)
+    
+    buttonLabel.text = "Toggle Navigation Bar"
+    buttonLabel.snp.makeConstraints { make in
+      make.center.equalTo(purpleButton)
+    }
+  }
+  
+  public override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.isHidden = true
+  }
+  public override func viewWillDisappear(_ animated: Bool) {
+    navigationController?.navigationBar.isHidden = false
   }
   
   // MARK: - Push VCs in reponse to tap gesture
@@ -111,7 +126,10 @@ class ViewController: UIViewController {
     } else {
       purpleButton.backgroundColor = .gray
     }
-    
-    
+    if navigationController?.navigationBar.isHidden == true {
+      navigationController?.navigationBar.isHidden = false
+    } else {
+      navigationController?.navigationBar.isHidden = true
+    }
   }
 }
