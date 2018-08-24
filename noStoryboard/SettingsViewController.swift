@@ -34,5 +34,25 @@ public class SettingsViewController: UIViewController {
     notice.snp.makeConstraints { (make) in
       make.center.equalTo(view)
     }
+    
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(edit))
+  }
+  
+  @objc func edit() {
+    let additionalView = UILabel()
+    view.addSubview(additionalView)
+    
+    func setupAdditionalView() {
+      additionalView.snp.makeConstraints { make in
+        make.edges.equalTo(view)
+      }
+      additionalView.text = "A new view"
+    }
+    
+    notice.text = ""
+    setupAdditionalView()
   }
 }
