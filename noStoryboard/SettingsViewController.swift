@@ -24,7 +24,7 @@ public class SettingsViewController: UIViewController {
     
     view.addSubview(screen)
     
-    screen.backgroundColor = UIColor(red: 70/255, green: 120/255, blue: 95/255, alpha: 1)
+    screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
       make.top.right.left.bottom.equalTo(view)
     }
@@ -35,6 +35,24 @@ public class SettingsViewController: UIViewController {
       make.center.equalTo(view)
     }
     
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(edit))
+  }
+  
+  @objc func edit() {
+    let additionalView = UILabel()
+    view.addSubview(additionalView)
     
+    func setupAdditionalView() {
+      additionalView.snp.makeConstraints { make in
+        make.edges.equalTo(view)
+      }
+      additionalView.text = "A new view"
+    }
+    
+    notice.text = ""
+    setupAdditionalView()
   }
 }

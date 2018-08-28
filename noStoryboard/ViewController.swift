@@ -11,17 +11,26 @@ import SnapKit
 import Foundation
 
 class ViewController: UIViewController {
-  
   var screen: UIView!
-  var centerLabel: UILabel!
+  var settingsLabel: UILabel!
+  var addOnListViewLabel: UILabel!
+  var purpleButton: UIButton!
+  var buttonLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     screen = UIView()
-    centerLabel = UILabel()
-        
-    self.view.addSubview(screen)
-    screen.addSubview(centerLabel)
+    settingsLabel = UILabel()
+    addOnListViewLabel = UILabel()
+    purpleButton = UIButton()
+    buttonLabel = UILabel()
+    
+    title = "Page One"
+    
+    view.addSubview(screen)
+    screen.addSubview(settingsLabel)
+    screen.addSubview(addOnListViewLabel)
+    screen.addSubview(purpleButton)
     
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
@@ -30,41 +39,97 @@ class ViewController: UIViewController {
       make.left.equalTo(view)
       make.bottom.equalTo(view)
     }
-        
-    centerLabel.text = "Settings."
-    centerLabel.textAlignment = .center
-    centerLabel.backgroundColor = .gray
-    centerLabel.snp.makeConstraints { (make) in
-      make.center.equalTo(screen)
-      make.width.equalTo(200)
+    
+    navigationController?.navigationBar.barStyle = .black
+    navigationController?.navigationBar.tintColor = .white
+    navigationController?.navigationBar.isHidden = true
+    
+    // MARK: - Settings Label
+    settingsLabel.text = "Settings"
+    settingsLabel.textAlignment = .center
+    settingsLabel.backgroundColor = .gray
+    settingsLabel.layer.cornerRadius = 9
+    settingsLabel.layer.masksToBounds = true
+    settingsLabel.snp.makeConstraints { (make) in
+      make.centerX.equalTo(screen)
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
+      make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
     }
-    centerLabel.isUserInteractionEnabled = true
-    let centerLabelGesture = UITapGestureRecognizer(target: self, action: #selector(centerLabelTapped))
-    centerLabel.addGestureRecognizer(centerLabelGesture)
+    settingsLabel.isUserInteractionEnabled = true
+    let settingsLabelGesture = UITapGestureRecognizer(target: self, action: #selector(settingsLabelTapped))
+    settingsLabel.addGestureRecognizer(settingsLabelGesture)
+    
+    // MARK: - Add On List Label
+    addOnListViewLabel.text = "Add On List"
+    addOnListViewLabel.textAlignment = .center
+    addOnListViewLabel.backgroundColor = .gray
+    addOnListViewLabel.layer.cornerRadius = 9
+    addOnListViewLabel.layer.masksToBounds = true
+    addOnListViewLabel.snp.makeConstraints { (make) in
+      make.top.equalTo(settingsLabel.snp.bottom).offset(5)
+      make.width.equalTo(screen).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(screen)
+    }
+    addOnListViewLabel.isUserInteractionEnabled = true
+    let addOnListViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(addOnListViewLabelTapped))
+    addOnListViewLabel.addGestureRecognizer(addOnListViewLabelGesture)
+  
+    // MARK: - Alternate Settings Button
+    purpleButton.addSubview(buttonLabel)
+    purpleButton.backgroundColor = .gray
+    purpleButton.layer.cornerRadius = 9
+    purpleButton.layer.masksToBounds = true
+    purpleButton.snp.makeConstraints { (make) in
+      make.top.equalTo(addOnListViewLabel.snp.bottom).offset(5)
+      make.width.equalTo(screen).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(screen)
+    }
+    purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDown)
+    purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragExit)
+    purpleButton.addTarget(self, action: #selector(togglePurple), for: .touchDragEnter)
+    
+    buttonLabel.text = "Toggle Navigation Bar"
+    buttonLabel.snp.makeConstraints { make in
+      make.center.equalTo(purpleButton)
+    }
   }
   
-  // MARK: - Push next VC to top of navigation stack
-  @objc func centerLabelTapped() {
-    
+  public override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.isHidden = true
+  }
+  public override func viewWillDisappear(_ animated: Bool) {
+    navigationController?.navigationBar.isHidden = false
+  }
+  
+  // MARK: - Push VCs in reponse to tap gesture
+  @objc func settingsLabelTapped() {
     let settingsVC = SettingsViewController()
     self.navigationController?.pushViewController(settingsVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
-    
-    // TODO: - Remove this
-//    let phrases = [
-//      "Ouch, you tapped me!",
-//      "I'm over here!",
-//      "Tap me, tap me!",
-//      "Oh, too slow :P"
-//    ]
-//    centerLabel.text = phrases[Int(arc4random_uniform(4))]
-//    centerLabel.snp.remakeConstraints { (make) in
-//      make.centerX.equalTo(screen).offset(Int(arc4random_uniform(100))-Int(arc4random_uniform(100)))
-//      make.centerY.equalTo(screen).offset(Int(arc4random_uniform(200))-Int(arc4random_uniform(200)))
-//      make.width.equalTo(200)
-//      make.height.equalTo(100)
-//    }
+  }
+  
+  @objc func addOnListViewLabelTapped() {
+    let addOnListVC = AddOnListTableViewController()
+    self.navigationController?.pushViewController(addOnListVC, animated: true)
+    self.navigationController?.navigationBar.barStyle = .black
+    self.navigationController?.navigationBar.tintColor = .white
+  }
+  
+  // MARK: - Purple Toggle Function
+  @objc func togglePurple() {
+    if purpleButton.backgroundColor == .gray {
+      purpleButton.backgroundColor = .purple
+    } else {
+      purpleButton.backgroundColor = .gray
+    }
+    if navigationController?.navigationBar.isHidden == true {
+      navigationController?.navigationBar.isHidden = false
+    } else {
+      navigationController?.navigationBar.isHidden = true
+    }
   }
 }
