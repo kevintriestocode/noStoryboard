@@ -1,3 +1,5 @@
 import Foundation
 
-let dataSource = [ "One", "Two", "Three", "Four", "Five" ]
+public struct Configuration {
+  public static var dataSource = [ "One", "Two", "Three", "Four", "Five" ]
+}

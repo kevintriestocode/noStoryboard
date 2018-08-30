@@ -12,7 +12,6 @@ import SnapKit
 
 public class AddOnListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   var tableView: UITableView!
-  var itemsToLoad: [String] = dataSource
   
   public override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,33 +37,34 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   
   // Number of Rows
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return itemsToLoad.count
+    return Configuration.dataSource.count
   }
 
   // Cells' text == itemsToLoad values
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-    cell.textLabel?.text = itemsToLoad[indexPath.row]
+    cell.textLabel?.text = Configuration.dataSource[indexPath.row]
     return cell
   }
 
+  // Tapping a cell.
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("You have tapped table row: \(indexPath.row), item name: \(itemsToLoad[indexPath.row]).") // To console each time a cell is tapped.
+    print("You have tapped table row: \(indexPath.row), item name: \(Configuration.dataSource[indexPath.row]).") // To console each time a cell is tapped.
   }
   
   // Drag function.
   public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-    let movedObjTemp = itemsToLoad[sourceIndexPath.item]
-    itemsToLoad.remove(at: sourceIndexPath.item)
-    itemsToLoad.insert(movedObjTemp, at: destinationIndexPath.item)
+    let movedObjTemp = Configuration.dataSource[sourceIndexPath.item]
+    Configuration.dataSource.remove(at: sourceIndexPath.item)
+    Configuration.dataSource.insert(movedObjTemp, at: destinationIndexPath.item)
   }
   
-  // Mark: Delete function works! But isn't persistent
+  // Mark: Delete function works!
   public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      print("Deleted row [\(indexPath.row)], item name: \(itemsToLoad[indexPath.row]).")
+      print("Deleted row [\(indexPath.row)], item name: \(Configuration.dataSource[indexPath.row]).")
       
-      self.itemsToLoad.remove(at: indexPath.item)
+      Configuration.dataSource.remove(at: indexPath.item)
       self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     if editingStyle == .insert {
@@ -72,14 +72,17 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
     }
   }
   
-  // Mark: Editing function
+  // MARK: Edit
   @objc func editTable() {
     if tableView.isEditing == false {
       tableView.setEditing(true, animated: true)
       self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(editTable))
     } else {
       tableView.setEditing(false, animated: true)
-      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
     }
+  }
+  
+  @objc func add() {
+    
   }
 }
