@@ -1,16 +1,20 @@
 PODS:
   - SnapKit (4.0.0)
+  - SwipeCellKit (2.4.3)
 
 DEPENDENCIES:
   - SnapKit (~> 4.0.0)
+  - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SnapKit
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
-PODFILE CHECKSUM: 0345fc13e19bf0960aaf6bf07bea511cf5a66b6f
+PODFILE CHECKSUM: 6129965fe6b33a5e535f4643daecd77e545a2633
 
 COCOAPODS: 1.5.3
