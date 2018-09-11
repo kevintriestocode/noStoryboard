@@ -16,6 +16,7 @@ class ViewController: UIViewController {
   var addOnListViewLabel: UILabel!
   var toggleNavigationBarButton: UIButton!
   var toggleNavigationBarButtonLabel: UILabel!
+  var highlightPraticeLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
     addOnListViewLabel = UILabel()
     toggleNavigationBarButton = UIButton()
     toggleNavigationBarButtonLabel = UILabel()
+    highlightPraticeLabel = UILabel()
     
     title = "Page One"
     
@@ -77,8 +79,8 @@ class ViewController: UIViewController {
     toggleNavigationBarButton.addSubview(toggleNavigationBarButtonLabel)
     toggleNavigationBarButton.backgroundColor = .gray
     
-    toggleNavigationBarButton.layer.cornerRadius = 9
     toggleNavigationBarButton.layer.masksToBounds = true
+    toggleNavigationBarButton.layer.cornerRadius = 9
     
     toggleNavigationBarButton.snp.makeConstraints { (make) in
       make.top.equalTo(addOnListViewLabel.snp.bottom).offset(5)
@@ -95,6 +97,25 @@ class ViewController: UIViewController {
     toggleNavigationBarButtonLabel.snp.makeConstraints { make in
       make.center.equalTo(toggleNavigationBarButton)
     }
+    
+    // MARK: - Highlight Practice Label
+    highlightPraticeLabel.text = "Highlight Practice"
+    highlightPraticeLabel.textAlignment = .center
+    
+    highlightPraticeLabel.backgroundColor = .gray
+    highlightPraticeLabel.layer.cornerRadius = 9
+    
+    highlightPraticeLabel.layer.masksToBounds = true
+    highlightPraticeLabel.snp.makeConstraints { (make) in
+      make.top.equalTo(toggleNavigationBarButton.snp.bottom).offset(5)
+      make.width.equalTo(screen).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(screen)
+    }
+    
+    let highlightPracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(highlightPracticeLabelTapped))
+    highlightPraticeLabel.isUserInteractionEnabled = true
+    highlightPraticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
   }
   
   func addSubviews() {
@@ -102,6 +123,7 @@ class ViewController: UIViewController {
     screen.addSubview(settingsLabel)
     screen.addSubview(addOnListViewLabel)
     screen.addSubview(toggleNavigationBarButton)
+    screen.addSubview(highlightPraticeLabel)
     
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
@@ -146,5 +168,12 @@ class ViewController: UIViewController {
     } else {
       navigationController?.navigationBar.isHidden = true
     }
+  }
+  
+  @objc func highlightPracticeLabelTapped() {
+    let highlightPracticeVC = HighlightPractiveViewController()
+    self.navigationController?.pushViewController(highlightPracticeVC, animated: true)
+    self.navigationController?.navigationBar.barStyle = .blackTranslucent
+    self.navigationController?.navigationBar.tintColor = .red
   }
 }

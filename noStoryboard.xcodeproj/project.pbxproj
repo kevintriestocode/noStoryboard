@@ -16,7 +16,7 @@
 		0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */; };
 		0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99D8210B6A4B00901A39 /* Assets.xcassets */; };
-		0A36FAA92147ED79008ADF84 /* AddOnListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* AddOnListView.swift */; };
+		0A36FAA92147ED79008ADF84 /* HighlightPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */; };
 		0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
 		0A6566DE21246CFC007947C2 /* AddOnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
@@ -191,7 +191,7 @@
 		0A1A99DD210B6A4B00901A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A1A99E2210B6A4B00901A39 /* noStoryboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = noStoryboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1A99ED210B6A4B00901A39 /* noStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = noStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A36FAA82147ED79008ADF84 /* AddOnListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnListView.swift; sourceTree = "<group>"; };
+		0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightPracticeViewController.swift; sourceTree = "<group>"; };
 		0A6566DB212314FF007947C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnListViewController.swift; sourceTree = "<group>"; };
 		0A6F442821385EDF00AC74B3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -483,13 +483,13 @@
 				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
 				0A1A99D0210B6A4000901A39 /* ViewController.swift */,
 				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
-				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
-				0A36FAA82147ED79008ADF84 /* AddOnListView.swift */,
 				0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */,
+				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
 				0A1A99D8210B6A4B00901A39 /* Assets.xcassets */,
 				0A1A99DD210B6A4B00901A39 /* Info.plist */,
 				0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */,
 				0A08F189211A0A1700F58519 /* LaunchScreen.xib */,
+				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
 			);
 			path = noStoryboard;
 			sourceTree = "<group>";
@@ -766,7 +766,7 @@
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */,
 				0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */,
-				0A36FAA92147ED79008ADF84 /* AddOnListView.swift in Sources */,
+				0A36FAA92147ED79008ADF84 /* HighlightPracticeViewController.swift in Sources */,
 				0A6566DE21246CFC007947C2 /* AddOnListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
