@@ -15,24 +15,30 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   
   public override func viewDidLoad() {
     super.viewDidLoad()
+    
     tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
-
     tableView.separatorStyle = .singleLine
+    
     tableView.rowHeight = 60
     tableView.estimatedRowHeight = 60
+    
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell") // renamed from .registerClass
     tableView.dataSource = self
     tableView.delegate = self
 
+    title = "Add On Things"
+
+    setupTableView()
+    
+    // This adds the nav bar right item for the AddOnListTableViewController
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
+  }
+  
+  func setupTableView() {
     view.addSubview(tableView) // Add Subview first - before making constraints - or else you'll get some error about constraints.
     tableView.snp.makeConstraints { (make) in
       make.top.right.left.bottom.equalTo(view)
     }
-
-    title = "Add On Things"
-
-    // This adds the nav bar right item for the AddOnListTableViewController
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
   }
   
   // Number of Rows
