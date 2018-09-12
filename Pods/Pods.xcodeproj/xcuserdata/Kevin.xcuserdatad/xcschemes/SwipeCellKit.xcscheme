@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3258DB623A7D30474003FAEC5218421"
-               BlueprintName = "MDFFontDiskLoader"
+               BlueprintIdentifier = "92EF69E3BA1808F97C6631B9577293DD"
+               BlueprintName = "SwipeCellKit"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "MDFFontDiskLoader.framework">
+               BuildableName = "SwipeCellKit.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

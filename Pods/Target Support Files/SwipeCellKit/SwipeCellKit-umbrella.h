@@ -10,9 +10,7 @@
 #endif
 #endif
 
-#import "MaterialFontDiskLoader.h"
-#import "MDFFontDiskLoader.h"
 
-FOUNDATION_EXPORT double MDFFontDiskLoaderVersionNumber;
-FOUNDATION_EXPORT const unsigned char MDFFontDiskLoaderVersionString[];
+FOUNDATION_EXPORT double SwipeCellKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwipeCellKitVersionString[];
 
