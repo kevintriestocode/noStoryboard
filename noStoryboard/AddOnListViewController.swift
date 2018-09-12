@@ -83,7 +83,10 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
       self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     if editingStyle == .insert {
-      print("insert")
+      Configuration.dataSource.insert("NewThing", at: indexPath.item)
+      self.tableView.insertRows(at: [indexPath], with: .automatic)
+      
+      print("Inserted row [\(indexPath.row)], item name: \(Configuration.dataSource[indexPath.row])")
     }
   }
 
@@ -105,6 +108,9 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   // MARK: Configuring Rows for the Table View
   
   // MARK: Managing Accessory Views
+  public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    print("Accessory button has been tapped.")
+  }
   
   // MARK: Managing Selections
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -118,11 +124,7 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   
   // MARK: Editing Table Rows
   public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-    if Configuration.dataSource.count >= 5 {
-      return .delete
-    } else {
-      return .insert
-    }
+    return .delete
   }
   
   public func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -130,6 +132,10 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   }
   
   // MARK: Reordering Table Rows
+  public func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+    print("You moved the item named: \"\(Configuration.dataSource[sourceIndexPath.row])\", at sourceIndexPath: \(sourceIndexPath) ~> toProposedIndexPath: \(proposedDestinationIndexPath)")
+    return proposedDestinationIndexPath
+  }
   
   // MARK: Tracking the Removal of Views
   
@@ -152,9 +158,5 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
       tableView.setEditing(false, animated: true)
       self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
     }
-  }
-  
-  @objc func add() {
-    
   }
 }
