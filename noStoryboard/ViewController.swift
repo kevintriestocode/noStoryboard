@@ -174,6 +174,6 @@ class ViewController: UIViewController {
     let highlightPracticeVC = HighlightPractiveViewController()
     self.navigationController?.pushViewController(highlightPracticeVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
-    self.navigationController?.navigationBar.tintColor = .red
+    self.navigationController?.navigationBar.tintColor = .white
   }
 }
