@@ -16,7 +16,7 @@ public class SettingsViewController: UIViewController {
   var notice: UILabel!
   
   public override func viewDidLoad() {
-    super.viewDidLoad()
+    print("SettingsViewController did load")
     screen = UIView()
     notice = UILabel()
     

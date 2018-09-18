@@ -14,8 +14,7 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   var tableView: UITableView!
   
   public override func viewDidLoad() {
-    super.viewDidLoad()
-    
+    print("AddOnListTableViewController did load")
     title = "Add On Things"
 
     setupTableView()
