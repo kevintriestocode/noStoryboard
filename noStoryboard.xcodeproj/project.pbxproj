@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0889432154003A003BD94B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0889422154003A003BD94B /* Settings.swift */; };
 		0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F189211A0A1700F58519 /* LaunchScreen.xib */; };
 		0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0889422154003A003BD94B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0A08F189211A0A1700F58519 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		0A0FA87E211387220045A942 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0FA8812113875D0045A942 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
 				0A1A99D0210B6A4000901A39 /* ViewController.swift */,
 				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
+				0A0889422154003A003BD94B /* Settings.swift */,
 				0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */,
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
 				0A13DBF9215048F200929260 /* HighlightPracticeView.swift */,
@@ -779,6 +782,7 @@
 				0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */,
 				0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
+				0A0889432154003A003BD94B /* Settings.swift in Sources */,
 				0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */,
 				0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */,
 				0A13DBFA215048F200929260 /* HighlightPracticeView.swift in Sources */,

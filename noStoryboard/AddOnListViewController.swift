@@ -115,9 +115,9 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("You have tapped table row: \(indexPath.row), item name: \(Configuration.dataSource[indexPath.row]).") // To console each time a cell is tapped.
   }
-  public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    print("You have deselected table row: \(indexPath.row), item name: \(Configuration.dataSource[indexPath.row]).")
-  }
+//  public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//    print("You have deselected table row: \(indexPath.row), item name: \(Configuration.dataSource[indexPath.row]).")
+//  }
   
   // MARK: Modifying the Header and Footer of Sections
   
@@ -126,6 +126,7 @@ public class AddOnListTableViewController: UIViewController, UITableViewDataSour
     return .delete
   }
   
+  // Changes swipe-delete-confirmation button text.
   public func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
     return "Woah, are you sure you want to delete?"
   }

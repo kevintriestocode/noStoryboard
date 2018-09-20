@@ -35,10 +35,7 @@ public class SettingsViewController: UIViewController {
       make.center.equalTo(view)
     }
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
-                                                        style: .plain,
-                                                        target: self,
-                                                        action: #selector(edit))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(edit))
   }
   
   @objc func edit() {

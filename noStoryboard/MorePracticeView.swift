@@ -14,6 +14,5 @@ class MorePracticeView: UIView {
     var font: CTFont = CTFontCreateWithName(string, 12, nil)
     var context: CGContext = UIGraphicsGetCurrentContext()!
     
-    var keys[] = { kCTFontAttributeName }
   }
 }
