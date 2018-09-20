@@ -16,16 +16,19 @@ class ViewController: UIViewController {
   var addOnListViewLabel: UILabel!
   var toggleNavigationBarButton: UIButton!
   var toggleNavigationBarButtonLabel: UILabel!
-  var highlightPraticeLabel: UILabel!
+  var highlightPracticeLabel: UILabel!
+  var morePracticeLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("ViewController did load")
     screen = UIView()
     settingsLabel = UILabel()
     addOnListViewLabel = UILabel()
     toggleNavigationBarButton = UIButton()
     toggleNavigationBarButtonLabel = UILabel()
-    highlightPraticeLabel = UILabel()
+    highlightPracticeLabel = UILabel()
+    morePracticeLabel = UILabel()
     
     title = "Page One"
     
@@ -99,14 +102,14 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Highlight Practice Label
-    highlightPraticeLabel.text = "Highlight Practice"
-    highlightPraticeLabel.textAlignment = .center
+    highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
+    highlightPracticeLabel.textAlignment = .center
     
-    highlightPraticeLabel.backgroundColor = .gray
-    highlightPraticeLabel.layer.cornerRadius = 9
+    highlightPracticeLabel.backgroundColor = .gray
+    highlightPracticeLabel.layer.cornerRadius = 9
     
-    highlightPraticeLabel.layer.masksToBounds = true
-    highlightPraticeLabel.snp.makeConstraints { (make) in
+    highlightPracticeLabel.layer.masksToBounds = true
+    highlightPracticeLabel.snp.makeConstraints { (make) in
       make.top.equalTo(toggleNavigationBarButton.snp.bottom).offset(5)
       make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
@@ -114,8 +117,27 @@ class ViewController: UIViewController {
     }
     
     let highlightPracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(highlightPracticeLabelTapped))
-    highlightPraticeLabel.isUserInteractionEnabled = true
-    highlightPraticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
+    highlightPracticeLabel.isUserInteractionEnabled = true
+    highlightPracticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
+    
+    // MARK: - More Practice Label
+    morePracticeLabel.text = "Core Text Programming Guide 2-2"
+    morePracticeLabel.textAlignment = .center
+    
+    morePracticeLabel.backgroundColor = .gray
+    morePracticeLabel.layer.cornerRadius = 9
+    
+    morePracticeLabel.layer.masksToBounds = true
+    morePracticeLabel.snp.makeConstraints { make in
+      make.top.equalTo(highlightPracticeLabel.snp.bottom).offset(5)
+      make.width.equalTo(screen).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(screen)
+    }
+    
+    let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(morePracticeLabelTapped))
+    morePracticeLabel.isUserInteractionEnabled = true
+    morePracticeLabel.addGestureRecognizer(morePracticeLabelGesture)
   }
   
   func addSubviews() {
@@ -123,7 +145,8 @@ class ViewController: UIViewController {
     screen.addSubview(settingsLabel)
     screen.addSubview(addOnListViewLabel)
     screen.addSubview(toggleNavigationBarButton)
-    screen.addSubview(highlightPraticeLabel)
+    screen.addSubview(highlightPracticeLabel)
+    screen.addSubview(morePracticeLabel)
     
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
@@ -174,6 +197,13 @@ class ViewController: UIViewController {
     let highlightPracticeVC = HighlightPractiveViewController()
     self.navigationController?.pushViewController(highlightPracticeVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
-    self.navigationController?.navigationBar.tintColor = .red
+    self.navigationController?.navigationBar.tintColor = .white
+  }
+  
+  @objc func morePracticeLabelTapped() {
+    let morePracticeVC = MorePracticeViewController()
+    self.navigationController?.pushViewController(morePracticeVC, animated: true)
+    self.navigationController?.navigationBar.barStyle = .blackTranslucent
+    self.navigationController?.navigationBar.tintColor = .white
   }
 }

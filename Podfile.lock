@@ -1,6 +1,6 @@
 PODS:
   - SnapKit (4.0.0)
-  - SwipeCellKit (2.4.3)
+  - SwipeCellKit (2.5.0)
 
 DEPENDENCIES:
   - SnapKit (~> 4.0.0)
@@ -13,7 +13,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
+  SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
 
 PODFILE CHECKSUM: 6129965fe6b33a5e535f4643daecd77e545a2633
 
