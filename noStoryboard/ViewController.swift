@@ -13,9 +13,7 @@ import Foundation
 class ViewController: UIViewController {
   var screen: UIView!
   var settingsLabel: UILabel!
-  var addOnListViewLabel: UILabel!
-  var toggleNavigationBarButton: UIButton!
-  var toggleNavigationBarButtonLabel: UILabel!
+  var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
   var morePracticeLabel: UILabel!
   
@@ -26,9 +24,7 @@ class ViewController: UIViewController {
     print("ViewController did load")
     screen = UIView()
     settingsLabel = UILabel()
-    addOnListViewLabel = UILabel()
-    toggleNavigationBarButton = UIButton()
-    toggleNavigationBarButtonLabel = UILabel()
+    tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     morePracticeLabel = UILabel()
     
@@ -38,7 +34,7 @@ class ViewController: UIViewController {
     if settings.username == nil || settings.username == "" {
       print("Oh hello! Who might you be?")
     } else {
-      print("Welcome back \(settings.username) \n")
+      print("Welcome back \(settings.username!) \n")
     }
     
     title = "Page One"
@@ -48,7 +44,7 @@ class ViewController: UIViewController {
     
     navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.tintColor = .white
-    navigationController?.navigationBar.isHidden = true
+    navigationController?.navigationBar.isHidden = false
     navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
     
     // MARK: - Settings Label
@@ -71,46 +67,23 @@ class ViewController: UIViewController {
     settingsLabel.addGestureRecognizer(settingsLabelGesture)
     
     // MARK: - Add On List Label
-    addOnListViewLabel.text = "Add On List"
-    addOnListViewLabel.textAlignment = .center
+    tableViewLabel.text = "Add On List"
+    tableViewLabel.textAlignment = .center
     
-    addOnListViewLabel.backgroundColor = .gray
-    addOnListViewLabel.layer.cornerRadius = 9
+    tableViewLabel.backgroundColor = .gray
+    tableViewLabel.layer.cornerRadius = 9
     
-    addOnListViewLabel.layer.masksToBounds = true
-    addOnListViewLabel.snp.makeConstraints { (make) in
+    tableViewLabel.layer.masksToBounds = true
+    tableViewLabel.snp.makeConstraints { (make) in
       make.top.equalTo(settingsLabel.snp.bottom).offset(5)
       make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
       make.centerX.equalTo(screen)
     }
     
-    let addOnListViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(addOnListViewLabelTapped))
-    addOnListViewLabel.isUserInteractionEnabled = true
-    addOnListViewLabel.addGestureRecognizer(addOnListViewLabelGesture)
-  
-    // MARK: - Toggle Navigation Bar
-    toggleNavigationBarButton.addSubview(toggleNavigationBarButtonLabel)
-    toggleNavigationBarButton.backgroundColor = .gray
-    
-    toggleNavigationBarButton.layer.masksToBounds = true
-    toggleNavigationBarButton.layer.cornerRadius = 9
-    
-    toggleNavigationBarButton.snp.makeConstraints { (make) in
-      make.top.equalTo(addOnListViewLabel.snp.bottom).offset(5)
-      make.width.equalTo(screen).inset(5)
-      make.height.equalTo(100)
-      make.centerX.equalTo(screen)
-    }
-    
-    toggleNavigationBarButton.addTarget(self, action: #selector(togglePurple), for: .touchDown)
-    toggleNavigationBarButton.addTarget(self, action: #selector(togglePurple), for: .touchDragExit)
-    toggleNavigationBarButton.addTarget(self, action: #selector(togglePurple), for: .touchDragEnter)
-    
-    toggleNavigationBarButtonLabel.text = "Toggle Navigation Bar"
-    toggleNavigationBarButtonLabel.snp.makeConstraints { make in
-      make.center.equalTo(toggleNavigationBarButton)
-    }
+    let tableViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewLabelTapped))
+    tableViewLabel.isUserInteractionEnabled = true
+    tableViewLabel.addGestureRecognizer(tableViewLabelGesture)
     
     // MARK: - Highlight Practice Label
     highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
@@ -121,7 +94,7 @@ class ViewController: UIViewController {
     
     highlightPracticeLabel.layer.masksToBounds = true
     highlightPracticeLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(toggleNavigationBarButton.snp.bottom).offset(5)
+      make.top.equalTo(tableViewLabel.snp.bottom).offset(5)
       make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
       make.centerX.equalTo(screen)
@@ -151,11 +124,13 @@ class ViewController: UIViewController {
     morePracticeLabel.addGestureRecognizer(morePracticeLabelGesture)
   }
   
+  // MARK: - Add Subviews
   func addSubviews() {
     view.addSubview(screen)
+    
     screen.addSubview(settingsLabel)
-    screen.addSubview(addOnListViewLabel)
-    screen.addSubview(toggleNavigationBarButton)
+    screen.addSubview(tableViewLabel)
+
     screen.addSubview(highlightPracticeLabel)
     screen.addSubview(morePracticeLabel)
     
@@ -169,10 +144,10 @@ class ViewController: UIViewController {
   }
   
   public override func viewWillAppear(_ animated: Bool) {
-    navigationController?.navigationBar.isHidden = true
+    
   }
   public override func viewWillDisappear(_ animated: Bool) {
-    navigationController?.navigationBar.isHidden = false
+    
   }
   
   // MARK: - Push VCs in reponse to tap gesture
@@ -183,26 +158,26 @@ class ViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = .white
   }
   
-  @objc func addOnListViewLabelTapped() {
-    let addOnListVC = AddOnListTableViewController()
+  @objc func tableViewLabelTapped() {
+    let addOnListVC = TableViewController()
     self.navigationController?.pushViewController(addOnListVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
   }
   
   // MARK: - Purple Toggle Function
-  @objc func togglePurple() {
-    if toggleNavigationBarButton.backgroundColor == .gray {
-      toggleNavigationBarButton.backgroundColor = .purple
-    } else {
-      toggleNavigationBarButton.backgroundColor = .gray
-    }
-    if navigationController?.navigationBar.isHidden == true {
-      navigationController?.navigationBar.isHidden = false
-    } else {
-      navigationController?.navigationBar.isHidden = true
-    }
-  }
+//  @objc func togglePurple() {
+//    if toggleNavigationBarButton.backgroundColor == .gray {
+//      toggleNavigationBarButton.backgroundColor = .purple
+//    } else {
+//      toggleNavigationBarButton.backgroundColor = .gray
+//    }
+//    if navigationController?.navigationBar.isHidden == true {
+//      navigationController?.navigationBar.isHidden = false
+//    } else {
+//      navigationController?.navigationBar.isHidden = true
+//    }
+//  }
   
   @objc func highlightPracticeLabelTapped() {
     let highlightPracticeVC = HighlightPractiveViewController()

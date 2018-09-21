@@ -23,7 +23,7 @@ public class SettingsViewController: UIViewController {
     
     settings = Settings()
     settings.loadSettings()
-    print("current username: \(UserDefaults.standard.string(forKey: "username"))")
+    print("current username: \(UserDefaults.standard.string(forKey: "username")!)")
     
     screen = UIView()
     usernameLabel = UILabel()
@@ -72,6 +72,7 @@ public class SettingsViewController: UIViewController {
     settings.username = usernameField.text
     self.settings.saveSettings()
 //    print("username = \(settings.username)")
-    print("username = \(UserDefaults.standard.string(forKey: "username")) \n")
+    print("username = \(UserDefaults.standard.string(forKey: "username")!) \n")
+//    print("username set to: \(username!)") -- buggy
   }
 }

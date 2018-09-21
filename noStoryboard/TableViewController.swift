@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 import SnapKit
 
-public class AddOnListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+public class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   var tableView: UITableView!
   
   public override func viewDidLoad() {
-    print("AddOnListTableViewController did load")
-    title = "Add On Things"
+    print("Table View did load")
+    title = "Table View"
 
     setupTableView()
     
-    // This adds the nav bar right item for the AddOnListTableViewController
+    // This adds the nav bar right item for the TableViewController
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
   }
   
