@@ -19,11 +19,12 @@ public class SettingsViewController: UIViewController {
   var settings: Settings!
   
   public override func viewDidLoad() {
+    print("SettingsViewController did load")
+    
     settings = Settings()
     settings.loadSettings()
     print("current username: \(UserDefaults.standard.string(forKey: "username"))")
     
-    print("SettingsViewController did load")
     screen = UIView()
     usernameLabel = UILabel()
     usernameField = UITextField()
@@ -55,19 +56,22 @@ public class SettingsViewController: UIViewController {
     
     usernameField.snp.makeConstraints { make in
       make.top.equalTo(usernameLabel.snp.bottom)
-      make.width.equalTo(usernameLabel)
+      make.width.greaterThanOrEqualTo(usernameLabel).offset(40)
       make.centerX.equalTo(usernameLabel)
     }
     
     
+    if settings.username == nil || settings.username == "" {
+      usernameField.placeholder = "Who are you?"
+    }
     
-    usernameField.text = settings.username // TODO: -
+    usernameField.text = settings.username
   }
   
   @objc func confirm() {
     settings.username = usernameField.text
     self.settings.saveSettings()
-    print("username = \(settings.username)")
-    print("username = \(UserDefaults.standard.string(forKey: "username"))")
+//    print("username = \(settings.username)")
+    print("username = \(UserDefaults.standard.string(forKey: "username")) \n")
   }
 }

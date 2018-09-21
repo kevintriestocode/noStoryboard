@@ -34,7 +34,12 @@ class ViewController: UIViewController {
     
     settings = Settings()
     settings.loadSettings()
-    print("Welcome back \(settings.username)")
+    
+    if settings.username == nil || settings.username == "" {
+      print("Oh hello! Who might you be?")
+    } else {
+      print("Welcome back \(settings.username) \n")
+    }
     
     title = "Page One"
     
