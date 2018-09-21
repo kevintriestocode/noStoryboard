@@ -13,14 +13,25 @@ import SnapKit
 public class SettingsViewController: UIViewController {
   
   var screen: UIView!
-  var notice: UILabel!
+  var usernameLabel: UILabel!
+  var usernameField: UITextField!
+  
+  var settings: Settings!
   
   public override func viewDidLoad() {
+    settings = Settings()
+    settings.loadSettings()
+    print("settings.loadSettings() :")
+    print(settings)
+    
     print("SettingsViewController did load")
     screen = UIView()
-    notice = UILabel()
+    usernameLabel = UILabel()
+    usernameField = UITextField()
     
     title = "Settings"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(confirm))
+    
     
     view.addSubview(screen)
     
@@ -28,28 +39,37 @@ public class SettingsViewController: UIViewController {
     screen.snp.makeConstraints { (make) in
       make.top.right.left.bottom.equalTo(view)
     }
-    screen.addSubview(notice)
     
-    notice.text = "Oops! No settings have been established."
-    notice.snp.makeConstraints { (make) in
+    screen.addSubview(usernameLabel)
+    screen.addSubview(usernameField)
+    
+    usernameLabel.text = "Username"
+    usernameLabel.snp.makeConstraints { (make) in
       make.center.equalTo(view)
     }
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(edit))
-  }
-  
-  @objc func edit() {
-    let additionalView = UILabel()
-    view.addSubview(additionalView)
+    usernameField.autocapitalizationType = UITextAutocapitalizationType.none
+    usernameField.autocorrectionType = UITextAutocorrectionType.no
     
-    func setupAdditionalView() {
-      additionalView.snp.makeConstraints { make in
-        make.edges.equalTo(view)
-      }
-      additionalView.text = "A new view"
+    usernameField.borderStyle = UITextBorderStyle.roundedRect
+    usernameField.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+    
+    usernameField.snp.makeConstraints { make in
+      make.top.equalTo(usernameLabel.snp.bottom)
+      make.width.equalTo(usernameLabel)
+      make.centerX.equalTo(usernameLabel)
     }
     
-    notice.text = ""
-    setupAdditionalView()
+//    guard usernameField.text == settings.username else {
+//      return usernameField.placeholder = "blep"
+//    }
+    
+    usernameField.text = settings.username // TODO: -
+  }
+  
+  @objc func confirm() {
+    settings.encode(with: NScoder)
+    settings.saveSettings()
+    print("username = \(settings.username)")
   }
 }
