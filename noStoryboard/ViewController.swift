@@ -19,6 +19,8 @@ class ViewController: UIViewController {
   var highlightPracticeLabel: UILabel!
   var morePracticeLabel: UILabel!
   
+  var settings: Settings!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     print("ViewController did load")
@@ -29,6 +31,10 @@ class ViewController: UIViewController {
     toggleNavigationBarButtonLabel = UILabel()
     highlightPracticeLabel = UILabel()
     morePracticeLabel = UILabel()
+    
+    settings = Settings()
+    settings.loadSettings()
+    print("Welcome back \(settings.username)")
     
     title = "Page One"
     

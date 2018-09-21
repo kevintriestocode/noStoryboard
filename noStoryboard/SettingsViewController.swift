@@ -21,8 +21,7 @@ public class SettingsViewController: UIViewController {
   public override func viewDidLoad() {
     settings = Settings()
     settings.loadSettings()
-    print("settings.loadSettings() :")
-    print(settings)
+    print("current username: \(UserDefaults.standard.string(forKey: "username"))")
     
     print("SettingsViewController did load")
     screen = UIView()
@@ -60,16 +59,15 @@ public class SettingsViewController: UIViewController {
       make.centerX.equalTo(usernameLabel)
     }
     
-//    guard usernameField.text == settings.username else {
-//      return usernameField.placeholder = "blep"
-//    }
+    
     
     usernameField.text = settings.username // TODO: -
   }
   
   @objc func confirm() {
-    settings.encode(with: NScoder)
-    settings.saveSettings()
+    settings.username = usernameField.text
+    self.settings.saveSettings()
     print("username = \(settings.username)")
+    print("username = \(UserDefaults.standard.string(forKey: "username"))")
   }
 }
