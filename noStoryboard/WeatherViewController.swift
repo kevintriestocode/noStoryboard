@@ -27,7 +27,12 @@ class WeatherViewController: CoreTextViewController {
     weatherLabel.text = "..."
     weatherLabel.font = UIFont.systemFont(ofSize: 24)
     
+    weatherLabel.numberOfLines = 0
+    weatherLabel.lineBreakMode = .byWordWrapping
+    
+    weatherLabel.textAlignment = .center
     weatherLabel.backgroundColor = UIColor.white
+    
     weatherLabel.snp.makeConstraints { make in
       make.top.left.equalTo(view)
       make.width.height.equalTo(view)
@@ -35,16 +40,24 @@ class WeatherViewController: CoreTextViewController {
     
     // Alamofire magic...
     Alamofire.request(apiCall).responseJSON { response in
-//      print(response)
+      print(response)
       
       if let weatherJSON = response.result.value {
         let weatherObject: Dictionary = weatherJSON as! Dictionary<String, Any>
         
-        let weatherMain: Dictionary = weatherObject["main"] as! Dictionary<String, Any>
-        let weatherTempInKelvin: NSNumber = weatherMain["temp"] as! NSNumber
+        guard Int(weatherObject["cod"] as! Int) == 200 else {
+          self.weatherLabel.text = weatherObject["message"] as! String
+          return
+        }
         
-        let weatherTempInFarenheit: Float = 9 / 5 * (weatherTempInKelvin.floatValue - 273) + 32
-        self.weatherLabel.text = "\(weatherTempInFarenheit)º f"
+        let weatherMain: Dictionary = weatherObject["main"] as! Dictionary<String, Any>
+        let weatherTempInKelvin: Float = Float(weatherMain["temp"] as! NSNumber.FloatLiteralType)
+        let weatherHumidity: Float = Float(weatherMain["humidity"] as! NSNumber.FloatLiteralType)
+        
+        let weatherTempInFarenheit: Float = 9 / 5 * (weatherTempInKelvin - 273) + 32
+        
+        let formattedTemp = String(format: "%.2f", weatherTempInFarenheit)
+        self.weatherLabel.text = "It's currently \(formattedTemp)º f in 11222 with a humidity level of \(weatherHumidity)%"
       }
     }
   }
