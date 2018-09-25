@@ -6,7 +6,8 @@ target 'noStoryboard' do
   platform :ios, '10.0'
   use_frameworks!
   pod 'SnapKit', '~> 4.0.0'
-  pod 'SwipeCellKit'
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
 
   # Pods for noStoryboard
 
