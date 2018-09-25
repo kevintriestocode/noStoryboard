@@ -84,6 +84,7 @@ public class SettingsViewController: UIViewController {
     
     // Weather API Label
     weatherAPILabel.text = "OpenWeather API Key"
+    weatherAPILabel.textAlignment = .center
     weatherAPILabel.snp.makeConstraints { make in
       make.centerX.equalTo(view)
       make.width.greaterThanOrEqualTo(usernameField.snp.width)
@@ -113,16 +114,16 @@ public class SettingsViewController: UIViewController {
       usernameField.text = settings.username
     }
     
-    if settings.weatherAPI == nil || settings.weatherAPI == "" {
+    if settings.weatherAPIKey == nil || settings.weatherAPIKey == "" {
       weatherAPIField.placeholder = "OpenWeather API Key"
     } else {
-      weatherAPIField.text = settings.weatherAPI
+      weatherAPIField.text = settings.weatherAPIKey
     }
   }
   
   @objc func confirm() {
     settings.username = usernameField.text
-    settings.weatherAPI = weatherAPIField.text
+    settings.weatherAPIKey = weatherAPIField.text
     self.settings.saveSettings()
 //    print("username = \(settings.username)")
     print("Username has been set to \(UserDefaults.standard.string(forKey: "username")!) \n")

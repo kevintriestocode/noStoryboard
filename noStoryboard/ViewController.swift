@@ -15,7 +15,7 @@ class ViewController: UIViewController {
   var settingsLabel: UILabel!
   var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
-  var morePracticeLabel: UILabel!
+  var weatherLabel: UILabel!
   
   var settings: Settings!
   
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     settingsLabel = UILabel()
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
-    morePracticeLabel = UILabel()
+    weatherLabel = UILabel()
     
     settings = Settings()
     settings.loadSettings()
@@ -104,24 +104,24 @@ class ViewController: UIViewController {
     highlightPracticeLabel.isUserInteractionEnabled = true
     highlightPracticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
     
-    // MARK: - More Practice Label
-    morePracticeLabel.text = "Core Text Programming Guide 2-2"
-    morePracticeLabel.textAlignment = .center
+    // MARK: - Weather Label
+    weatherLabel.text = "Weather in Brooklyn?"
+    weatherLabel.textAlignment = .center
     
-    morePracticeLabel.backgroundColor = .gray
-    morePracticeLabel.layer.cornerRadius = 9
+    weatherLabel.backgroundColor = .gray
+    weatherLabel.layer.cornerRadius = 9
     
-    morePracticeLabel.layer.masksToBounds = true
-    morePracticeLabel.snp.makeConstraints { make in
+    weatherLabel.layer.masksToBounds = true
+    weatherLabel.snp.makeConstraints { make in
       make.top.equalTo(highlightPracticeLabel.snp.bottom).offset(5)
       make.width.equalTo(screen).inset(5)
       make.height.equalTo(100)
       make.centerX.equalTo(screen)
     }
     
-    let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(morePracticeLabelTapped))
-    morePracticeLabel.isUserInteractionEnabled = true
-    morePracticeLabel.addGestureRecognizer(morePracticeLabelGesture)
+    let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(weatherLabelTapped))
+    weatherLabel.isUserInteractionEnabled = true
+    weatherLabel.addGestureRecognizer(morePracticeLabelGesture)
   }
   
   // MARK: - Add Subviews
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
     screen.addSubview(tableViewLabel)
 
     screen.addSubview(highlightPracticeLabel)
-    screen.addSubview(morePracticeLabel)
+    screen.addSubview(weatherLabel)
     
     screen.backgroundColor = .white
     screen.snp.makeConstraints { (make) in
@@ -186,9 +186,9 @@ class ViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = .white
   }
   
-  @objc func morePracticeLabelTapped() {
-    let morePracticeVC = MorePracticeViewController()
-    self.navigationController?.pushViewController(morePracticeVC, animated: true)
+  @objc func weatherLabelTapped() {
+    let weatherVC = WeatherViewController()
+    self.navigationController?.pushViewController(weatherVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
     self.navigationController?.navigationBar.tintColor = .white
   }
