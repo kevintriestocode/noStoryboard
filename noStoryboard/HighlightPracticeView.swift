@@ -25,8 +25,6 @@ class HighlightPracticeView: UIView {
     let bounds = CGRect(x: 10.0, y: 10.0, width: 200.0, height: 200.0)
     path.addRect(bounds)
     
-    print(path)
-    
     // Initialize a string.
     let textString = NSString(string: "Hello, World!") // CF & NS are toll-free bridged.
     
@@ -84,11 +82,8 @@ class HighlightPracticeView: UIView {
         
         //        print(width, height, ascent, descent, leading)
         
-        
         width = CGFloat(CTRunGetTypographicBounds(run, range, &ascent, &descent, &leading))
-        print(width)
         width += leading
-        print(width)
         height = ascent + descent
         
         let offsetX: CGFloat = CTLineGetOffsetForStringIndex(line, numOfRuns, nil)
@@ -98,8 +93,6 @@ class HighlightPracticeView: UIView {
         let bezierPath = UIBezierPath(roundedRect: runBounds, cornerRadius: 0)
         UIColor(red: 255/255, green: 243/255, blue: 204/255, alpha: 1).setFill()
         bezierPath.fill()
-        
-        print(bezierPath)
         
       }
     }

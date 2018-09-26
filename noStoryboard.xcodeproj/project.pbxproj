@@ -13,18 +13,16 @@
 		0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A0FA87C211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
 		0A0FA87D211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
-		0A13DBF32150486A00929260 /* MorePracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF22150486A00929260 /* MorePracticeViewController.swift */; };
+		0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF22150486A00929260 /* WeatherViewController.swift */; };
 		0A13DBFA215048F200929260 /* HighlightPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF9215048F200929260 /* HighlightPracticeView.swift */; };
 		0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBFB2150528500929260 /* CoreTextViewController.swift */; };
-		0A13DBFE215059F400929260 /* MorePracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBFD215059F400929260 /* MorePracticeView.swift */; };
 		0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
 		0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
 		0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */; };
 		0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99D8210B6A4B00901A39 /* Assets.xcassets */; };
 		0A36FAA92147ED79008ADF84 /* HighlightPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */; };
 		0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
-		0A6566DE21246CFC007947C2 /* AddOnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */; };
-		0A6D8CAD215560D5001FDF7B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A6D8CAC215560D5001FDF7B /* Settings.bundle */; };
+		0A6566DE21246CFC007947C2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DD21246CFC007947C2 /* TableViewController.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
@@ -74,12 +72,19 @@
 			remoteGlobalIDString = 0A1A99CA210B6A4000901A39;
 			remoteInfo = noStoryboard;
 		};
-		0A6F4412213857C100AC74B3 /* PBXContainerItemProxy */ = {
+		0A6D8CBE215AAD0A001FDF7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A0FA8812113875D0045A942 /* Pods.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = C9EB1E22E552BD6AC592AD299120E8B0;
-			remoteInfo = SwipeCellKit;
+			remoteGlobalIDString = A34ED284334867B2CFCDA9D40D64BC70;
+			remoteInfo = Alamofire;
+		};
+		0A6D8CC0215AAD0A001FDF7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A0FA8812113875D0045A942 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A56D9716A634E3B4F91957A1E6C3EA39;
+			remoteInfo = SwiftyJSON;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -190,10 +195,9 @@
 		0A0FA8F22113875D0045A942 /* LayoutSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSupport.swift; sourceTree = "<group>"; };
 		0A0FA8F32113875D0045A942 /* LayoutProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProxy.swift; sourceTree = "<group>"; };
 		0A0FA8F42113875D0045A942 /* Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
-		0A13DBF22150486A00929260 /* MorePracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePracticeViewController.swift; sourceTree = "<group>"; };
+		0A13DBF22150486A00929260 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		0A13DBF9215048F200929260 /* HighlightPracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightPracticeView.swift; sourceTree = "<group>"; };
 		0A13DBFB2150528500929260 /* CoreTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
-		0A13DBFD215059F400929260 /* MorePracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePracticeView.swift; sourceTree = "<group>"; };
 		0A1A99CB210B6A4000901A39 /* noStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1A99CE210B6A4000901A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A1A99D0210B6A4000901A39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -204,8 +208,8 @@
 		0A1A99ED210B6A4B00901A39 /* noStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = noStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightPracticeViewController.swift; sourceTree = "<group>"; };
 		0A6566DB212314FF007947C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnListViewController.swift; sourceTree = "<group>"; };
-		0A6D8CAC215560D5001FDF7B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		0A6566DD21246CFC007947C2 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		0A6D8CB4215A8232001FDF7B /* WeatherAPI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WeatherAPI.xcconfig; sourceTree = "<group>"; };
 		0A6F442821385EDF00AC74B3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboard/Pods-noStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		2A17ADF94073420749BF0C36 /* Pods-noStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboardUITests/Pods-noStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,11 +280,12 @@
 		0A0FA8822113875D0045A942 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				0A6D8CBF215AAD0A001FDF7B /* Alamofire.framework */,
 				0A0FA8FA2113875D0045A942 /* Pods_noStoryboard.framework */,
 				0A0FA8FC2113875D0045A942 /* Pods_noStoryboardTests.framework */,
 				0A0FA8FE2113875D0045A942 /* Pods_noStoryboardUITests.framework */,
 				0A0FA9002113875D0045A942 /* SnapKit.framework */,
-				0A6F4413213857C100AC74B3 /* SwipeCellKit.framework */,
+				0A6D8CC1215AAD0A001FDF7B /* SwiftyJSON.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 		0A1A99C2210B6A4000901A39 = {
 			isa = PBXGroup;
 			children = (
+				0A6D8CB3215A8216001FDF7B /* Config */,
 				0A1A99CD210B6A4000901A39 /* noStoryboard */,
 				0A1A99CC210B6A4000901A39 /* Products */,
 				077FD6E6A39C3C86FC754187 /* Pods */,
@@ -496,20 +502,26 @@
 				0A1A99D0210B6A4000901A39 /* ViewController.swift */,
 				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
 				0A0889422154003A003BD94B /* Settings.swift */,
-				0A6566DD21246CFC007947C2 /* AddOnListViewController.swift */,
+				0A6566DD21246CFC007947C2 /* TableViewController.swift */,
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
 				0A13DBF9215048F200929260 /* HighlightPracticeView.swift */,
-				0A13DBF22150486A00929260 /* MorePracticeViewController.swift */,
-				0A13DBFD215059F400929260 /* MorePracticeView.swift */,
+				0A13DBF22150486A00929260 /* WeatherViewController.swift */,
 				0A13DBFB2150528500929260 /* CoreTextViewController.swift */,
+				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
 				0A1A99D8210B6A4B00901A39 /* Assets.xcassets */,
 				0A1A99DD210B6A4B00901A39 /* Info.plist */,
 				0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */,
 				0A08F189211A0A1700F58519 /* LaunchScreen.xib */,
-				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
-				0A6D8CAC215560D5001FDF7B /* Settings.bundle */,
 			);
 			path = noStoryboard;
+			sourceTree = "<group>";
+		};
+		0A6D8CB3215A8216001FDF7B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				0A6D8CB4215A8232001FDF7B /* WeatherAPI.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		4DA3D4A3F0EC6596D717E880 /* Frameworks */ = {
@@ -662,11 +674,18 @@
 			remoteRef = 0A0FA8FF2113875D0045A942 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0A6F4413213857C100AC74B3 /* SwipeCellKit.framework */ = {
+		0A6D8CBF215AAD0A001FDF7B /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = SwipeCellKit.framework;
-			remoteRef = 0A6F4412213857C100AC74B3 /* PBXContainerItemProxy */;
+			path = Alamofire.framework;
+			remoteRef = 0A6D8CBE215AAD0A001FDF7B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6D8CC1215AAD0A001FDF7B /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 0A6D8CC0215AAD0A001FDF7B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -677,7 +696,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */,
-				0A6D8CAD215560D5001FDF7B /* Settings.bundle in Resources */,
 				0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,13 +742,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-noStoryboard/Pods-noStoryboard-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -780,8 +800,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A13DBF32150486A00929260 /* MorePracticeViewController.swift in Sources */,
-				0A13DBFE215059F400929260 /* MorePracticeView.swift in Sources */,
+				0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */,
 				0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */,
 				0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */,
 				0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */,
@@ -791,7 +810,7 @@
 				0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */,
 				0A13DBFA215048F200929260 /* HighlightPracticeView.swift in Sources */,
 				0A36FAA92147ED79008ADF84 /* HighlightPracticeViewController.swift in Sources */,
-				0A6566DE21246CFC007947C2 /* AddOnListViewController.swift in Sources */,
+				0A6566DE21246CFC007947C2 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
