@@ -1,5 +1,4 @@
 import UIKit
-import SnapKit
 import CoreData
 
 @UIApplicationMain
@@ -14,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     
     if let window = window {
-      let mainVC = ViewController()
+      let mainVC = MainViewController()
       navigationController = UINavigationController(rootViewController: mainVC)
       window.rootViewController = navigationController
       window.makeKeyAndVisible()

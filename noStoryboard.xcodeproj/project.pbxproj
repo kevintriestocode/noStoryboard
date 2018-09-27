@@ -9,20 +9,28 @@
 /* Begin PBXBuildFile section */
 		0A0889432154003A003BD94B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0889422154003A003BD94B /* Settings.swift */; };
 		0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F189211A0A1700F58519 /* LaunchScreen.xib */; };
-		0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
-		0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
-		0A0FA87C211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
-		0A0FA87D211382910045A942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
+		0A0FA87A2113828D0045A942 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* MainViewController.swift */; };
+		0A0FA87B2113828E0045A942 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* MainViewController.swift */; };
 		0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF22150486A00929260 /* WeatherViewController.swift */; };
 		0A13DBFA215048F200929260 /* HighlightPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF9215048F200929260 /* HighlightPracticeView.swift */; };
 		0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBFB2150528500929260 /* CoreTextViewController.swift */; };
 		0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
-		0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
+		0A1A99D1210B6A4000901A39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* MainViewController.swift */; };
 		0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */; };
 		0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99D8210B6A4B00901A39 /* Assets.xcassets */; };
 		0A36FAA92147ED79008ADF84 /* HighlightPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */; };
 		0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
 		0A6566DE21246CFC007947C2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DD21246CFC007947C2 /* TableViewController.swift */; };
+		0A6D8CDA215D4220001FDF7B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
+		0A6D8CDB215D4220001FDF7B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
+		0A6D8CDC215D4224001FDF7B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DD21246CFC007947C2 /* TableViewController.swift */; };
+		0A6D8CDD215D4224001FDF7B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DD21246CFC007947C2 /* TableViewController.swift */; };
+		0A6D8CDE215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */; };
+		0A6D8CDF215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */; };
+		0A6D8CE0215D422B001FDF7B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF22150486A00929260 /* WeatherViewController.swift */; };
+		0A6D8CE1215D422B001FDF7B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF22150486A00929260 /* WeatherViewController.swift */; };
+		0A6D8CE2215D422D001FDF7B /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBFB2150528500929260 /* CoreTextViewController.swift */; };
+		0A6D8CE3215D422D001FDF7B /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBFB2150528500929260 /* CoreTextViewController.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
@@ -200,7 +208,7 @@
 		0A13DBFB2150528500929260 /* CoreTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		0A1A99CB210B6A4000901A39 /* noStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1A99CE210B6A4000901A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A1A99D0210B6A4000901A39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A1A99D0210B6A4000901A39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0A1A99D6210B6A4000901A39 /* noStoryboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = noStoryboard.xcdatamodel; sourceTree = "<group>"; };
 		0A1A99D8210B6A4B00901A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A1A99DD210B6A4B00901A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -499,15 +507,9 @@
 			isa = PBXGroup;
 			children = (
 				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
-				0A1A99D0210B6A4000901A39 /* ViewController.swift */,
-				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
-				0A0889422154003A003BD94B /* Settings.swift */,
-				0A6566DD21246CFC007947C2 /* TableViewController.swift */,
-				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
-				0A13DBF9215048F200929260 /* HighlightPracticeView.swift */,
-				0A13DBF22150486A00929260 /* WeatherViewController.swift */,
-				0A13DBFB2150528500929260 /* CoreTextViewController.swift */,
-				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
+				0A6D8CD8215D41ED001FDF7B /* Model */,
+				0A6D8CD6215D41DC001FDF7B /* View */,
+				0A6D8CD9215D4208001FDF7B /* Controller */,
 				0A1A99D8210B6A4B00901A39 /* Assets.xcassets */,
 				0A1A99DD210B6A4B00901A39 /* Info.plist */,
 				0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */,
@@ -522,6 +524,36 @@
 				0A6D8CB4215A8232001FDF7B /* WeatherAPI.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		0A6D8CD6215D41DC001FDF7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A13DBF9215048F200929260 /* HighlightPracticeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A6D8CD8215D41ED001FDF7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A0889422154003A003BD94B /* Settings.swift */,
+				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A6D8CD9215D4208001FDF7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A99D0210B6A4000901A39 /* MainViewController.swift */,
+				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
+				0A6566DD21246CFC007947C2 /* TableViewController.swift */,
+				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
+				0A13DBF22150486A00929260 /* WeatherViewController.swift */,
+				0A13DBFB2150528500929260 /* CoreTextViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4DA3D4A3F0EC6596D717E880 /* Frameworks */ = {
@@ -803,7 +835,7 @@
 				0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */,
 				0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */,
 				0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */,
-				0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */,
+				0A1A99D1210B6A4000901A39 /* MainViewController.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
 				0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */,
@@ -818,8 +850,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A0FA87C211382910045A942 /* AppDelegate.swift in Sources */,
-				0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */,
+				0A6D8CDE215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */,
+				0A6D8CE2215D422D001FDF7B /* CoreTextViewController.swift in Sources */,
+				0A6D8CE0215D422B001FDF7B /* WeatherViewController.swift in Sources */,
+				0A0FA87A2113828D0045A942 /* MainViewController.swift in Sources */,
+				0A6D8CDA215D4220001FDF7B /* SettingsViewController.swift in Sources */,
+				0A6D8CDC215D4224001FDF7B /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,8 +863,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A0FA87D211382910045A942 /* AppDelegate.swift in Sources */,
-				0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */,
+				0A6D8CDF215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */,
+				0A6D8CE3215D422D001FDF7B /* CoreTextViewController.swift in Sources */,
+				0A6D8CE1215D422B001FDF7B /* WeatherViewController.swift in Sources */,
+				0A0FA87B2113828E0045A942 /* MainViewController.swift in Sources */,
+				0A6D8CDB215D4220001FDF7B /* SettingsViewController.swift in Sources */,
+				0A6D8CDD215D4224001FDF7B /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

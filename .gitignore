@@ -38,4 +38,5 @@ Thumbs.db
 
 # Other #
 #########
-.config
+*Config/WeatherAPI.xcconfig
+*.xcuserstate
