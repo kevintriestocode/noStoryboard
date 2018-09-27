@@ -11,7 +11,6 @@ import SnapKit
 import Foundation
 
 class ViewController: UIViewController {
-  var screen: UIView!
   var settingsLabel: UILabel!
   var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
@@ -22,7 +21,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     print("ViewController did load")
-    screen = UIView()
     settingsLabel = UILabel()
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
@@ -40,7 +38,7 @@ class ViewController: UIViewController {
     title = "Page One"
     
     // setupSubviews
-    addSubviews()
+    setupViews()
     
     navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.tintColor = .white
@@ -56,9 +54,9 @@ class ViewController: UIViewController {
     
     settingsLabel.layer.masksToBounds = true
     settingsLabel.snp.makeConstraints { (make) in
-      make.centerX.equalTo(screen)
+      make.centerX.equalTo(view)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
-      make.width.equalTo(screen).inset(5)
+      make.width.equalTo(view).inset(5)
       make.height.equalTo(100)
     }
 
@@ -76,9 +74,9 @@ class ViewController: UIViewController {
     tableViewLabel.layer.masksToBounds = true
     tableViewLabel.snp.makeConstraints { (make) in
       make.top.equalTo(settingsLabel.snp.bottom).offset(5)
-      make.width.equalTo(screen).inset(5)
+      make.width.equalTo(view).inset(5)
       make.height.equalTo(100)
-      make.centerX.equalTo(screen)
+      make.centerX.equalTo(view)
     }
     
     let tableViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewLabelTapped))
@@ -95,9 +93,9 @@ class ViewController: UIViewController {
     highlightPracticeLabel.layer.masksToBounds = true
     highlightPracticeLabel.snp.makeConstraints { (make) in
       make.top.equalTo(tableViewLabel.snp.bottom).offset(5)
-      make.width.equalTo(screen).inset(5)
+      make.width.equalTo(view).inset(5)
       make.height.equalTo(100)
-      make.centerX.equalTo(screen)
+      make.centerX.equalTo(view)
     }
     
     let highlightPracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(highlightPracticeLabelTapped))
@@ -114,9 +112,9 @@ class ViewController: UIViewController {
     weatherLabel.layer.masksToBounds = true
     weatherLabel.snp.makeConstraints { make in
       make.top.equalTo(highlightPracticeLabel.snp.bottom).offset(5)
-      make.width.equalTo(screen).inset(5)
+      make.width.equalTo(view).inset(5)
       make.height.equalTo(100)
-      make.centerX.equalTo(screen)
+      make.centerX.equalTo(view)
     }
     
     let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(weatherLabelTapped))
@@ -125,22 +123,14 @@ class ViewController: UIViewController {
   }
   
   // MARK: - Add Subviews
-  func addSubviews() {
-    view.addSubview(screen)
-    
-    screen.addSubview(settingsLabel)
-    screen.addSubview(tableViewLabel)
+  func setupViews() {
+    view.addSubview(settingsLabel)
+    view.addSubview(tableViewLabel)
 
-    screen.addSubview(highlightPracticeLabel)
-    screen.addSubview(weatherLabel)
+    view.addSubview(highlightPracticeLabel)
+    view.addSubview(weatherLabel)
     
-    screen.backgroundColor = .white
-    screen.snp.makeConstraints { (make) in
-      make.top.equalTo(view)
-      make.right.equalTo(view)
-      make.left.equalTo(view)
-      make.bottom.equalTo(view)
-    }
+    view.backgroundColor = .white
   }
   
   public override func viewWillAppear(_ animated: Bool) {
