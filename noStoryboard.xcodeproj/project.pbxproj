@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		0A0889432154003A003BD94B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0889422154003A003BD94B /* Settings.swift */; };
 		0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F189211A0A1700F58519 /* LaunchScreen.xib */; };
-		0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
-		0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
+		0A0FA87A2113828D0045A942 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* MainViewController.swift */; };
+		0A0FA87B2113828E0045A942 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* MainViewController.swift */; };
 		0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF22150486A00929260 /* WeatherViewController.swift */; };
 		0A13DBFA215048F200929260 /* HighlightPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBF9215048F200929260 /* HighlightPracticeView.swift */; };
 		0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13DBFB2150528500929260 /* CoreTextViewController.swift */; };
 		0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99CE210B6A4000901A39 /* AppDelegate.swift */; };
-		0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* ViewController.swift */; };
+		0A1A99D1210B6A4000901A39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D0210B6A4000901A39 /* MainViewController.swift */; };
 		0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A99D5210B6A4000901A39 /* noStoryboard.xcdatamodeld */; };
 		0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99D8210B6A4B00901A39 /* Assets.xcassets */; };
 		0A36FAA92147ED79008ADF84 /* HighlightPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */; };
@@ -208,7 +208,7 @@
 		0A13DBFB2150528500929260 /* CoreTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		0A1A99CB210B6A4000901A39 /* noStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1A99CE210B6A4000901A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A1A99D0210B6A4000901A39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A1A99D0210B6A4000901A39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0A1A99D6210B6A4000901A39 /* noStoryboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = noStoryboard.xcdatamodel; sourceTree = "<group>"; };
 		0A1A99D8210B6A4B00901A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A1A99DD210B6A4B00901A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -546,7 +546,7 @@
 		0A6D8CD9215D4208001FDF7B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A1A99D0210B6A4000901A39 /* ViewController.swift */,
+				0A1A99D0210B6A4000901A39 /* MainViewController.swift */,
 				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
 				0A6566DD21246CFC007947C2 /* TableViewController.swift */,
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
@@ -835,7 +835,7 @@
 				0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */,
 				0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */,
 				0A13DBFC2150528500929260 /* CoreTextViewController.swift in Sources */,
-				0A1A99D1210B6A4000901A39 /* ViewController.swift in Sources */,
+				0A1A99D1210B6A4000901A39 /* MainViewController.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
 				0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */,
@@ -853,7 +853,7 @@
 				0A6D8CDE215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */,
 				0A6D8CE2215D422D001FDF7B /* CoreTextViewController.swift in Sources */,
 				0A6D8CE0215D422B001FDF7B /* WeatherViewController.swift in Sources */,
-				0A0FA87A2113828D0045A942 /* ViewController.swift in Sources */,
+				0A0FA87A2113828D0045A942 /* MainViewController.swift in Sources */,
 				0A6D8CDA215D4220001FDF7B /* SettingsViewController.swift in Sources */,
 				0A6D8CDC215D4224001FDF7B /* TableViewController.swift in Sources */,
 			);
@@ -866,7 +866,7 @@
 				0A6D8CDF215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */,
 				0A6D8CE3215D422D001FDF7B /* CoreTextViewController.swift in Sources */,
 				0A6D8CE1215D422B001FDF7B /* WeatherViewController.swift in Sources */,
-				0A0FA87B2113828E0045A942 /* ViewController.swift in Sources */,
+				0A0FA87B2113828E0045A942 /* MainViewController.swift in Sources */,
 				0A6D8CDB215D4220001FDF7B /* SettingsViewController.swift in Sources */,
 				0A6D8CDD215D4224001FDF7B /* TableViewController.swift in Sources */,
 			);

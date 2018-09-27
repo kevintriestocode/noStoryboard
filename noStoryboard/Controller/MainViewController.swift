@@ -10,116 +10,35 @@ import UIKit
 import SnapKit
 import Foundation
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
   var settingsLabel: UILabel!
   var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
   var weatherLabel: UILabel!
-  
+
   var settings: Settings!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("ViewController did load")
+    print("MainViewController did load")
     settingsLabel = UILabel()
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
-    
+
     settings = Settings()
     settings.loadSettings()
-    
+
     if settings.username == nil || settings.username == "" {
       print("Oh hello! Who might you be?")
     } else {
       print("Welcome back \(settings.username!) \n")
     }
-    
-    title = "Page One"
-    
-    // setupSubviews
-    setupViews()
-    
-    navigationController?.navigationBar.barStyle = .black
-    navigationController?.navigationBar.tintColor = .white
-    navigationController?.navigationBar.isHidden = false
-    navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
-    
-    // MARK: - Settings Label
-    settingsLabel.text = "Settings"
-    settingsLabel.textAlignment = .center
-    
-    settingsLabel.backgroundColor = .gray
-    settingsLabel.layer.cornerRadius = 9
-    
-    settingsLabel.layer.masksToBounds = true
-    settingsLabel.snp.makeConstraints { (make) in
-      make.centerX.equalTo(view)
-      make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
-    }
 
-    let settingsLabelGesture = UITapGestureRecognizer(target: self, action: #selector(settingsLabelTapped))
-    settingsLabel.isUserInteractionEnabled = true
-    settingsLabel.addGestureRecognizer(settingsLabelGesture)
-    
-    // MARK: - Add On List Label
-    tableViewLabel.text = "Add On List"
-    tableViewLabel.textAlignment = .center
-    
-    tableViewLabel.backgroundColor = .gray
-    tableViewLabel.layer.cornerRadius = 9
-    
-    tableViewLabel.layer.masksToBounds = true
-    tableViewLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(settingsLabel.snp.bottom).offset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
-      make.centerX.equalTo(view)
-    }
-    
-    let tableViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewLabelTapped))
-    tableViewLabel.isUserInteractionEnabled = true
-    tableViewLabel.addGestureRecognizer(tableViewLabelGesture)
-    
-    // MARK: - Highlight Practice Label
-    highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
-    highlightPracticeLabel.textAlignment = .center
-    
-    highlightPracticeLabel.backgroundColor = .gray
-    highlightPracticeLabel.layer.cornerRadius = 9
-    
-    highlightPracticeLabel.layer.masksToBounds = true
-    highlightPracticeLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(tableViewLabel.snp.bottom).offset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
-      make.centerX.equalTo(view)
-    }
-    
-    let highlightPracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(highlightPracticeLabelTapped))
-    highlightPracticeLabel.isUserInteractionEnabled = true
-    highlightPracticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
-    
-    // MARK: - Weather Label
-    weatherLabel.text = "Weather in Brooklyn?"
-    weatherLabel.textAlignment = .center
-    
-    weatherLabel.backgroundColor = .gray
-    weatherLabel.layer.cornerRadius = 9
-    
-    weatherLabel.layer.masksToBounds = true
-    weatherLabel.snp.makeConstraints { make in
-      make.top.equalTo(highlightPracticeLabel.snp.bottom).offset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
-      make.centerX.equalTo(view)
-    }
-    
-    let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(weatherLabelTapped))
-    weatherLabel.isUserInteractionEnabled = true
-    weatherLabel.addGestureRecognizer(morePracticeLabelGesture)
+    title = "Page One"
+
+    setupViews()
+    setupGestures()
   }
   
   // MARK: - Add Subviews
@@ -129,8 +48,92 @@ class ViewController: UIViewController {
 
     view.addSubview(highlightPracticeLabel)
     view.addSubview(weatherLabel)
-    
+
     view.backgroundColor = .white
+
+    // Navigation Controller
+    navigationController?.navigationBar.barStyle = .black
+    navigationController?.navigationBar.tintColor = .white
+    navigationController?.navigationBar.isHidden = false
+    navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
+
+    // Settings Label
+    settingsLabel.text = "Settings"
+    settingsLabel.textAlignment = .center
+
+    settingsLabel.backgroundColor = .gray
+    settingsLabel.layer.cornerRadius = 9
+
+    settingsLabel.layer.masksToBounds = true
+    settingsLabel.snp.makeConstraints { (make) in
+      make.centerX.equalTo(view)
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
+      make.width.equalTo(view).inset(5)
+      make.height.equalTo(100)
+    }
+
+    // Table View Label
+    tableViewLabel.text = "Add On List"
+    tableViewLabel.textAlignment = .center
+
+    tableViewLabel.backgroundColor = .gray
+    tableViewLabel.layer.cornerRadius = 9
+
+    tableViewLabel.layer.masksToBounds = true
+    tableViewLabel.snp.makeConstraints { (make) in
+      make.top.equalTo(settingsLabel.snp.bottom).offset(5)
+      make.width.equalTo(view).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(view)
+    }
+
+    // Highlight Practice Label
+    highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
+    highlightPracticeLabel.textAlignment = .center
+
+    highlightPracticeLabel.backgroundColor = .gray
+    highlightPracticeLabel.layer.cornerRadius = 9
+
+    highlightPracticeLabel.layer.masksToBounds = true
+    highlightPracticeLabel.snp.makeConstraints { (make) in
+      make.top.equalTo(tableViewLabel.snp.bottom).offset(5)
+      make.width.equalTo(view).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(view)
+    }
+
+    // MARK: - Weather Label
+    weatherLabel.text = "Weather in Brooklyn?"
+    weatherLabel.textAlignment = .center
+
+    weatherLabel.backgroundColor = .gray
+    weatherLabel.layer.cornerRadius = 9
+
+    weatherLabel.layer.masksToBounds = true
+    weatherLabel.snp.makeConstraints { make in
+      make.top.equalTo(highlightPracticeLabel.snp.bottom).offset(5)
+      make.width.equalTo(view).inset(5)
+      make.height.equalTo(100)
+      make.centerX.equalTo(view)
+    }
+  }
+
+  func setupGestures() {
+    let settingsLabelGesture = UITapGestureRecognizer(target: self, action: #selector(settingsLabelTapped))
+    settingsLabel.isUserInteractionEnabled = true
+    settingsLabel.addGestureRecognizer(settingsLabelGesture)
+
+    let tableViewLabelGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewLabelTapped))
+    tableViewLabel.isUserInteractionEnabled = true
+    tableViewLabel.addGestureRecognizer(tableViewLabelGesture)
+
+    let highlightPracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(highlightPracticeLabelTapped))
+    highlightPracticeLabel.isUserInteractionEnabled = true
+    highlightPracticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
+
+    let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(weatherLabelTapped))
+    weatherLabel.isUserInteractionEnabled = true
+    weatherLabel.addGestureRecognizer(morePracticeLabelGesture)
   }
   
   public override func viewWillAppear(_ animated: Bool) {
