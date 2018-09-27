@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class WeatherViewController: CoreTextViewController {
+class WeatherViewController: UIViewController {
   var weatherLabel: UILabel!
   var settings: Settings!
   

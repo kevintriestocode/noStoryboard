@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
   var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
   var weatherLabel: UILabel!
-
   var settings: Settings!
 
   override func viewDidLoad() {
@@ -25,18 +24,13 @@ class MainViewController: UIViewController {
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
-
     settings = Settings()
+    
     settings.loadSettings()
 
-    if settings.username == nil || settings.username == "" {
-      print("Oh hello! Who might you be?")
-    } else {
-      print("Welcome back \(settings.username!) \n")
-    }
+    title = "Main"
 
-    title = "Page One"
-
+    consoleGreeting()
     setupViews()
     setupGestures()
   }
@@ -115,6 +109,14 @@ class MainViewController: UIViewController {
       make.width.equalTo(view).inset(5)
       make.height.equalTo(100)
       make.centerX.equalTo(view)
+    }
+  }
+
+  func consoleGreeting() {
+    if settings.username == nil || settings.username == "" {
+      print("Oh hello! Who might you be?")
+    } else {
+      print("Welcome back \(settings.username!) \n")
     }
   }
 
