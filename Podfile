@@ -8,6 +8,7 @@ target 'noStoryboard' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'ObjectMapper'
 
   # Pods for noStoryboard
 
