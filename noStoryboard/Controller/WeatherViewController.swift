@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import ObjectMapper
 
 class WeatherViewController: UIViewController {
   var weatherLabel: UILabel!
@@ -19,7 +20,7 @@ class WeatherViewController: UIViewController {
     apiKey = settings.weatherAPIKey
     
     apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid=" + apiKey
-    print("your request looks like: <\(apiCall!)>")
+//    print("your request looks like: <\(apiCall!)>")
 
     view.backgroundColor = UIColor.white
     view.addSubview(weatherLabel)
@@ -39,26 +40,40 @@ class WeatherViewController: UIViewController {
     }
     
     // Alamofire magic...
-    Alamofire.request(apiCall).responseJSON { response in
-      print(response)
+    Alamofire.request(apiCall).responseString { response in
+      print(response.description)
       
-      if let weatherJSON = response.result.value {
-        let weatherObject: Dictionary = weatherJSON as! Dictionary<String, Any>
-        
-        guard Int(weatherObject["cod"] as! Int) == 200 else {
-          self.weatherLabel.text = weatherObject["message"] as! String
-          return
-        }
-        
-        let weatherMain: Dictionary = weatherObject["main"] as! Dictionary<String, Any>
-        let weatherTempInKelvin: Float = Float(weatherMain["temp"] as! NSNumber.FloatLiteralType)
-        let weatherHumidity: Float = Float(weatherMain["humidity"] as! NSNumber.FloatLiteralType)
-        
-        let weatherTempInFarenheit: Float = 9 / 5 * (weatherTempInKelvin - 273) + 32
-        
-        let formattedTemp = String(format: "%.2f", weatherTempInFarenheit)
-        self.weatherLabel.text = "It's currently \(formattedTemp)º f in 11222 with a humidity level of \(weatherHumidity)%"
+      if let weatherJSON = Response(JSONString: response.description) {
+        print(weatherJSON.cod)
       }
+    }
+    
+    Alamofire.request(apiCall).responseJSON { response in
+//      print(response)
+//      print(response.request)
+//      print(response.response)
+      
+//      if let weatherJSON = response.result.value {
+//        let weatherObject: Dictionary = weatherJSON as! Dictionary<String, Any>
+//
+//        guard Int(weatherObject["cod"] as! Int) == 200 else {
+//          self.weatherLabel.text = weatherObject["message"] as? String
+//          return
+//        }
+//
+//        let weatherMain: Dictionary = weatherObject["main"] as! Dictionary<String, Any>
+//        let weatherTempInKelvin: Float = Float(weatherMain["temp"] as! NSNumber.FloatLiteralType)
+//        let weatherHumidity: Float = Float(weatherMain["humidity"] as! NSNumber.FloatLiteralType)
+//
+//        let weatherTempInFarenheit: Float = 9 / 5 * (weatherTempInKelvin - 273) + 32
+//
+//        let formattedTemp = String(format: "%.2f", weatherTempInFarenheit)
+//        self.weatherLabel.text = "It's currently \(formattedTemp)º f in 11222 with a humidity level of \(weatherHumidity)%"
+//      }
+
+//      if let weatherJSON = Response(JSONString: response.description) {
+//        print(weatherJSON.base)
+//      }
     }
   }
 }

@@ -11,7 +11,7 @@ public class Main: Base {
   public var minimumTemperature: Double?
   public var maximumTemperature: Double?
 
-  public override func mapping(map: Map) {
+  override public func mapping(map: Map) {
     super.mapping(map: map)
 
     temperature <- map["temp"]
