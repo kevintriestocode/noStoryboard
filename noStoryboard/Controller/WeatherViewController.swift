@@ -39,41 +39,19 @@ class WeatherViewController: UIViewController {
       make.width.height.equalTo(view)
     }
     
-    // Alamofire magic...
+    // Alamofire + ObjectMapper
+    /// see: public class Response 
     Alamofire.request(apiCall).responseString { response in
-      print(response.description)
-      
-      if let weatherJSON = Response(JSONString: response.description) {
-        print(weatherJSON.cod)
+      print(response)
+      if let jsonString = response.result.value {
+        if let responseObject = Response(JSONString: jsonString) {
+          if let temperatureK = responseObject.main?.temperature {
+            let temperatureF: Double = 9 / 5 * (temperatureK - 273) + 32
+            let degrees = String(format: "%.1f", temperatureF)
+            self.weatherLabel.text = "It's currently \(degrees)ºF in Greenpoint"
+          }
+        }
       }
-    }
-    
-    Alamofire.request(apiCall).responseJSON { response in
-//      print(response)
-//      print(response.request)
-//      print(response.response)
-      
-//      if let weatherJSON = response.result.value {
-//        let weatherObject: Dictionary = weatherJSON as! Dictionary<String, Any>
-//
-//        guard Int(weatherObject["cod"] as! Int) == 200 else {
-//          self.weatherLabel.text = weatherObject["message"] as? String
-//          return
-//        }
-//
-//        let weatherMain: Dictionary = weatherObject["main"] as! Dictionary<String, Any>
-//        let weatherTempInKelvin: Float = Float(weatherMain["temp"] as! NSNumber.FloatLiteralType)
-//        let weatherHumidity: Float = Float(weatherMain["humidity"] as! NSNumber.FloatLiteralType)
-//
-//        let weatherTempInFarenheit: Float = 9 / 5 * (weatherTempInKelvin - 273) + 32
-//
-//        let formattedTemp = String(format: "%.2f", weatherTempInFarenheit)
-//        self.weatherLabel.text = "It's currently \(formattedTemp)º f in 11222 with a humidity level of \(weatherHumidity)%"
-//      }
-
-//      if let weatherJSON = Response(JSONString: response.description) {
-//        print(weatherJSON.base)
-//      }
     }
   }
 }
