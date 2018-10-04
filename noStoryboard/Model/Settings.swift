@@ -29,33 +29,35 @@ class Settings: NSObject, NSCoding {
     return arbitraryID
   }
 
-//  func saveSettings() {
-//    UserDefaults.standard.set(username, forKey: "username")
-//    UserDefaults.standard.set(weatherAPIKey, forKey: "weatherAPIKey")
-//    UserDefaults.standard.set(zipCode, forKey: "zipCode")
-//  }
-
   func saveSettings() {
-    let encodedData = NSKeyedArchiver.archivedData(withRootObject: self)
-    UserDefaults.standard.set(encodedData, forKey: settingsKey())
-    UserDefaults.standard.synchronize()
+    UserDefaults.standard.set(username, forKey: "username")
+    UserDefaults.standard.set(weatherAPIKey, forKey: "weatherAPIKey")
+    UserDefaults.standard.set(zipCode, forKey: "zipCode")
   }
 
-//  func loadSettings() {
-//    username = UserDefaults.standard.string(forKey: "username")
-//    weatherAPIKey = UserDefaults.standard.string(forKey: "weatherAPIKey")
-//    zipCode = UserDefaults.standard.string(forKey: "zipCode")
+//  func saveSettings() {
+//    let encodedData = NSKeyedArchiver.archivedData(withRootObject: self)
+//    UserDefaults.standard.set(encodedData, forKey: settingsKey())
+//    UserDefaults.standard.synchronize()
 //  }
 
   func loadSettings() {
-    if let decoded = UserDefaults.standard.object(forKey: settingsKey()) as? Data {
-      if let loadedSettings = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? Settings {
-        // FIXME: - Fix me!
-      }
-    } else {
-      username = UserDefaults.standard.string(forKey: "username")
-      weatherAPIKey = UserDefaults.standard.string(forKey: "weatherAPIKey")
-      zipCode = UserDefaults.standard.string(forKey: "zipCode")
-    }
+    username = UserDefaults.standard.string(forKey: "username")
+    weatherAPIKey = UserDefaults.standard.string(forKey: "weatherAPIKey")
+    zipCode = UserDefaults.standard.string(forKey: "zipCode")
   }
+
+//  func loadSettings() {
+//    if let decoded = UserDefaults.standard.object(forKey: settingsKey()) as? Data {
+//      if let loadedSettings = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? Settings {
+//        username = loadedSettings.username
+//        weatherAPIKey = loadedSettings.weatherAPIKey
+//        zipCode = loadedSettings.zipCode
+//      }
+//    } else {
+//      username = UserDefaults.standard.string(forKey: "username")
+//      weatherAPIKey = UserDefaults.standard.string(forKey: "weatherAPIKey")
+//      zipCode = UserDefaults.standard.string(forKey: "zipCode")
+//    }
+//  }
 }

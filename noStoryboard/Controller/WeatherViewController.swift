@@ -19,7 +19,11 @@ class WeatherViewController: UIViewController {
     
     apiKey = settings.weatherAPIKey
     
-    apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid=" + apiKey
+    if let apiKey = apiKey {
+      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid=" + apiKey
+    } else {
+      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
+    }
 //    print("your request looks like: <\(apiCall!)>")
 
     view.backgroundColor = UIColor.white
@@ -45,6 +49,10 @@ class WeatherViewController: UIViewController {
       print(response)
       if let jsonString = response.result.value {
         if let responseObject = Response(JSONString: jsonString) {
+          guard responseObject.cod != 401 else {
+            self.weatherLabel.text = "401 Error: Invalid API Key"
+            return
+          }
           if let temperatureK = responseObject.main?.temperature {
             let temperatureF: Double = 9 / 5 * (temperatureK - 273) + 32
             let degrees = String(format: "%.1f", temperatureF)

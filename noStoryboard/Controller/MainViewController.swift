@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     view.addSubview(highlightPracticeLabel)
     view.addSubview(weatherLabel)
 
-    view.backgroundColor = .white
+    view.backgroundColor = Configuration.Color.backgroundColor
 
     // Navigation Controller
     navigationController?.navigationBar.barStyle = .black
@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
     settingsLabel.text = "Settings"
     settingsLabel.textAlignment = .center
 
-    settingsLabel.backgroundColor = .gray
+    settingsLabel.backgroundColor = .white
     settingsLabel.layer.cornerRadius = 9
 
     settingsLabel.layer.masksToBounds = true
@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
     tableViewLabel.text = "Add On List"
     tableViewLabel.textAlignment = .center
 
-    tableViewLabel.backgroundColor = .gray
+    tableViewLabel.backgroundColor = .white
     tableViewLabel.layer.cornerRadius = 9
 
     tableViewLabel.layer.masksToBounds = true
@@ -85,7 +85,7 @@ class MainViewController: UIViewController {
     highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
     highlightPracticeLabel.textAlignment = .center
 
-    highlightPracticeLabel.backgroundColor = .gray
+    highlightPracticeLabel.backgroundColor = .white
     highlightPracticeLabel.layer.cornerRadius = 9
 
     highlightPracticeLabel.layer.masksToBounds = true
@@ -100,7 +100,7 @@ class MainViewController: UIViewController {
     weatherLabel.text = "Weather in Brooklyn?"
     weatherLabel.textAlignment = .center
 
-    weatherLabel.backgroundColor = .gray
+    weatherLabel.backgroundColor = .white
     weatherLabel.layer.cornerRadius = 9
 
     weatherLabel.layer.masksToBounds = true

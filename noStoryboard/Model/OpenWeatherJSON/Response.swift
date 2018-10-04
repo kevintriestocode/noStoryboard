@@ -13,6 +13,7 @@ public class Response: Base {
   public var visibility: Float?
   public var weather: Weather?
   public var wind: Wind?
+  public var message: String?
 
   override public func mapping(map: Map) {
     super.mapping(map: map)
@@ -29,5 +30,6 @@ public class Response: Base {
     visibility <- map["visibility"]
     weather <- map["weather"]
     wind <- map["wind"]
+    message <- map["message"]
   }
 }

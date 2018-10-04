@@ -47,7 +47,7 @@ public class SettingsViewController: UIViewController {
 
   func setupViews() {
 
-    view.backgroundColor = .white
+    view.backgroundColor = Configuration.Color.backgroundColor
 
     view.addSubview(usernameLabel)
     view.addSubview(usernameField)
@@ -65,7 +65,7 @@ public class SettingsViewController: UIViewController {
     usernameField.autocorrectionType = UITextAutocorrectionType.no
 
     usernameField.borderStyle = UITextBorderStyle.roundedRect
-    usernameField.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+    usernameField.backgroundColor = .white
 
     usernameField.textAlignment = .center
     usernameField.snp.makeConstraints { make in
@@ -88,7 +88,7 @@ public class SettingsViewController: UIViewController {
     weatherAPIField.autocorrectionType = UITextAutocorrectionType.no
 
     weatherAPIField.borderStyle = UITextBorderStyle.roundedRect
-    weatherAPIField.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+    weatherAPIField.backgroundColor = .white
 
     weatherAPIField.textAlignment = .center
     weatherAPIField.snp.makeConstraints { make in
@@ -115,7 +115,7 @@ public class SettingsViewController: UIViewController {
   @objc func confirm() {
     settings.username = usernameField.text
     settings.weatherAPIKey = weatherAPIField.text
-    self.settings.saveSettings()
+    settings.saveSettings()
     print("Username has been set to \(UserDefaults.standard.string(forKey: "username")!) \n")
 
     navigationController?.popViewController(animated: true)
