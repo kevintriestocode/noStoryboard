@@ -572,7 +572,6 @@
 		0A6D8D222166A2A9001FDF7B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0A6D8D07215EB507001FDF7B /* Base.swift */,
 				0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */,
 			);
 			path = Helpers;
@@ -581,6 +580,7 @@
 		0A6D8D2F2167CB46001FDF7B /* AccuWeatherJSON */ = {
 			isa = PBXGroup;
 			children = (
+				0A6D8D07215EB507001FDF7B /* Base.swift */,
 				0A6D8D0D2162A0A4001FDF7B /* CurrentConditionsResponse.swift */,
 				0A6D8D392167D0FF001FDF7B /* Temperature.swift */,
 				0A6D8D3B2167D1D8001FDF7B /* Format.swift */,

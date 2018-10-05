@@ -13,7 +13,7 @@ class WeatherViewController: UIViewController {
   var settings: Settings!
   
   var apiKey: String!
-  var apiCall: String!
+  var currentConditionsAPICall: String!
   
   override func viewDidLoad() {
     cityNameLabel = UILabel()
@@ -30,14 +30,13 @@ class WeatherViewController: UIViewController {
     apiKey = settings.weatherAPIKey
     
     if let apiKey = apiKey {
-      apiCall = "http://dataservice.accuweather.com/currentconditions/v1/11222?apikey=" + apiKey
+      currentConditionsAPICall = "https://dataservice.accuweather.com/currentconditions/v1/11222?apikey=" + apiKey
     } else {
-      apiCall = "http://dataservice.accuweather.com/currentconditions/v1/11222?apikey="
+      currentConditionsAPICall = "https://dataservice.accuweather.com/currentconditions/v1/11222?apikey="
     }
 
     setupViews()
     networkingAndLabels()
-
   }
   
   func setupViews() {
@@ -110,28 +109,27 @@ class WeatherViewController: UIViewController {
   func networkingAndLabels() {
     // Alamofire + ObjectMapper
     /// see: public class Response
-    Alamofire.request(apiCall).responseJSON { response in print(response) }
-    Alamofire.request(apiCall).responseString { response in
-      if let jsonString = response.result.value {
-        if let responseObject = Response(JSONString: jsonString) {
-          guard responseObject.cod != 401 else {
-            self.temperatureLabel.text = "401 Error: Invalid API Key"
-            return
-          }
+//    Alamofire.request(currentConditionsAPICall).responseJSON { response in print(response) }
+    Alamofire.request(currentConditionsAPICall).responseString { response in
+      if var jsonString = response.result.value {
+        jsonString.removeLast()
+        jsonString.removeFirst() //JESUS CHRIST. WTF
+        print(jsonString)
+        if let responseObject = CurrentConditionsResponse(JSONString: jsonString) {
           // City Name Label
-          if let cityName = responseObject.name {
-            self.cityNameLabel.text = cityName
-          }
+//          if let cityName = responseObject.name {
+//            self.cityNameLabel.text = cityName
+//          }
           // desc Label
-          if let desc = responseObject.weather?.main { // Note: "desc" not "description". Also some weird ()'s in JSON...
+          if let desc = responseObject.weatherText {
             self.descLabel.text = desc
           }
           // Temperature Label
-          if let temperature = responseObject.main?.temperature! {
-            self.temperatureLabel.text = temperature.kelvinToFarenheit()
+          if let temperature = responseObject.temperature?.imperial?.value {
+            self.temperatureLabel.text = "\(temperature) ºF"
           }
           // Time Label
-          if let time = responseObject.dt {
+          if let time = responseObject.epochTime {
             self.timeLabel.text = "Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))"
             print("Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))")
           }

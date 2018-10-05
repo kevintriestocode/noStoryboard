@@ -8,8 +8,8 @@ public class Format: Base {
   override public func mapping(map: Map) {
     super.mapping(map: map)
 
-    value <- ["Value"]
-    unit <- ["Unit"]
-    unitType <- ["UnitType"]
+    value <- map["Value"]
+    unit <- map["Unit"]
+    unitType <- map["UnitType"]
   }
 }

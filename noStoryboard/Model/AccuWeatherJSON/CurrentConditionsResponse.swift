@@ -15,4 +15,5 @@ public class CurrentConditionsResponse: Base {
     weatherText <- map["WeatherText"]
     isDayTime <- map["IsDayTime"]
     temperature <- map["Temperature"]
+  }
 }
