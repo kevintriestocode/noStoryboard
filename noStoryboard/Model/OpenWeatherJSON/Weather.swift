@@ -9,7 +9,7 @@ public class Weather: Base {
   override public func mapping(map: Map) {
     super.mapping(map: map)
 
-    desc <- map["description"]
+    desc <- map[("description")]
     icon <- map["icon"]
     id <- map["id"]
     main <- map["main"]

@@ -34,6 +34,7 @@
 		0A6D8D122162A3B0001FDF7B /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D112162A3B0001FDF7B /* System.swift */; };
 		0A6D8D142162A520001FDF7B /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D132162A520001FDF7B /* Weather.swift */; };
 		0A6D8D162162A627001FDF7B /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D152162A627001FDF7B /* Wind.swift */; };
+		0A6D8D2B2166A2DC001FDF7B /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
@@ -235,6 +236,7 @@
 		0A6D8D112162A3B0001FDF7B /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		0A6D8D132162A520001FDF7B /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		0A6D8D152162A627001FDF7B /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
+		0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 		0A6F442821385EDF00AC74B3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboard/Pods-noStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		2A17ADF94073420749BF0C36 /* Pods-noStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboardUITests/Pods-noStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -556,7 +558,9 @@
 		0A6D8CD8215D41ED001FDF7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A6D8D222166A2A9001FDF7B /* Helpers */,
 				0A6D8CFD215EB4EA001FDF7B /* OpenWeatherJSON */,
+				0A6D8D2F2167CB46001FDF7B /* AccuWeatherJSON */,
 				0A0889422154003A003BD94B /* Settings.swift */,
 				0A6F442821385EDF00AC74B3 /* Configuration.swift */,
 			);
@@ -577,7 +581,6 @@
 		0A6D8CFD215EB4EA001FDF7B /* OpenWeatherJSON */ = {
 			isa = PBXGroup;
 			children = (
-				0A6D8D07215EB507001FDF7B /* Base.swift */,
 				0A6D8D0D2162A0A4001FDF7B /* Response.swift */,
 				0A6D8D0F2162A257001FDF7B /* Clouds.swift */,
 				0A6D8D09215EB79C001FDF7B /* Coordinates.swift */,
@@ -587,6 +590,22 @@
 				0A6D8D152162A627001FDF7B /* Wind.swift */,
 			);
 			path = OpenWeatherJSON;
+			sourceTree = "<group>";
+		};
+		0A6D8D222166A2A9001FDF7B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A6D8D07215EB507001FDF7B /* Base.swift */,
+				0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0A6D8D2F2167CB46001FDF7B /* AccuWeatherJSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AccuWeatherJSON;
 			sourceTree = "<group>";
 		};
 		4DA3D4A3F0EC6596D717E880 /* Frameworks */ = {
@@ -884,6 +903,7 @@
 				0A6D8D142162A520001FDF7B /* Weather.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
+				0A6D8D2B2166A2DC001FDF7B /* TemperatureConverter.swift in Sources */,
 				0A1A99D7210B6A4000901A39 /* noStoryboard.xcdatamodeld in Sources */,
 				0A6D8D162162A627001FDF7B /* Wind.swift in Sources */,
 				0A6566DC212314FF007947C2 /* SettingsViewController.swift in Sources */,

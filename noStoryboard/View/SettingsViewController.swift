@@ -39,8 +39,8 @@ public class SettingsViewController: UIViewController {
     weatherAPIField = UITextField()
 
     title = "Settings"
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(confirm))
-
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+    
     setupViews()
     setupDefaults()
   }
@@ -112,7 +112,7 @@ public class SettingsViewController: UIViewController {
     }
   }
 
-  @objc func confirm() {
+  @objc func done() {
     settings.username = usernameField.text
     settings.weatherAPIKey = weatherAPIField.text
     settings.saveSettings()

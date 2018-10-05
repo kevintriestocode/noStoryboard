@@ -4,15 +4,25 @@ import Alamofire
 import ObjectMapper
 
 class WeatherViewController: UIViewController {
-  var weatherLabel: UILabel!
+  var cityNameLabel: UILabel!
+  var descLabel: UILabel!
+  
+  var temperatureLabel: UILabel!
+  var timeLabel: UILabel!
+  
   var settings: Settings!
   
   var apiKey: String!
   var apiCall: String!
   
   override func viewDidLoad() {
-    weatherLabel = UILabel()
+    cityNameLabel = UILabel()
+    descLabel = UILabel()
+    temperatureLabel = UILabel()
+    timeLabel = UILabel()
+    
     print("WeatherViewController did load")
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
     
     settings = Settings()
     settings.loadSettings()
@@ -20,43 +30,110 @@ class WeatherViewController: UIViewController {
     apiKey = settings.weatherAPIKey
     
     if let apiKey = apiKey {
-      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid=" + apiKey
+      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=94306,us&appid=" + apiKey
     } else {
       apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
     }
-//    print("your request looks like: <\(apiCall!)>")
 
-    view.backgroundColor = UIColor.white
-    view.addSubview(weatherLabel)
+    setupViews()
+    networkingAndLabels()
 
-    weatherLabel.text = "..."
-    weatherLabel.font = UIFont.systemFont(ofSize: 24)
+  }
+  
+  func setupViews() {
+    view.backgroundColor = Configuration.Color.backgroundColor
+
+    view.addSubview(cityNameLabel)
+    view.addSubview(descLabel)
+
+    view.addSubview(temperatureLabel)
+    view.addSubview(timeLabel)
+
+    cityNameLabel.text = "City Name"
+    cityNameLabel.textColor = .white
     
-    weatherLabel.numberOfLines = 0
-    weatherLabel.lineBreakMode = .byWordWrapping
+    cityNameLabel.font = UIFont.systemFont(ofSize: 24)
+    cityNameLabel.numberOfLines = 0
     
-    weatherLabel.textAlignment = .center
-    weatherLabel.backgroundColor = UIColor.white
+    cityNameLabel.lineBreakMode = .byWordWrapping
+    cityNameLabel.textAlignment = .center
     
-    weatherLabel.snp.makeConstraints { make in
-      make.top.left.equalTo(view)
-      make.width.height.equalTo(view)
+    cityNameLabel.snp.makeConstraints { make in
+      make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+      make.centerX.equalTo(view)
     }
     
+    descLabel.text = "---"
+    descLabel.textColor = .white
+    
+    descLabel.font = UIFont.systemFont(ofSize: 18)
+    descLabel.numberOfLines = 0
+    
+    descLabel.lineBreakMode = .byWordWrapping
+    descLabel.textAlignment = .center
+    
+    descLabel.snp.makeConstraints { make in
+      make.top.equalTo(cityNameLabel.snp.bottom).offset(5)
+      make.centerX.equalTo(view)
+    }
+    
+    temperatureLabel.text = "Temperature"
+    temperatureLabel.textColor = .white
+    
+    temperatureLabel.font = UIFont.systemFont(ofSize: 48)
+    temperatureLabel.numberOfLines = 0
+
+    temperatureLabel.lineBreakMode = .byWordWrapping
+    temperatureLabel.textAlignment = .center
+    
+    temperatureLabel.snp.makeConstraints { make in
+      make.top.equalTo(descLabel.snp.bottom).offset(5)
+      make.centerX.equalTo(view)
+    }
+    
+    timeLabel.text = "Last updated: ..."
+    timeLabel.textColor = .white
+    
+    timeLabel.font = UIFont.systemFont(ofSize: 12)
+    timeLabel.numberOfLines = 0
+    
+    timeLabel.lineBreakMode = .byWordWrapping
+    timeLabel.textAlignment = .center
+    
+    timeLabel.snp.makeConstraints { make in
+      make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-100)
+      make.width.equalTo(view).inset(50)
+      make.centerX.equalTo(view)
+    }
+  }
+  
+  func networkingAndLabels() {
     // Alamofire + ObjectMapper
-    /// see: public class Response 
+    /// see: public class Response
+    Alamofire.request(apiCall).responseJSON { response in print(response) }
     Alamofire.request(apiCall).responseString { response in
-      print(response)
       if let jsonString = response.result.value {
         if let responseObject = Response(JSONString: jsonString) {
           guard responseObject.cod != 401 else {
-            self.weatherLabel.text = "401 Error: Invalid API Key"
+            self.temperatureLabel.text = "401 Error: Invalid API Key"
             return
           }
-          if let temperatureK = responseObject.main?.temperature {
-            let temperatureF: Double = 9 / 5 * (temperatureK - 273) + 32
-            let degrees = String(format: "%.1f", temperatureF)
-            self.weatherLabel.text = "It's currently \(degrees)ºF in Greenpoint"
+          // City Name Label
+          if let cityName = responseObject.name {
+            self.cityNameLabel.text = cityName
+          }
+          // desc Label
+          if let desc = responseObject.weather?.main { // Note: "desc" not "description". Also some weird ()'s in JSON...
+            self.descLabel.text = desc
+          }
+          // Temperature Label
+          if let temperature = responseObject.main?.temperature! {
+            self.temperatureLabel.text = temperature.kelvinToFarenheit()
+          }
+          // Time Label
+          if let time = responseObject.dt {
+            self.timeLabel.text = "Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))"
+            print("Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))")
           }
         }
       }

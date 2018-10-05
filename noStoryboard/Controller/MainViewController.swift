@@ -49,14 +49,13 @@ class MainViewController: UIViewController {
     navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.tintColor = .white
     navigationController?.navigationBar.isHidden = false
-    navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
 
     // Settings Label
     settingsLabel.text = "Settings"
     settingsLabel.textAlignment = .center
 
     settingsLabel.backgroundColor = .white
-    settingsLabel.layer.cornerRadius = 9
+    settingsLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     settingsLabel.layer.masksToBounds = true
     settingsLabel.snp.makeConstraints { (make) in
@@ -71,7 +70,7 @@ class MainViewController: UIViewController {
     tableViewLabel.textAlignment = .center
 
     tableViewLabel.backgroundColor = .white
-    tableViewLabel.layer.cornerRadius = 9
+    tableViewLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     tableViewLabel.layer.masksToBounds = true
     tableViewLabel.snp.makeConstraints { (make) in
@@ -86,7 +85,7 @@ class MainViewController: UIViewController {
     highlightPracticeLabel.textAlignment = .center
 
     highlightPracticeLabel.backgroundColor = .white
-    highlightPracticeLabel.layer.cornerRadius = 9
+    highlightPracticeLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     highlightPracticeLabel.layer.masksToBounds = true
     highlightPracticeLabel.snp.makeConstraints { (make) in
@@ -101,7 +100,7 @@ class MainViewController: UIViewController {
     weatherLabel.textAlignment = .center
 
     weatherLabel.backgroundColor = .white
-    weatherLabel.layer.cornerRadius = 9
+    weatherLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     weatherLabel.layer.masksToBounds = true
     weatherLabel.snp.makeConstraints { make in
