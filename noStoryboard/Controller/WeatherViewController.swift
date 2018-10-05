@@ -30,9 +30,9 @@ class WeatherViewController: UIViewController {
     apiKey = settings.weatherAPIKey
     
     if let apiKey = apiKey {
-      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=94306,us&appid=" + apiKey
+      apiCall = "http://dataservice.accuweather.com/currentconditions/v1/11222?apikey=" + apiKey
     } else {
-      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
+      apiCall = "http://dataservice.accuweather.com/currentconditions/v1/11222?apikey="
     }
 
     setupViews()
