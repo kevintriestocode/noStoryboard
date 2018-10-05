@@ -1,6 +1,6 @@
 import UIKit
 
-class HighlightPractiveViewController: CoreTextViewController {
+class HighlightPractiveViewController: UIViewController {
   
   override func viewDidLoad() {
     print("HighlightPractiveViewController did load")

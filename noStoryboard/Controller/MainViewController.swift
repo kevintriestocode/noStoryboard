@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
   var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
   var weatherLabel: UILabel!
-
   var settings: Settings!
 
   override func viewDidLoad() {
@@ -25,18 +24,13 @@ class MainViewController: UIViewController {
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
-
     settings = Settings()
+    
     settings.loadSettings()
 
-    if settings.username == nil || settings.username == "" {
-      print("Oh hello! Who might you be?")
-    } else {
-      print("Welcome back \(settings.username!) \n")
-    }
+    title = "Main"
 
-    title = "Page One"
-
+    consoleGreeting()
     setupViews()
     setupGestures()
   }
@@ -49,20 +43,19 @@ class MainViewController: UIViewController {
     view.addSubview(highlightPracticeLabel)
     view.addSubview(weatherLabel)
 
-    view.backgroundColor = .white
+    view.backgroundColor = Configuration.Color.backgroundColor
 
     // Navigation Controller
     navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.tintColor = .white
     navigationController?.navigationBar.isHidden = false
-    navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
 
     // Settings Label
     settingsLabel.text = "Settings"
     settingsLabel.textAlignment = .center
 
-    settingsLabel.backgroundColor = .gray
-    settingsLabel.layer.cornerRadius = 9
+    settingsLabel.backgroundColor = .white
+    settingsLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     settingsLabel.layer.masksToBounds = true
     settingsLabel.snp.makeConstraints { (make) in
@@ -76,8 +69,8 @@ class MainViewController: UIViewController {
     tableViewLabel.text = "Add On List"
     tableViewLabel.textAlignment = .center
 
-    tableViewLabel.backgroundColor = .gray
-    tableViewLabel.layer.cornerRadius = 9
+    tableViewLabel.backgroundColor = .white
+    tableViewLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     tableViewLabel.layer.masksToBounds = true
     tableViewLabel.snp.makeConstraints { (make) in
@@ -91,8 +84,8 @@ class MainViewController: UIViewController {
     highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
     highlightPracticeLabel.textAlignment = .center
 
-    highlightPracticeLabel.backgroundColor = .gray
-    highlightPracticeLabel.layer.cornerRadius = 9
+    highlightPracticeLabel.backgroundColor = .white
+    highlightPracticeLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     highlightPracticeLabel.layer.masksToBounds = true
     highlightPracticeLabel.snp.makeConstraints { (make) in
@@ -106,8 +99,8 @@ class MainViewController: UIViewController {
     weatherLabel.text = "Weather in Brooklyn?"
     weatherLabel.textAlignment = .center
 
-    weatherLabel.backgroundColor = .gray
-    weatherLabel.layer.cornerRadius = 9
+    weatherLabel.backgroundColor = .white
+    weatherLabel.layer.cornerRadius = Configuration.Label.cornerRadius
 
     weatherLabel.layer.masksToBounds = true
     weatherLabel.snp.makeConstraints { make in
@@ -115,6 +108,14 @@ class MainViewController: UIViewController {
       make.width.equalTo(view).inset(5)
       make.height.equalTo(100)
       make.centerX.equalTo(view)
+    }
+  }
+
+  func consoleGreeting() {
+    if settings.username == nil || settings.username == "" {
+      print("Oh hello! Who might you be?")
+    } else {
+      print("Welcome back \(settings.username!) \n")
     }
   }
 
