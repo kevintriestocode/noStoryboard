@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController {
   var highsLabel: UILabel!
   var lowsLabel: UILabel!
   
+  var lineView: UIView!
   var timeLabel: UILabel!
   
   var settings: Settings!
@@ -22,7 +23,7 @@ class WeatherViewController: UIViewController {
   var currentConditionsAPICall: String!
   var postalCodeSearchAPICall: String!
   var forecast12APICall: String!
-  var postalCode = "90210"
+  var postalCode = "11361"
   
   
   override func viewDidLoad() {
@@ -35,6 +36,7 @@ class WeatherViewController: UIViewController {
     highsLabel = UILabel()
     lowsLabel = UILabel()
     
+    lineView = UIView()
     timeLabel = UILabel()
     
     print("WeatherViewController did load")
@@ -69,9 +71,10 @@ class WeatherViewController: UIViewController {
     view.addSubview(highsLabel)
     view.addSubview(lowsLabel)
     
+    view.addSubview(lineView)
     view.addSubview(timeLabel)
 
-    cityNameLabel.text = "City Name"
+    cityNameLabel.text = "City Name, @@"
     cityNameLabel.textColor = .white
     
     cityNameLabel.font = UIFont.systemFont(ofSize: 24)
@@ -85,7 +88,7 @@ class WeatherViewController: UIViewController {
       make.centerX.equalTo(view)
     }
     
-    weatherTextLabel.text = "---"
+    weatherTextLabel.text = "Skies"
     weatherTextLabel.textColor = .white
     
     weatherTextLabel.font = UIFont.systemFont(ofSize: 18)
@@ -99,7 +102,7 @@ class WeatherViewController: UIViewController {
       make.centerX.equalTo(view)
     }
     
-    temperatureLabel.text = "Temperature"
+    temperatureLabel.text = "0.0 ºF"
     temperatureLabel.textColor = .white
     
     temperatureLabel.font = UIFont.systemFont(ofSize: 48)
@@ -141,7 +144,6 @@ class WeatherViewController: UIViewController {
     
     highsLabel.snp.makeConstraints { make in
       make.centerY.height.equalTo(dayLabel)
-//      make.left.equalTo(dayLabel)
       make.right.equalTo(lowsLabel.snp.left).offset(-10)
       make.width.equalTo(self.highsLabel.intrinsicContentSize)
     }
@@ -162,6 +164,13 @@ class WeatherViewController: UIViewController {
     }
     
     ///
+    lineView.backgroundColor = .white
+    lineView.snp.makeConstraints { make in
+      make.top.equalTo(dayLabel.snp.bottom).offset(4.5)
+      make.height.equalTo(1)
+      make.width.equalTo(view).inset(5)
+      make.centerX.equalTo(view)
+    }
     
     timeLabel.text = "Last updated: ..."
     timeLabel.textColor = .white
@@ -187,9 +196,7 @@ class WeatherViewController: UIViewController {
       if var jsonString = response.result.value {
         jsonString.removeLast()
         jsonString.removeFirst() //JESUS CHRIST. WTF
-        print(jsonString)
         if let responseObject = CurrentConditionsResponse(JSONString: jsonString) {
-          print(responseObject)
           // Weather Text Label
           if let weatherText = responseObject.weatherText {
             self.weatherTextLabel.text = weatherText
@@ -210,6 +217,7 @@ class WeatherViewController: UIViewController {
 //    let apiResponse = Mapper<CurrentConditionsResponse>().mapArray(JSONObject: response.result.value)
     Alamofire.request(postalCodeSearchAPICall).responseJSON { response in
       let apiResponse = Mapper<CurrentConditionsResponse>().mapArray(JSONObject: response.result.value)
+      print(apiResponse)
     }
     
     Alamofire.request(postalCodeSearchAPICall).responseString { response in
