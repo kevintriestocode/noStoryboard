@@ -127,7 +127,7 @@ class WeatherViewController: UIViewController {
     
     dayLabel.snp.makeConstraints { make in
       make.top.equalTo(temperatureLabel.snp.bottom).offset(15)
-      make.left.equalTo(view).offset(10)
+      make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
       
     }
     
@@ -157,14 +157,14 @@ class WeatherViewController: UIViewController {
     
     lowsLabel.snp.makeConstraints { make in
       make.centerY.height.equalTo(dayLabel)
-      make.right.equalTo(view).offset(-10)
+      make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
       make.width.equalTo(self.lowsLabel.intrinsicContentSize)
     }
     
     ///
     lineView.snp.makeConstraints { make in
-      make.top.equalTo(dayLabel.snp.bottom).offset(4.5)
-      make.width.equalTo(view).inset(5)
+      make.top.equalTo(dayLabel.snp.bottom).offset(5)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
       make.centerX.equalTo(view)
     }
     

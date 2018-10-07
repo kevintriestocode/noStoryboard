@@ -84,7 +84,6 @@ public class SettingsViewController: UIViewController {
     usernameLabel.snp.makeConstraints { (make) in
       make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
       make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-      make.topMargin.equalTo(10)
     }
 
     // Username Field
@@ -103,8 +102,8 @@ public class SettingsViewController: UIViewController {
     }
     // Line 1
     line1.snp.makeConstraints { make in
-      make.top.equalTo(usernameField.snp.bottom).offset(4.5)
-      make.width.equalTo(view).inset(5)
+      make.top.equalTo(usernameField.snp.bottom).offset(5)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
       make.centerX.equalTo(view)
     }
     
@@ -139,8 +138,8 @@ public class SettingsViewController: UIViewController {
     
     // Line 2
     line2.snp.makeConstraints { make in
-      make.top.equalTo(weatherAPIField.snp.bottom).offset(4.5)
-      make.width.equalTo(view).inset(5)
+      make.top.equalTo(weatherAPIField.snp.bottom).offset(5)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
       make.centerX.equalTo(view)
     }
     
