@@ -11,7 +11,7 @@ public class Response: Base {
   public var name: String?
   public var sys: System?
   public var visibility: Float?
-  public var weather: Weather?
+  public var weather: [Weather]?
   public var wind: Wind?
   public var message: String?
 

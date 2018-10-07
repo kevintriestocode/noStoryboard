@@ -96,7 +96,7 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - Weather Label
-    weatherLabel.text = "Weather in Brooklyn?"
+    weatherLabel.text = "Weather"
     weatherLabel.textAlignment = .center
 
     weatherLabel.backgroundColor = .white
@@ -158,20 +158,6 @@ class MainViewController: UIViewController {
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
-  // MARK: - Purple Toggle Function
-//  @objc func togglePurple() {
-//    if toggleNavigationBarButton.backgroundColor == .gray {
-//      toggleNavigationBarButton.backgroundColor = .purple
-//    } else {
-//      toggleNavigationBarButton.backgroundColor = .gray
-//    }
-//    if navigationController?.navigationBar.isHidden == true {
-//      navigationController?.navigationBar.isHidden = false
-//    } else {
-//      navigationController?.navigationBar.isHidden = true
-//    }
-//  }
   
   @objc func highlightPracticeLabelTapped() {
     let highlightPracticeVC = HighlightPractiveViewController()
