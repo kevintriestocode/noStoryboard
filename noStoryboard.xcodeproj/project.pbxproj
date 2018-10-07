@@ -36,6 +36,9 @@
 		0A6D8D162162A627001FDF7B /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D152162A627001FDF7B /* Wind.swift */; };
 		0A6D8D2B2166A2DC001FDF7B /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
+		0AD4A55B216A598600F8E543 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A55A216A598600F8E543 /* LineView.swift */; };
+		0AD4A563216A6DE100F8E543 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
+		0AD4A564216A6DE100F8E543 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6566DB212314FF007947C2 /* SettingsViewController.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
 		ECC5F96BAA2D78BD953AE50E /* Pods_noStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */; };
@@ -238,6 +241,7 @@
 		0A6D8D152162A627001FDF7B /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 		0A6F442821385EDF00AC74B3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		0AD4A55A216A598600F8E543 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboard/Pods-noStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		2A17ADF94073420749BF0C36 /* Pods-noStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboardUITests/Pods-noStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_noStoryboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -550,7 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				0A13DBF9215048F200929260 /* HighlightPracticeView.swift */,
-				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
+				0AD4A55A216A598600F8E543 /* LineView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -573,6 +577,7 @@
 				0A1A99D0210B6A4000901A39 /* MainViewController.swift */,
 				0A6566DD21246CFC007947C2 /* TableViewController.swift */,
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
+				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
 				0A13DBF22150486A00929260 /* WeatherViewController.swift */,
 			);
 			path = Controller;
@@ -901,6 +906,7 @@
 				0A6D8D122162A3B0001FDF7B /* System.swift in Sources */,
 				0A6D8D0E2162A0A4001FDF7B /* Response.swift in Sources */,
 				0A6D8D142162A520001FDF7B /* Weather.swift in Sources */,
+				0AD4A55B216A598600F8E543 /* LineView.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
 				0A6D8D2B2166A2DC001FDF7B /* TemperatureConverter.swift in Sources */,
@@ -922,6 +928,7 @@
 				0A6D8CDE215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */,
 				0A6D8CF8215EA5F6001FDF7B /* WeatherViewController.swift in Sources */,
 				0A0FA87A2113828D0045A942 /* MainViewController.swift in Sources */,
+				0AD4A563216A6DE100F8E543 /* SettingsViewController.swift in Sources */,
 				0A6D8CDC215D4224001FDF7B /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,6 +940,7 @@
 				0A6D8CDF215D4228001FDF7B /* HighlightPracticeViewController.swift in Sources */,
 				0A6D8CF9215EA5F6001FDF7B /* WeatherViewController.swift in Sources */,
 				0A0FA87B2113828E0045A942 /* MainViewController.swift in Sources */,
+				0AD4A564216A6DE100F8E543 /* SettingsViewController.swift in Sources */,
 				0A6D8CDD215D4224001FDF7B /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

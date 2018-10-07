@@ -13,10 +13,11 @@ class WeatherViewController: UIViewController {
   var highsLabel: UILabel!
   var lowsLabel:UILabel!
   
-  var lineView: UIView!
+  var lineView: LineView!
   var timeLabel: UILabel!
   
   var settings: Settings!
+  var zipcode: String!
   
   var apiKey: String!
   var apiCall: String!
@@ -28,26 +29,32 @@ class WeatherViewController: UIViewController {
     dayLabel = UILabel()
     highsLabel = UILabel()
     lowsLabel = UILabel()
-    lineView = UILabel()
+    lineView = LineView()
     timeLabel = UILabel()
     
     print("WeatherViewController did load")
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(popSettings))
     
+    title = "Weather"
+    
+    setupViews()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
     settings = Settings()
     settings.loadSettings()
     
+    zipcode = settings.zipCode
+
     apiKey = settings.weatherAPIKey
     
     if let apiKey = apiKey {
-      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=94306,us&appid=" + apiKey
+      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + apiKey
     } else {
       apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
     }
-
-    setupViews()
+    
     networkingAndLabels()
-
   }
   
   func setupViews() {
@@ -155,10 +162,8 @@ class WeatherViewController: UIViewController {
     }
     
     ///
-    lineView.backgroundColor = .white
     lineView.snp.makeConstraints { make in
       make.top.equalTo(dayLabel.snp.bottom).offset(4.5)
-      make.height.equalTo(1)
       make.width.equalTo(view).inset(5)
       make.centerX.equalTo(view)
     }
@@ -178,8 +183,15 @@ class WeatherViewController: UIViewController {
       make.centerX.equalTo(view)
     }
   }
-  
-  func networkingAndLabels() {
+
+  @objc func popSettings() {
+    let settingsVC = SettingsViewController()
+    self.navigationController?.pushViewController(settingsVC, animated: true)
+    self.navigationController?.navigationBar.barStyle = .blackTranslucent
+    self.navigationController?.navigationBar.tintColor = .white
+  }
+
+  @objc func networkingAndLabels() {
     // Alamofire + ObjectMapper
     /// see: public class Response
     Alamofire.request(apiCall).responseJSON { response in print(response) }
@@ -195,17 +207,25 @@ class WeatherViewController: UIViewController {
             self.cityNameLabel.text = cityName
           }
           // desc Label
-          if let desc = responseObject.weather?.main { // Note: "desc" not "description". Also some weird ()'s in JSON...
+          if let desc = responseObject.weather?[0].main { // Note: "desc" not "description". Also some weird ()'s in JSON...
             self.descLabel.text = desc
+            print(desc)
           }
           // Temperature Label
           if let temperature = responseObject.main?.temperature! {
-            self.temperatureLabel.text = temperature.kelvinToFarenheit()
+            self.temperatureLabel.text = temperature.kelvinToFarenheit() + " ºF"
           }
           // Time Label
           if let time = responseObject.dt {
             self.timeLabel.text = "Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))"
-            print("Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))")
+          }
+          // Highs
+          if let maximumTemperature = responseObject.main?.maximumTemperature?.kelvinToFarenheit() {
+            self.highsLabel.text = maximumTemperature
+          }
+          // Lows
+          if let minimumTemperature = responseObject.main?.minimumTemperature?.kelvinToFarenheit() {
+            self.lowsLabel.text = minimumTemperature
           }
         }
       }
