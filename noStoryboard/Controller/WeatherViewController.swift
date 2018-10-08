@@ -36,7 +36,7 @@ class WeatherViewController: UIViewController {
       apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
     }
     
-    networkingAndLabels()
+    networkingAndLabels(URL: apiCall)
   }
   
   func setupViews() {
@@ -53,11 +53,10 @@ class WeatherViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = .white
   }
 
-  func networkingAndLabels() {
-    // Alamofire + ObjectMapper
-    /// see: public class Response
-    Alamofire.request(apiCall).responseJSON { response in print(response) }
-    Alamofire.request(apiCall).responseString { response in
+  func networkingAndLabels(URL: String) {
+
+//    Alamofire.request(URL).responseJSON { response in print(response) }
+    Alamofire.request(URL).responseString { response in
       if let jsonString = response.result.value {
         if let responseObject = Response(JSONString: jsonString) {
           guard responseObject.cod != 401 else {
