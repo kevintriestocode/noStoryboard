@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     print("MainViewController did load")
     settingsLabel = UILabel()
     tableViewLabel = UILabel()
@@ -61,8 +62,8 @@ class MainViewController: UIViewController {
     settingsLabel.snp.makeConstraints { (make) in
       make.centerX.equalTo(view)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+      make.height.equalTo(50)
     }
 
     // Table View Label
@@ -75,8 +76,8 @@ class MainViewController: UIViewController {
     tableViewLabel.layer.masksToBounds = true
     tableViewLabel.snp.makeConstraints { (make) in
       make.top.equalTo(settingsLabel.snp.bottom).offset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+      make.height.equalTo(settingsLabel)
       make.centerX.equalTo(view)
     }
 
@@ -90,8 +91,8 @@ class MainViewController: UIViewController {
     highlightPracticeLabel.layer.masksToBounds = true
     highlightPracticeLabel.snp.makeConstraints { (make) in
       make.top.equalTo(tableViewLabel.snp.bottom).offset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+      make.height.equalTo(settingsLabel)
       make.centerX.equalTo(view)
     }
 
@@ -105,8 +106,8 @@ class MainViewController: UIViewController {
     weatherLabel.layer.masksToBounds = true
     weatherLabel.snp.makeConstraints { make in
       make.top.equalTo(highlightPracticeLabel.snp.bottom).offset(5)
-      make.width.equalTo(view).inset(5)
-      make.height.equalTo(100)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+      make.height.equalTo(settingsLabel)
       make.centerX.equalTo(view)
     }
   }

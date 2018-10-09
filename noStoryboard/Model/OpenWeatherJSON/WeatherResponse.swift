@@ -1,6 +1,6 @@
 import ObjectMapper
 
-public class Response: Base {
+public class WeatherResponse: Base {
   public var base: String?
   public var clouds: Clouds?
   public var cod: Double?
