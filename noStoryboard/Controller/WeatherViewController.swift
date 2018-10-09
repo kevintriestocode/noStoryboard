@@ -79,7 +79,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     Alamofire.request(URL).responseString { response in
       if let jsonString = response.result.value {
         print(jsonString)
-        if let responseObject = Response(JSONString: jsonString) {
+        if let responseObject = WeatherResponse(JSONString: jsonString) {
           guard responseObject.cod != 401 else {
             self.weatherView.temperatureLabel.text = "401 Error: Invalid API Key"
             return
