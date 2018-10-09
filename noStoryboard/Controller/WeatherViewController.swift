@@ -47,7 +47,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     googleAPIKey = settings.googleAPIKey
     
     if let apiKey = weatherAPIKey {
-      weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + apiKey
+      weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + String(lat) + "&lon=" + String(lng) + "&appid=" + apiKey
     } else {
       weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
     }
@@ -56,7 +56,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       googleAPICall = "https://maps.googleapis.com/maps/api/geocode/json?&address=" + zipcode + "&key=" + googleAPIKey
     }
     getLatLngFromGoogle(URL: googleAPICall)
-    networkingAndLabels(URL: weatherAPICall)
+//    networkingAndLabels(URL: weatherAPICall)
     
   }
   
@@ -95,6 +95,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             print("Lng will = \(lng)")
             self.lng = lng
           }
+          self.networkingAndLabels(URL: self.weatherAPICall)
         }
       }
     }
