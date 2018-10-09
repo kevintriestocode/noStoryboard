@@ -22,6 +22,11 @@ public class SettingsViewController: UIViewController {
   
   var line2: LineView!
   
+  var googleAPILabel: UILabel!
+  var googleAPIField: UITextField!
+  
+  var line3: LineView!
+  
   var zipcodeLabel: UILabel!
   var zipcodeField: UITextField!
 
@@ -48,9 +53,15 @@ public class SettingsViewController: UIViewController {
     weatherAPIField = UITextField()
     
     line2 = LineView()
+
+    googleAPILabel = UILabel()
+    googleAPIField = UITextField()
+
+    line3 = LineView()
     
     zipcodeLabel = UILabel()
     zipcodeField = UITextField()
+    
 
     title = "Settings"
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
@@ -72,6 +83,11 @@ public class SettingsViewController: UIViewController {
     view.addSubview(weatherAPIField)
 
     view.addSubview(line2)
+
+    view.addSubview(googleAPILabel)
+    view.addSubview(googleAPIField)
+
+    view.addSubview(line3)
     
     view.addSubview(zipcodeLabel)
     view.addSubview(zipcodeField)
@@ -108,7 +124,7 @@ public class SettingsViewController: UIViewController {
     }
     
     // Weather API Label
-    weatherAPILabel.text = "API Key"
+    weatherAPILabel.text = "Weather API Key"
     weatherAPILabel.font = UIFont.systemFont(ofSize: 18)
 
     weatherAPILabel.textColor = .white
@@ -142,7 +158,43 @@ public class SettingsViewController: UIViewController {
       make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
       make.centerX.equalTo(view)
     }
+
+    // Google API Label
+    googleAPILabel.text = "Google API Key"
+    googleAPILabel.font = UIFont.systemFont(ofSize: 18)
     
+    googleAPILabel.textColor = .white
+    googleAPILabel.textAlignment = .natural
+    
+    googleAPILabel.snp.makeConstraints { make in
+      make.top.equalTo(line2.snp.bottom).offset(5)
+      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
+    }
+
+    // Google API FIeld
+    googleAPIField.isSecureTextEntry = true
+    
+    googleAPIField.autocapitalizationType = UITextAutocapitalizationType.none
+    googleAPIField.autocorrectionType = UITextAutocorrectionType.no
+    
+    googleAPIField.borderStyle = UITextBorderStyle.roundedRect
+    googleAPIField.backgroundColor = .white
+    
+    googleAPIField.adjustsFontSizeToFitWidth = true
+    googleAPIField.textAlignment = .natural
+    
+    googleAPIField.snp.makeConstraints { make in
+      make.top.equalTo(googleAPILabel.snp.bottom).offset(5)
+      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
+    }
+
+    // Line 3
+    line3.snp.makeConstraints { make in
+      make.top.equalTo(googleAPIField.snp.bottom).offset(5)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+      make.centerX.equalTo(view)
+    }
+
     // Zipcode Label
     zipcodeLabel.text = "Zipcode"
     zipcodeLabel.font = UIFont.systemFont(ofSize: 18)
@@ -151,7 +203,7 @@ public class SettingsViewController: UIViewController {
     zipcodeLabel.textAlignment = .natural
     
     zipcodeLabel.snp.makeConstraints { make in
-      make.top.equalTo(line2.snp.bottom).offset(5)
+      make.top.equalTo(line3.snp.bottom).offset(5)
       make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
     }
 
@@ -183,7 +235,13 @@ public class SettingsViewController: UIViewController {
     } else {
       weatherAPIField.text = settings.weatherAPIKey
     }
-    
+
+    if settings.googleAPIKey == nil || settings.googleAPIKey == "" {
+      googleAPIField.placeholder = "Google API Key"
+    } else {
+      googleAPIField.text = settings.googleAPIKey
+    }
+
     if settings.zipCode == nil || settings.zipCode == "" {
       zipcodeField.placeholder = "Enter your Zipcode"
     } else {
@@ -195,7 +253,9 @@ public class SettingsViewController: UIViewController {
     settings.username = usernameField.text
     settings.weatherAPIKey = weatherAPIField.text
 
+    settings.googleAPIKey = googleAPIField.text
     settings.zipCode = zipcodeField.text
+
     settings.saveSettings()
 
     print("Settings have been saved.")

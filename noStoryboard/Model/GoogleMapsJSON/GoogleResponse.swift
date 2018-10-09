@@ -3,7 +3,7 @@
 import ObjectMapper
 
 public class GoogleResponse: Base {
-  public var results: [Results]?
+  public var results: [ResultsObject]?
 
   override public func mapping(map: Map) {
     super.mapping(map: map)

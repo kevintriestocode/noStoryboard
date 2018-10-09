@@ -14,10 +14,13 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   var zipcode: String!
   
   var lat: Double?
-  var lon: Double?
+  var lng: Double?
   
-  var apiKey: String!
-  var apiCall: String!
+  var weatherAPIKey: String!
+  var weatherAPICall: String!
+  
+  var googleAPIKey: String!
+  var googleAPICall: String!
   
   override func viewDidLoad() {
     weatherView = WeatherView()
@@ -28,7 +31,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     placemark = MKPointAnnotation()
     
     print("WeatherViewController did load")
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(popSettings))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(pushSettings))
     
     title = "Weather"
     
@@ -40,15 +43,21 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     settings.loadSettings()
     
     zipcode = settings.zipCode
-    apiKey = settings.weatherAPIKey
+    weatherAPIKey = settings.weatherAPIKey
+    googleAPIKey = settings.googleAPIKey
     
-    if let apiKey = apiKey {
-      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + apiKey
+    if let apiKey = weatherAPIKey {
+      weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + apiKey
     } else {
-      apiCall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
+      weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
     }
     
-    networkingAndLabels(URL: apiCall)
+    if let googleAPIKey = googleAPIKey {
+      googleAPICall = "https://maps.googleapis.com/maps/api/geocode/json?&address=" + zipcode + "&key=" + googleAPIKey
+    }
+    getLatLngFromGoogle(URL: googleAPICall)
+    networkingAndLabels(URL: weatherAPICall)
+    
   }
   
   func setupViews() {
@@ -66,15 +75,32 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     }
   }
 
-  @objc func popSettings() {
+  @objc func pushSettings() {
     let settingsVC = SettingsViewController()
     self.navigationController?.pushViewController(settingsVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
     self.navigationController?.navigationBar.tintColor = .white
   }
-
+  
+  func getLatLngFromGoogle(URL: String) {
+    Alamofire.request(URL).responseString { response in
+      if let jsonString = response.result.value {
+        print(jsonString)
+        if let responseObject = GoogleResponse(JSONString: jsonString) {
+          if let lat = responseObject.results?[0].geometry?.location?.lat {
+            print("Lat will = \(lat)")
+            self.lat = lat
+          }
+          if let lng = responseObject.results?[0].geometry?.location?.lng {
+            print("Lng will = \(lng)")
+            self.lng = lng
+          }
+        }
+      }
+    }
+  }
+  
   func networkingAndLabels(URL: String) {
-
 //    Alamofire.request(URL).responseJSON { response in print(response) }
     Alamofire.request(URL).responseString { response in
       if let jsonString = response.result.value {
@@ -110,10 +136,8 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             self.weatherView.lowsLabel.text = minimumTemperature
           }
           // Coordinates
-          self.lon = responseObject.coord?.longitude
-          self.lat = responseObject.coord?.latitude
-          
-          let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lon!)
+//          if let lat = self.lat, let lng = self.lng {
+          let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!)
           let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
           
           self.placemark?.coordinate = center

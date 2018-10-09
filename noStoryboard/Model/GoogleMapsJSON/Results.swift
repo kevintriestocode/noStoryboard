@@ -1,9 +1,9 @@
 import ObjectMapper
 
-public class Results: Base {
-  public var addressComponents: [AddressComponents?]
+public class ResultsObject: Base {
+  public var addressComponents: [AddressComponents]?
   public var formattedAddress: String?
-  public var geometry: String?
+  public var geometry: Geometry?
   public var placeID: String?
   public var types: [String]?
 
@@ -14,6 +14,6 @@ public class Results: Base {
     formattedAddress <- map["formatted_address"]
     geometry <- map["geometry"]
     placeID <- map["place_id"]
-    types <-map["types"]
+    types <- map["types"]
   }
 }
