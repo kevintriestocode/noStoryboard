@@ -39,23 +39,18 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    settings = Settings()
-    settings.loadSettings()
+    loadSettings()
     
     zipcode = settings.zipCode
     weatherAPIKey = settings.weatherAPIKey
     googleAPIKey = settings.googleAPIKey
     
-    if let apiKey = weatherAPIKey {
-      weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + String(lat) + "&lon=" + String(lng) + "&appid=" + apiKey
-    } else {
-      weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?zip=11222,us&appid="
-    }
+//    weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + String(lat!) + "&lon=" + String(lng!) + "&appid=" + weatherAPIKey
     
     if let googleAPIKey = googleAPIKey {
       googleAPICall = "https://maps.googleapis.com/maps/api/geocode/json?&address=" + zipcode + "&key=" + googleAPIKey
     }
-    getLatLngFromGoogle(URL: googleAPICall)
+    getLatLngCityFromGoogle(URL: googleAPICall)
 //    networkingAndLabels(URL: weatherAPICall)
     
   }
@@ -82,7 +77,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     self.navigationController?.navigationBar.tintColor = .white
   }
   
-  func getLatLngFromGoogle(URL: String) {
+  func getLatLngCityFromGoogle(URL: String) {
     Alamofire.request(URL).responseString { response in
       if let jsonString = response.result.value {
         print(jsonString)
@@ -95,14 +90,27 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             print("Lng will = \(lng)")
             self.lng = lng
           }
-          self.networkingAndLabels(URL: self.weatherAPICall)
+          if let cityName = responseObject.results?[0].addressComponents?[1].shortName {
+            self.weatherView.cityNameLabel.text = cityName
+          }
+          
+          let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!)
+          let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+          
+          self.placemark?.coordinate = center
+          self.map.addAnnotation(self.placemark!)
+          
+          self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
+          
+          self.weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + String(self.lat!) + "&lon=" + String(self.lng!) + "&appid=" + self.weatherAPIKey
+          self.getWeatherFrom(URL: self.weatherAPICall)
         }
       }
     }
+    
   }
   
-  func networkingAndLabels(URL: String) {
-//    Alamofire.request(URL).responseJSON { response in print(response) }
+  func getWeatherFrom(URL: String) {
     Alamofire.request(URL).responseString { response in
       if let jsonString = response.result.value {
         print(jsonString)
@@ -112,9 +120,9 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             return
           }
           // City Name Label
-          if let cityName = responseObject.name {
-            self.weatherView.cityNameLabel.text = cityName
-          }
+//          if let cityName = responseObject.name {
+//            self.weatherView.cityNameLabel.text = cityName
+//          }
           // desc Label
           if let desc = responseObject.weather?[0].main { // Note: "desc" not "description". Also some weird ()'s in JSON...
             self.weatherView.descLabel.text = desc
@@ -137,16 +145,20 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             self.weatherView.lowsLabel.text = minimumTemperature
           }
           // Coordinates
-//          if let lat = self.lat, let lng = self.lng {
-          let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!)
-          let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-          
-          self.placemark?.coordinate = center
-          self.map.addAnnotation(self.placemark!)
-          
-          self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
+//          let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!)
+//          let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+//
+//          self.placemark?.coordinate = center
+//          self.map.addAnnotation(self.placemark!)
+//
+//          self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
         }
       }
     }
+  }
+
+  func loadSettings() {
+    self.settings = Settings()
+    self.settings.loadSettings()
   }
 }
