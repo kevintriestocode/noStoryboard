@@ -99,15 +99,15 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             self.weatherView.cityNameLabel.text = cityName
           }
 
-          let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!)
-          let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-
-          self.zipcodePoint?.coordinate = center
-          self.zipcodePoint?.title = self.settings.zipCode
-
-          self.map.addAnnotation(self.zipcodePoint!)
-          self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
-
+          if let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!) as? CLLocationCoordinate2D {
+            self.zipcodePoint?.coordinate = center
+            self.zipcodePoint?.title = self.settings.zipCode
+            
+            self.map.addAnnotation(self.zipcodePoint!)
+            if let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) as? MKCoordinateSpan {
+              self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
+            }
+          }
           self.weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + String(self.lat!) + "&lon=" + String(self.lng!) + "&appid=" + self.weatherAPIKey
           self.getWeatherFrom(URL: self.weatherAPICall)
         }
