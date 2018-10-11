@@ -19,6 +19,9 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    let foo = UIButton()
+    foo.imageView?.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
+    foo.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
     
     print("MainViewController did load")
     settingsLabel = UILabel()
@@ -29,7 +32,11 @@ class MainViewController: UIViewController {
     
     settings.loadSettings()
 
-    title = "Main"
+    #if DEBUG
+    title = "Debug"
+    #else
+    title = "Release"
+    #endif
 
     consoleGreeting()
     setupViews()
