@@ -46,9 +46,9 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     loadSettings()
 
-    zipcode = settings.zipCode
-    weatherAPIKey = settings.weatherAPIKey
-    googleAPIKey = settings.googleAPIKey
+    zipcode = settings.zipCode ?? ""
+    weatherAPIKey = settings.weatherAPIKey ?? ""
+    googleAPIKey = settings.googleAPIKey ?? ""
 
     if let googleAPIKey = googleAPIKey {
       googleAPICall = "https://maps.googleapis.com/maps/api/geocode/json?&address=" + zipcode + "&key=" + googleAPIKey
@@ -87,6 +87,11 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       if let jsonString = response.result.value {
         print(jsonString)
         if let responseObject = GoogleResponse(JSONString: jsonString) {
+          guard responseObject.status == "OK" else {
+            self.weatherView.cityNameLabel.text = "Google ERROR"
+            self.weatherView.descLabel.text = "Invalid Request"
+            return
+          }
           if let lat = responseObject.results?[0].geometry?.location?.lat {
             print("Lat will = \(lat)")
             self.lat = lat
