@@ -46,7 +46,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     loadSettings()
 
-    zipcode = settings.zipCode ?? ""
+    zipcode = settings.zipCode ?? nil
     weatherAPIKey = settings.weatherAPIKey ?? ""
     googleAPIKey = settings.googleAPIKey ?? ""
 
@@ -88,7 +88,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
         print(jsonString)
         if let responseObject = GoogleResponse(JSONString: jsonString) {
           guard responseObject.status == "OK" else {
-            self.weatherView.cityNameLabel.text = "Google ERROR"
+            self.weatherView.cityNameLabel.text = "Google Error"
             self.weatherView.descLabel.text = "Invalid Request"
             return
           }
@@ -126,7 +126,8 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
         print(jsonString)
         if let responseObject = WeatherResponse(JSONString: jsonString) {
           guard responseObject.cod != 401 else {
-            self.weatherView.temperatureLabel.text = "Check your APIKey"
+            self.weatherView.cityNameLabel.text = "OpenWeather Error"
+            self.weatherView.descLabel.text = "Invalid Request"
             return
           }
           // desc Label
