@@ -39,6 +39,8 @@
 		0AD4A571216AC64400F8E543 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A570216AC64400F8E543 /* WeatherView.swift */; };
 		0AF091F221715BCC00EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F021715B4D00EA70C2 /* Info.plist */; };
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
+		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
+		0AF091F92171604200EA70C2 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
 		ECC5F96BAA2D78BD953AE50E /* Pods_noStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */; };
@@ -251,6 +253,7 @@
 		0AD4A570216AC64400F8E543 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		0AF091F021715B4D00EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F421715C1200EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		2366BDB2FAAAEFCBAAFA896C /* Pods-noStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboard/Pods-noStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		2A17ADF94073420749BF0C36 /* Pods-noStoryboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-noStoryboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-noStoryboardUITests/Pods-noStoryboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_noStoryboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -567,6 +570,7 @@
 		0A20A6C62171509300F89006 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */,
 				0A20A6CC217151F100F89006 /* TemperatureConverterTests.swift */,
 			);
 			path = Tests;
@@ -977,7 +981,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF091F92171604200EA70C2 /* TemperatureConverter.swift in Sources */,
 				0A20A6CE217151F100F89006 /* TemperatureConverterTests.swift in Sources */,
+				0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
