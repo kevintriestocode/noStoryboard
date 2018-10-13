@@ -37,6 +37,21 @@
                BlueprintName = "noStoryboardTests"
                ReferencedContainer = "container:noStoryboard.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MainViewControllerTests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0AF091DD2171587100EA70C2"
+               BuildableName = "noStoryboardUITests2.xctest"
+               BlueprintName = "noStoryboardUITests2"
+               ReferencedContainer = "container:noStoryboard.xcodeproj">
+            </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
