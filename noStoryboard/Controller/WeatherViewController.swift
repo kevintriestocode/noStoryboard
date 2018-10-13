@@ -46,11 +46,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     loadSettings()
 
-<<<<<<< HEAD
     zipcode = settings.zipCode ?? ""
-=======
-    zipcode = settings.zipCode ?? nil
->>>>>>> 5fa3054f20b6dd25341085d3b457af1d6c70ae3f
     weatherAPIKey = settings.weatherAPIKey ?? ""
     googleAPIKey = settings.googleAPIKey ?? ""
 

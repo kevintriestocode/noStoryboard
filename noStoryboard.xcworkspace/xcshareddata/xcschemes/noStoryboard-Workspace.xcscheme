@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "1000"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -37,21 +37,6 @@
                BlueprintName = "noStoryboardTests"
                ReferencedContainer = "container:noStoryboard.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "MainViewControllerTests">
-               </Test>
-            </SkippedTests>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AF091DD2171587100EA70C2"
-               BuildableName = "noStoryboardUITests2.xctest"
-               BlueprintName = "noStoryboardUITests2"
-               ReferencedContainer = "container:noStoryboard.xcodeproj">
-            </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -60,6 +45,16 @@
                BlueprintIdentifier = "0A1A99EC210B6A4B00901A39"
                BuildableName = "noStoryboardUITests.xctest"
                BlueprintName = "noStoryboardUITests"
+               ReferencedContainer = "container:noStoryboard.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0AD4A5BC2171AA2A00F8E543"
+               BuildableName = "LineViewTests.xctest"
+               BlueprintName = "LineViewTests"
                ReferencedContainer = "container:noStoryboard.xcodeproj">
             </BuildableReference>
          </TestableReference>

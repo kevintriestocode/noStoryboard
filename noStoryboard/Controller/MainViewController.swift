@@ -19,9 +19,6 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let foo = UIButton()
-    foo.imageView?.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
-    foo.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
     
     print("MainViewController did load")
     settingsLabel = UILabel()
@@ -74,7 +71,7 @@ class MainViewController: UIViewController {
     }
 
     // Table View Label
-    tableViewLabel.text = "Add On List"
+    tableViewLabel.text = "Table View"
     tableViewLabel.textAlignment = .center
 
     tableViewLabel.backgroundColor = .white
