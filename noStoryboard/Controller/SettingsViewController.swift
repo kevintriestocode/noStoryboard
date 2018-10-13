@@ -10,31 +10,14 @@ import Foundation
 import UIKit
 import SnapKit
 
-public class SettingsViewController: UIViewController {
-
-  var usernameLabel: UILabel!
-  var usernameField: UITextField!
-
-  var line1: LineView!
-  
-  var weatherAPILabel: UILabel!
-  var weatherAPIField: UITextField!
-  
-  var line2: LineView!
-  
-  var googleAPILabel: UILabel!
-  var googleAPIField: UITextField!
-  
-  var line3: LineView!
-  
-  var zipcodeLabel: UILabel!
-  var zipcodeField: UITextField!
-
+public class SettingsViewController: UIViewController, UIScrollViewDelegate {
+  var settingsScrollView: SettingsScrollView!
   var settings: Settings!
 
   public override func viewDidLoad() {
     print("SettingsViewController did load")
-
+    settingsScrollView = SettingsScrollView()
+    
     settings = Settings()
     settings.loadSettings()
 
@@ -44,217 +27,55 @@ public class SettingsViewController: UIViewController {
       print("Current username: \(UserDefaults.standard.string(forKey: "username")!)")
     }
 
-    usernameLabel = UILabel()
-    usernameField = UITextField()
-
-    line1 = LineView()
-    
-    weatherAPILabel = UILabel()
-    weatherAPIField = UITextField()
-    
-    line2 = LineView()
-
-    googleAPILabel = UILabel()
-    googleAPIField = UITextField()
-
-    line3 = LineView()
-    
-    zipcodeLabel = UILabel()
-    zipcodeField = UITextField()
-    
-
     title = "Settings"
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-    
+
     setupViews()
     setupDefaults()
   }
 
   func setupViews() {
-
-    view.backgroundColor = Configuration.Color.backgroundColor
-
-    view.addSubview(usernameLabel)
-    view.addSubview(usernameField)
-
-    view.addSubview(line1)
+    view.addSubview(settingsScrollView)
     
-    view.addSubview(weatherAPILabel)
-    view.addSubview(weatherAPIField)
-
-    view.addSubview(line2)
-
-    view.addSubview(googleAPILabel)
-    view.addSubview(googleAPIField)
-
-    view.addSubview(line3)
-    
-    view.addSubview(zipcodeLabel)
-    view.addSubview(zipcodeField)
-
-    // Username Label
-    usernameLabel.text = "Username"
-    usernameLabel.font = UIFont.systemFont(ofSize: 18)
-
-    usernameLabel.textColor = .white
-    usernameLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
-
-    // Username Field
-    usernameField.autocapitalizationType = UITextAutocapitalizationType.none
-    usernameField.autocorrectionType = UITextAutocorrectionType.no
-
-    usernameField.adjustsFontSizeToFitWidth = true
-    usernameField.borderStyle = UITextBorderStyle.roundedRect
-    
-    usernameField.backgroundColor = .white
-    usernameField.textAlignment = .natural
-
-    usernameField.snp.makeConstraints { make in
-      make.top.equalTo(usernameLabel.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
-    // Line 1
-    line1.snp.makeConstraints { make in
-      make.top.equalTo(usernameField.snp.bottom).offset(5)
-      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+    settingsScrollView.snp.makeConstraints { make in
       make.centerX.equalTo(view)
-    }
-    
-    // Weather API Label
-    weatherAPILabel.text = "Weather API Key"
-    weatherAPILabel.font = UIFont.systemFont(ofSize: 18)
-
-    weatherAPILabel.textColor = .white
-    weatherAPILabel.textAlignment = .natural
-
-    weatherAPILabel.snp.makeConstraints { make in
-      make.top.equalTo(line1.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
+      make.centerY.equalTo(view)
+      make.edges.equalTo(view)
     }
 
-    // Weather API Field
-    weatherAPIField.isSecureTextEntry = true
-    
-    weatherAPIField.autocapitalizationType = UITextAutocapitalizationType.none
-    weatherAPIField.autocorrectionType = UITextAutocorrectionType.no
-
-    weatherAPIField.borderStyle = UITextBorderStyle.roundedRect
-    weatherAPIField.backgroundColor = .white
-
-    weatherAPIField.adjustsFontSizeToFitWidth = true
-    weatherAPIField.textAlignment = .natural
-
-    weatherAPIField.snp.makeConstraints { make in
-      make.top.equalTo(weatherAPILabel.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
-    
-    // Line 2
-    line2.snp.makeConstraints { make in
-      make.top.equalTo(weatherAPIField.snp.bottom).offset(5)
-      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
-      make.centerX.equalTo(view)
-    }
-
-    // Google API Label
-    googleAPILabel.text = "Google API Key"
-    googleAPILabel.font = UIFont.systemFont(ofSize: 18)
-    
-    googleAPILabel.textColor = .white
-    googleAPILabel.textAlignment = .natural
-    
-    googleAPILabel.snp.makeConstraints { make in
-      make.top.equalTo(line2.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
-
-    // Google API FIeld
-    googleAPIField.isSecureTextEntry = true
-    
-    googleAPIField.autocapitalizationType = UITextAutocapitalizationType.none
-    googleAPIField.autocorrectionType = UITextAutocorrectionType.no
-    
-    googleAPIField.borderStyle = UITextBorderStyle.roundedRect
-    googleAPIField.backgroundColor = .white
-    
-    googleAPIField.adjustsFontSizeToFitWidth = true
-    googleAPIField.textAlignment = .natural
-    
-    googleAPIField.snp.makeConstraints { make in
-      make.top.equalTo(googleAPILabel.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
-
-    // Line 3
-    line3.snp.makeConstraints { make in
-      make.top.equalTo(googleAPIField.snp.bottom).offset(5)
-      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
-      make.centerX.equalTo(view)
-    }
-
-    // Zipcode Label
-    zipcodeLabel.text = "Zipcode"
-    zipcodeLabel.font = UIFont.systemFont(ofSize: 18)
-    
-    zipcodeLabel.textColor = .white
-    zipcodeLabel.textAlignment = .natural
-    
-    zipcodeLabel.snp.makeConstraints { make in
-      make.top.equalTo(line3.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
-
-    // Zipcode Field
-    zipcodeField.autocapitalizationType = UITextAutocapitalizationType.none
-    
-    zipcodeField.autocorrectionType = UITextAutocorrectionType.no
-    zipcodeField.borderStyle = UITextBorderStyle.roundedRect
-    
-    zipcodeField.backgroundColor = .white
-    zipcodeField.adjustsFontSizeToFitWidth = true
-    
-    zipcodeField.textAlignment = .natural
-    zipcodeField.snp.makeConstraints { make in
-      make.top.equalTo(zipcodeLabel.snp.bottom).offset(5)
-      make.left.equalTo(view.safeAreaLayoutGuide).offset(5)
-    }
   }
-
   func setupDefaults() {
     if settings.username == nil || settings.username == "" {
-      usernameField.placeholder = "Who are you?"
+      settingsScrollView.usernameField.placeholder = "Who are you?"
     } else {
-      usernameField.text = settings.username
+      settingsScrollView.usernameField.text = settings.username
     }
 
     if settings.weatherAPIKey == nil || settings.weatherAPIKey == "" {
-      weatherAPIField.placeholder = "OpenWeather API Key"
+      settingsScrollView.weatherAPIField.placeholder = "OpenWeather API Key"
     } else {
-      weatherAPIField.text = settings.weatherAPIKey
+      settingsScrollView.weatherAPIField.text = settings.weatherAPIKey
     }
 
     if settings.googleAPIKey == nil || settings.googleAPIKey == "" {
-      googleAPIField.placeholder = "Google API Key"
+      settingsScrollView.googleAPIField.placeholder = "Google API Key"
     } else {
-      googleAPIField.text = settings.googleAPIKey
+      settingsScrollView.googleAPIField.text = settings.googleAPIKey
     }
 
     if settings.zipCode == nil || settings.zipCode == "" {
-      zipcodeField.placeholder = "Enter your Zipcode"
+      settingsScrollView.zipcodeField.placeholder = "Enter your Zipcode"
     } else {
-      zipcodeField.text = settings.zipCode
+      settingsScrollView.zipcodeField.text = settings.zipCode
     }
   }
 
   @objc func done() {
-    settings.username = usernameField.text
-    settings.weatherAPIKey = weatherAPIField.text
+    settings.username = settingsScrollView.usernameField.text
+    settings.weatherAPIKey = settingsScrollView.weatherAPIField.text
 
-    settings.googleAPIKey = googleAPIField.text
-    settings.zipCode = zipcodeField.text
+    settings.googleAPIKey = settingsScrollView.googleAPIField.text
+    settings.zipCode = settingsScrollView.zipcodeField.text
 
     settings.saveSettings()
 
