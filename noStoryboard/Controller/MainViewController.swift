@@ -17,17 +17,24 @@ class MainViewController: UIViewController {
   var weatherLabel: UILabel!
   var settings: Settings!
 
+  var shadow: NSShadow!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     print("MainViewController did load")
+
     settingsLabel = UILabel()
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
+
     settings = Settings()
-    
     settings.loadSettings()
+
+    shadow = NSShadow()
+    shadow.shadowOffset = CGSize(width: 3, height: 3)
+    shadow.shadowBlurRadius = CGFloat(3)
+    shadow.shadowColor = Configuration.Color.backgroundColor
 
     #if DEBUG
     title = "Debug"
@@ -56,7 +63,9 @@ class MainViewController: UIViewController {
     navigationController?.navigationBar.isHidden = false
 
     // Settings Label
-    settingsLabel.attributedText = NSAttributedString(string: "SETTINGS", attributes: [NSAttributedStringKey.kern: 3])
+    settingsLabel.attributedText = NSAttributedString(string: "SETTINGS",
+                                                      attributes: [NSAttributedStringKey.kern: 3,
+                                                                   NSAttributedStringKey.shadow: shadow])
     settingsLabel.textAlignment = .center
 
     settingsLabel.backgroundColor = .white
@@ -71,7 +80,9 @@ class MainViewController: UIViewController {
     }
 
     // Table View Label
-    tableViewLabel.attributedText = NSAttributedString(string: "TABLE VIEW", attributes: [NSAttributedStringKey.kern: 3])
+    tableViewLabel.attributedText = NSAttributedString(string: "TABLE VIEW",
+                                                       attributes: [NSAttributedStringKey.kern: 3,
+                                                                    NSAttributedStringKey.shadow: shadow])
     tableViewLabel.textAlignment = .center
 
     tableViewLabel.backgroundColor = .white
@@ -86,7 +97,9 @@ class MainViewController: UIViewController {
     }
 
     // Highlight Practice Label
-    highlightPracticeLabel.attributedText = NSAttributedString(string: "CORE TEXT 2-1", attributes: [NSAttributedStringKey.kern: 3])
+    highlightPracticeLabel.attributedText = NSAttributedString(string: "CORE TEXT 2-1",
+                                                               attributes: [NSAttributedStringKey.kern: 3,
+                                                                            NSAttributedStringKey.shadow: shadow])
     highlightPracticeLabel.textAlignment = .center
 
     highlightPracticeLabel.backgroundColor = .white
@@ -101,7 +114,9 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - Weather Label
-    weatherLabel.attributedText = NSAttributedString(string: "WEATHER", attributes: [NSAttributedStringKey.kern: 3])
+    weatherLabel.attributedText = NSAttributedString(string: "WEATHER",
+                                                     attributes: [NSAttributedStringKey.kern: 3,
+                                                                  NSAttributedStringKey.shadow: shadow])
     weatherLabel.textAlignment = .center
 
     weatherLabel.backgroundColor = .white
