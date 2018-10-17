@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 import SnapKit
 
-public class SettingsViewController: UIViewController, UIScrollViewDelegate {
+public class SettingsViewController: UIViewController {
   var settingsScrollView: SettingsScrollView!
   var settings: Settings!
 
   public override func viewDidLoad() {
     print("SettingsViewController did load")
     settingsScrollView = SettingsScrollView()
+    settingsScrollView.frame = view.safeAreaLayoutGuide.layoutFrame
+    settingsScrollView.contentSize.height = view.frame.height + 200
     
     settings = Settings()
     settings.loadSettings()
@@ -36,12 +38,12 @@ public class SettingsViewController: UIViewController, UIScrollViewDelegate {
 
   func setupViews() {
     view.addSubview(settingsScrollView)
-    
-    settingsScrollView.snp.makeConstraints { make in
-      make.centerX.equalTo(view)
-      make.centerY.equalTo(view)
-      make.edges.equalTo(view)
-    }
+    settingsScrollView.frame = self.view.frame
+//    settingsScrollView.snp.makeConstraints { make in
+//      make.centerX.equalTo(view)
+//      make.centerY.equalTo(view)
+//      make.edges.equalTo(view)
+//    }
 
   }
   func setupDefaults() {

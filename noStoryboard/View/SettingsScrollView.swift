@@ -32,6 +32,8 @@ class SettingsScrollView: UIScrollView {
   override init(frame: CGRect) {
     super.init(frame: frame)
 
+    backgroundColor = Configuration.Color.backgroundColorDark
+
     usernameLabel = UILabel()
     usernameField = UITextField()
 
@@ -59,8 +61,6 @@ class SettingsScrollView: UIScrollView {
   }
 
   func setupViews() {
-    backgroundColor = Configuration.Color.backgroundColor
-
     self.addSubview(usernameLabel)
     self.addSubview(usernameField)
 
@@ -85,7 +85,7 @@ class SettingsScrollView: UIScrollView {
 
     usernameLabel.textColor = .white
     usernameLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(self.safeAreaLayoutGuide).offset(5)
+      make.top.equalTo(self.contentSize).offset(5)
       make.left.equalTo(self.safeAreaLayoutGuide).offset(5)
     }
 
@@ -206,7 +206,7 @@ class SettingsScrollView: UIScrollView {
 
     zipcodeField.textAlignment = .natural
     zipcodeField.snp.makeConstraints { make in
-      make.top.equalTo(zipcodeLabel.snp.bottom).offset(5)
+      make.top.equalTo(zipcodeLabel.snp.bottom).offset(700)
       make.left.equalTo(self.safeAreaLayoutGuide).offset(5)
     }
   }

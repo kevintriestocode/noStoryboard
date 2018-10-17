@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
     navigationController?.navigationBar.isHidden = false
 
     // Settings Label
-    settingsLabel.text = "Settings"
+    settingsLabel.attributedText = NSAttributedString(string: "SETTINGS", attributes: [NSAttributedStringKey.kern: 3])
     settingsLabel.textAlignment = .center
 
     settingsLabel.backgroundColor = .white
@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
     }
 
     // Table View Label
-    tableViewLabel.text = "Table View"
+    tableViewLabel.attributedText = NSAttributedString(string: "TABLE VIEW", attributes: [NSAttributedStringKey.kern: 3])
     tableViewLabel.textAlignment = .center
 
     tableViewLabel.backgroundColor = .white
@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
     }
 
     // Highlight Practice Label
-    highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
+    highlightPracticeLabel.attributedText = NSAttributedString(string: "CORE TEXT 2-1", attributes: [NSAttributedStringKey.kern: 3])
     highlightPracticeLabel.textAlignment = .center
 
     highlightPracticeLabel.backgroundColor = .white
@@ -101,7 +101,7 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - Weather Label
-    weatherLabel.text = "Weather"
+    weatherLabel.attributedText = NSAttributedString(string: "WEATHER", attributes: [NSAttributedStringKey.kern: 3])
     weatherLabel.textAlignment = .center
 
     weatherLabel.backgroundColor = .white
