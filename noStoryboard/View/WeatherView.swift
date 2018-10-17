@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class WeatherView: UIView {
+class WeatherView: UIScrollView {
   var cityNameLabel: UILabel!
   var descLabel: UILabel!
   
@@ -25,7 +25,8 @@ class WeatherView: UIView {
     lowsLabel = UILabel()
     lineView = LineView()
     timeLabel = UILabel()
-    
+
+    contentSize.height = 1000
     setupViews()
   }
 
@@ -54,7 +55,7 @@ class WeatherView: UIView {
     cityNameLabel.textAlignment = .center
     
     cityNameLabel.snp.makeConstraints { make in
-      make.top.equalTo(self.safeAreaLayoutGuide).offset(50)
+      make.top.equalTo(self.contentSize).offset(50)
       make.centerX.equalTo(self)
     }
     
@@ -142,6 +143,10 @@ class WeatherView: UIView {
     
     timeLabel.text = "Last updated: ..."
     timeLabel.textColor = .white
+
+    timeLabel.backgroundColor = Configuration.Color.backgroundColorLight
+    timeLabel.layer.cornerRadius = Configuration.Label.cornerRadius
+    timeLabel.layer.masksToBounds = true
     
     timeLabel.font = UIFont.systemFont(ofSize: 12)
     timeLabel.numberOfLines = 0
