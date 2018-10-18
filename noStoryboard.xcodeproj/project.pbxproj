@@ -64,6 +64,12 @@
 		0AD4A5C92171AA7400F8E543 /* LineViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A5C72171AA7400F8E543 /* LineViewTests.swift */; };
 		0AD4A5CD21721A4000F8E543 /* SettingsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A5CC21721A4000F8E543 /* SettingsScrollView.swift */; };
 		0AD4A5CE21721A4000F8E543 /* SettingsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A5CC21721A4000F8E543 /* SettingsScrollView.swift */; };
+		0AE6DB3C2178E7F300236D0D /* GoogleAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB3B2178E7F300236D0D /* GoogleAPICall.swift */; };
+		0AE6DB3D2178E7FE00236D0D /* GoogleAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB3B2178E7F300236D0D /* GoogleAPICall.swift */; };
+		0AE6DB3F2178E80800236D0D /* OpenWeatherAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */; };
+		0AE6DB412178E81E00236D0D /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB402178E81E00236D0D /* AnyAPI.swift */; };
+		0AE6DB422178EFB500236D0D /* OpenWeatherAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */; };
+		0AE6DB432178EFB800236D0D /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB402178E81E00236D0D /* AnyAPI.swift */; };
 		0AF091F221715BCC00EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F021715B4D00EA70C2 /* Info.plist */; };
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
 		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
@@ -280,6 +286,9 @@
 		0AD4A570216AC64400F8E543 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		0AD4A5C72171AA7400F8E543 /* LineViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineViewTests.swift; sourceTree = "<group>"; };
 		0AD4A5CC21721A4000F8E543 /* SettingsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScrollView.swift; sourceTree = "<group>"; };
+		0AE6DB3B2178E7F300236D0D /* GoogleAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPICall.swift; sourceTree = "<group>"; };
+		0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPICall.swift; sourceTree = "<group>"; };
+		0AE6DB402178E81E00236D0D /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
 		0AF091F021715B4D00EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F421715C1200EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
@@ -610,6 +619,9 @@
 			isa = PBXGroup;
 			children = (
 				0A6D8D07215EB507001FDF7B /* Base.swift */,
+				0AE6DB402178E81E00236D0D /* AnyAPI.swift */,
+				0AE6DB3B2178E7F300236D0D /* GoogleAPICall.swift */,
+				0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */,
 				0A6D8D4B216D2069001FDF7B /* GoogleMapsJSON */,
 				0A0889422154003A003BD94B /* Settings.swift */,
 				0A6D8CFD215EB4EA001FDF7B /* OpenWeatherJSON */,
@@ -972,8 +984,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE6DB3C2178E7F300236D0D /* GoogleAPICall.swift in Sources */,
 				0A6D8D08215EB507001FDF7B /* Base.swift in Sources */,
 				0A6D8D102162A257001FDF7B /* Clouds.swift in Sources */,
+				0AE6DB3F2178E80800236D0D /* OpenWeatherAPICall.swift in Sources */,
 				0A13DBF32150486A00929260 /* WeatherViewController.swift in Sources */,
 				0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */,
 				0A1A99D1210B6A4000901A39 /* MainViewController.swift in Sources */,
@@ -985,6 +999,7 @@
 				0AD4A5CD21721A4000F8E543 /* SettingsScrollView.swift in Sources */,
 				0A6D8D142162A520001FDF7B /* Weather.swift in Sources */,
 				0AD4A55B216A598600F8E543 /* LineView.swift in Sources */,
+				0AE6DB412178E81E00236D0D /* AnyAPI.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A6D8D4F216D2242001FDF7B /* Results.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
@@ -1015,6 +1030,7 @@
 				0AD4A5B62171A66700F8E543 /* HighlightPracticeViewController.swift in Sources */,
 				0AD4A5AE2171A65100F8E543 /* Main.swift in Sources */,
 				0AD4A5A42171A62A00F8E543 /* GoogleResponse.swift in Sources */,
+				0AE6DB432178EFB800236D0D /* AnyAPI.swift in Sources */,
 				0AD4A5A32171A61B00F8E543 /* AppDelegate.swift in Sources */,
 				0AD4A5AD2171A64E00F8E543 /* Coordinates.swift in Sources */,
 				0AD4A5A52171A62D00F8E543 /* Results.swift in Sources */,
@@ -1023,12 +1039,14 @@
 				0AD4A5B42171A66000F8E543 /* WeatherView.swift in Sources */,
 				0AD4A5AC2171A64B00F8E543 /* Clouds.swift in Sources */,
 				0A20A6CE217151F100F89006 /* TemperatureConverterTests.swift in Sources */,
+				0AE6DB422178EFB500236D0D /* OpenWeatherAPICall.swift in Sources */,
 				0AD4A5A12171A60500F8E543 /* Configuration.swift in Sources */,
 				0AD4A5B22171A65B00F8E543 /* HighlightPracticeView.swift in Sources */,
 				0AD4A5B32171A65D00F8E543 /* LineView.swift in Sources */,
 				0AD4A5C92171AA7400F8E543 /* LineViewTests.swift in Sources */,
 				0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */,
 				0AD4A5B52171A66400F8E543 /* TableViewController.swift in Sources */,
+				0AE6DB3D2178E7FE00236D0D /* GoogleAPICall.swift in Sources */,
 				0AD4A5B02171A65500F8E543 /* Weather.swift in Sources */,
 				0AD4A5A22171A60D00F8E543 /* MainViewController.swift in Sources */,
 				0AD4A5B72171A66900F8E543 /* SettingsViewController.swift in Sources */,
