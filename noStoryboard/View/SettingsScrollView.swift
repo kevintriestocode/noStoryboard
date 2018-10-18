@@ -206,7 +206,7 @@ class SettingsScrollView: UIScrollView {
 
     zipcodeField.textAlignment = .natural
     zipcodeField.snp.makeConstraints { make in
-      make.top.equalTo(zipcodeLabel.snp.bottom).offset(700)
+      make.top.equalTo(zipcodeLabel.snp.bottom).offset(5)
       make.left.equalTo(self.safeAreaLayoutGuide).offset(5)
     }
   }

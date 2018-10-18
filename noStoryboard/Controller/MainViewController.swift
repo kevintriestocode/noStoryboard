@@ -64,8 +64,7 @@ class MainViewController: UIViewController {
 
     // Settings Label
     settingsLabel.attributedText = NSAttributedString(string: "SETTINGS",
-                                                      attributes: [NSAttributedStringKey.kern: 3,
-                                                                   NSAttributedStringKey.shadow: shadow])
+                                                      attributes: [NSAttributedStringKey.kern: 3])
     settingsLabel.textAlignment = .center
 
     settingsLabel.backgroundColor = .white
@@ -81,8 +80,7 @@ class MainViewController: UIViewController {
 
     // Table View Label
     tableViewLabel.attributedText = NSAttributedString(string: "TABLE VIEW",
-                                                       attributes: [NSAttributedStringKey.kern: 3,
-                                                                    NSAttributedStringKey.shadow: shadow])
+                                                       attributes: [NSAttributedStringKey.kern: 3])
     tableViewLabel.textAlignment = .center
 
     tableViewLabel.backgroundColor = .white
@@ -98,8 +96,7 @@ class MainViewController: UIViewController {
 
     // Highlight Practice Label
     highlightPracticeLabel.attributedText = NSAttributedString(string: "CORE TEXT 2-1",
-                                                               attributes: [NSAttributedStringKey.kern: 3,
-                                                                            NSAttributedStringKey.shadow: shadow])
+                                                               attributes: [NSAttributedStringKey.kern: 3])
     highlightPracticeLabel.textAlignment = .center
 
     highlightPracticeLabel.backgroundColor = .white
@@ -115,8 +112,7 @@ class MainViewController: UIViewController {
 
     // MARK: - Weather Label
     weatherLabel.attributedText = NSAttributedString(string: "WEATHER",
-                                                     attributes: [NSAttributedStringKey.kern: 3,
-                                                                  NSAttributedStringKey.shadow: shadow])
+                                                     attributes: [NSAttributedStringKey.kern: 3])
     weatherLabel.textAlignment = .center
 
     weatherLabel.backgroundColor = .white
