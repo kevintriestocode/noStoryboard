@@ -21,6 +21,12 @@ public class AnyAPI {
   }
 
   public func URLString() -> String? {
-    return request(baseURL, method: .get, parameters: baseParameters, encoding: URLEncoding.queryString, headers: nil).request?.description ?? nil
+    return request(baseURL,
+                   //method: .get,
+                   parameters: baseParameters
+                   //encoding: URLEncoding.queryString,
+                   //headers: nil
+      )
+      .request?.description ?? nil
   }
 }

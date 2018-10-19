@@ -6,7 +6,6 @@
 //  Copyright © 2018 KevinWang. All rights reserved.
 //
 import Alamofire
-import ObjectMapper
 
 public class OpenWeatherAPICall: AnyAPI {
 
@@ -16,7 +15,7 @@ public class OpenWeatherAPICall: AnyAPI {
     baseURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?")
 
     baseParameters["lat"] = ""
-    baseParameters["lon"] = "" // Be careful lon vs lng
+    baseParameters["lon"] = "" // Be careful with lon(OpenWeatherMap) vs lng(Google)
     baseParameters["appid"] = settings?.weatherAPIKey
   }
 }

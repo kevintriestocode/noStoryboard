@@ -6,7 +6,6 @@
 //  Copyright © 2018 KevinWang. All rights reserved.
 //
 import Alamofire
-import ObjectMapper
 
 public class GoogleAPICall: AnyAPI {
 
