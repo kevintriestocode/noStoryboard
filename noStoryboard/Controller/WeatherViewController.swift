@@ -5,22 +5,32 @@ import ObjectMapper
 import MapKit
 
 class WeatherViewController: UIViewController, MKMapViewDelegate {
+  var settings: Settings!
   var weatherView: WeatherView!
   var map: MKMapView!
 
   var zipcodePoint: MKPointAnnotation?
 
+  // From OpenWeatherMap API
   var currentTempK: Double!
   var maximumTempK: Double!
   var minimumTempK: Double!
 
+  // From Google API
   var lat: Double?
   var lng: Double?
+  var cityName: String?
+  var stateName: String?
 
   var googleAPICall: GoogleAPICall!
 
   override func viewDidLoad() {
+    settings = Settings.sharedSettings
+    settings.loadSettings()
+
     weatherView = WeatherView()
+    weatherView.toggleCF.selectedSegmentIndex = settings.toggleCF ?? 0
+    weatherView.toggleCF.addTarget(self, action: #selector(toggleCF), for: .valueChanged)
 
     map = MKMapView(frame: .zero)
     map.delegate = self
@@ -36,7 +46,6 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(pushSettings))
 
     title = "Weather"
-
     setupViews()
   }
 
@@ -95,7 +104,11 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
           }
 
           if let cityName = responseObject.results?[0].addressComponents?[1].shortName {
-            self.weatherView.cityNameLabel.text = cityName
+            self.cityName = cityName
+          }
+
+          if let stateName = responseObject.results?[0].addressComponents?[4].shortName {
+            self.stateName = stateName
           }
 
           if let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!) as? CLLocationCoordinate2D {
@@ -135,10 +148,9 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             print(desc)
           }
 
-          // currentTempK -> temperatureLabel
+          // currentTempF -> temperatureLabel
           if let temperature = responseObject.main?.temperature! {
             self.currentTempK = temperature
-            self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToFarenheit() + "ºF"
           }
 
           // Time Label
@@ -149,16 +161,42 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
           // maximumTempK -> highsLabel
           if let maximumTemperature = responseObject.main?.maximumTemperature {
             self.maximumTempK = maximumTemperature
-            self.weatherView.highsLabel.text = self.maximumTempK.kelvinToFarenheit()
           }
 
           // minimumTempK - lowsLabel
           if let minimumTemperature = responseObject.main?.minimumTemperature {
             self.minimumTempK = minimumTemperature
-            self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToFarenheit()
           }
+
+          self.updateWeatherView()
         }
       }
+    }
+  }
+
+  func updateWeatherView() {
+    self.weatherView.cityNameLabel.text = "\(self.cityName ?? "" ), \(self.stateName ?? "")"
+    toggleCF()
+  }
+
+  @objc func toggleCF() {
+    switch weatherView.toggleCF.selectedSegmentIndex {
+    case 0:
+      self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToCelsius().asString() + "ºC"
+      self.weatherView.highsLabel.text = self.maximumTempK.kelvinToCelsius().asString()
+      self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToCelsius().asString()
+      settings.toggleCF = 0
+      UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
+      
+    case 1:
+      self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToFarenheit().asString() + "ºF"
+      self.weatherView.highsLabel.text = self.maximumTempK.kelvinToFarenheit().asString()
+      self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToFarenheit().asString()
+      settings.toggleCF = 1
+      UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
+      
+    default:
+      return
     }
   }
 }

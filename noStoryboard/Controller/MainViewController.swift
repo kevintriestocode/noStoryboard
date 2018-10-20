@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
 
-    settings = Settings()
+    settings = Settings.sharedSettings
     settings.loadSettings()
 
     shadow = NSShadow()

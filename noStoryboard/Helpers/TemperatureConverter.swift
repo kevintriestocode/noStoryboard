@@ -2,33 +2,38 @@ import Foundation
 
 extension Double {
 
-  func kelvinToFarenheit() -> String {
+  func kelvinToFarenheit() -> Double {
     let temperature = 9 / 5 * (self - 273.15) + 32
-    return String(format: "%.1f", temperature)
+    return temperature
+//    return String(format: "%.1f", temperature)
   }
 
-  func kelvinToCelsius() -> String {
+  func kelvinToCelsius() -> Double {
     let temperature = self - 273.15
-    return String(format: "%.1f", temperature)
+    return temperature
   }
   
-  func farenheitToCelsius() -> String {
+  func farenheitToCelsius() -> Double {
     let temperature = (self - 32) * 5 / 9
-    return String(format: "%.1f", temperature)
+    return temperature
   }
 
-  func farenheitToKelvin() -> String {
+  func farenheitToKelvin() -> Double {
     let temperature = (self - 32) * 5 / 9 - 273.15
-    return String(format: "%.1f", temperature)
+    return temperature
   }
 
-  func celsiusToFarenheit() -> String {
+  func celsiusToFarenheit() -> Double {
     let temperature = self * 9 / 5 + 32
-    return String(format: "%.1f", temperature)
+    return temperature
   }
 
-  func celsiusToKelvin() -> String {
+  func celsiusToKelvin() -> Double {
     let temperature = self + 273.15
-    return String(format: "%.1f", temperature)
+    return temperature
+  }
+
+  func asString() -> String {
+    return String(format: "%.1f", self)
   }
 }

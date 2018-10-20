@@ -20,7 +20,7 @@ public class SettingsViewController: UIViewController {
     settingsScrollView.frame = view.safeAreaLayoutGuide.layoutFrame
     settingsScrollView.contentSize.height = view.frame.height + 200
     
-    settings = Settings()
+    settings = Settings.sharedSettings
     settings.loadSettings()
 
     if settings.username == nil || settings.username == "" {

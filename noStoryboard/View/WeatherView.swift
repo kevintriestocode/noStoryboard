@@ -14,7 +14,7 @@ class WeatherView: UIScrollView {
   var lineView: LineView!
   var timeLabel: UILabel!
 
-  var temperatureControl: UISegmentedControl!
+  var toggleCF: UISegmentedControl!
   
   convenience init() {
     self.init(frame: .zero)
@@ -27,7 +27,7 @@ class WeatherView: UIScrollView {
     lowsLabel = UILabel()
     lineView = LineView()
     timeLabel = UILabel()
-    temperatureControl = UISegmentedControl()
+    toggleCF = UISegmentedControl(items: ["C", "F"])
 
     contentSize.height = 1000
     setupViews()
@@ -48,7 +48,7 @@ class WeatherView: UIScrollView {
     self.addSubview(lineView)
     self.addSubview(timeLabel)
 
-    self.addSubview(temperatureControl)
+    self.addSubview(toggleCF)
 
     cityNameLabel.text = "City, State"
     cityNameLabel.textColor = .white
@@ -148,9 +148,9 @@ class WeatherView: UIScrollView {
     timeLabel.text = "Last updated: ..."
     timeLabel.textColor = .white
 
-    timeLabel.backgroundColor = Configuration.Color.backgroundColorLight
-    timeLabel.layer.cornerRadius = Configuration.Label.cornerRadius
-    timeLabel.layer.masksToBounds = true
+//    timeLabel.backgroundColor = Configuration.Color.backgroundColorLight
+//    timeLabel.layer.cornerRadius = Configuration.Label.cornerRadius
+//    timeLabel.layer.masksToBounds = true
 
     timeLabel.font = UIFont.systemFont(ofSize: 12)
     timeLabel.numberOfLines = 0
@@ -164,10 +164,10 @@ class WeatherView: UIScrollView {
       make.centerX.equalTo(self)
     }
 
-    temperatureControl.tintColor = .white
-    temperatureControl.insertSegment(withTitle: "C", at: 0, animated: true)
-    temperatureControl.insertSegment(withTitle: "F", at: 1, animated: true)
-    temperatureControl.snp.makeConstraints { make in
+    toggleCF.tintColor = .white
+//    temperatureControl.insertSegment(withTitle: "C", at: 0, animated: true)
+//    temperatureControl.insertSegment(withTitle: "F", at: 1, animated: true)
+    toggleCF.snp.makeConstraints { make in
       make.top.equalTo(self.contentSize).offset(10)
       make.right.equalTo(self.safeAreaLayoutGuide).offset(-10)
     }

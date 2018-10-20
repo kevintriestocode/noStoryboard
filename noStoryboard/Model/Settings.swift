@@ -9,6 +9,7 @@ class Settings: NSObject, NSCoding {
   var weatherAPIKey: String?
   var googleAPIKey: String?
   var zipCode: String?
+  var toggleCF: Int?
 
   override init() {
     super.init()
@@ -19,6 +20,7 @@ class Settings: NSObject, NSCoding {
     weatherAPIKey = aDecoder.decodeObject(forKey: "weatherAPIKey") as? String
     googleAPIKey = aDecoder.decodeObject(forKey: "googleAPIKey") as? String
     zipCode = aDecoder.decodeObject(forKey: "zipCode") as? String
+    toggleCF = aDecoder.decodeObject(forKey: "toggleCF") as? Int
   }
 
   func encode(with aCoder: NSCoder) {
@@ -26,6 +28,7 @@ class Settings: NSObject, NSCoding {
     aCoder.encode(weatherAPIKey, forKey: "weatherAPIKey")
     aCoder.encode(googleAPIKey, forKey: "googleAPIKey")
     aCoder.encode(zipCode, forKey: "zipCode")
+    aCoder.encode(toggleCF, forKey: "toggleCF")
   }
 
   func settingsKey() -> String {
@@ -37,6 +40,7 @@ class Settings: NSObject, NSCoding {
     UserDefaults.standard.set(weatherAPIKey, forKey: "weatherAPIKey")
     UserDefaults.standard.set(googleAPIKey, forKey: "googleAPIKey")
     UserDefaults.standard.set(zipCode, forKey: "zipCode")
+    UserDefaults.standard.set(toggleCF, forKey: "toggleCF")
   }
 
   func loadSettings() {
@@ -44,6 +48,7 @@ class Settings: NSObject, NSCoding {
     weatherAPIKey = UserDefaults.standard.string(forKey: "weatherAPIKey")
     googleAPIKey = UserDefaults.standard.string(forKey: "googleAPIKey")
     zipCode = UserDefaults.standard.string(forKey: "zipCode")
+    toggleCF = UserDefaults.standard.integer(forKey: "toggleCF")
   }
 
 //  func loadSettings() {

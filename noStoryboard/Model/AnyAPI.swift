@@ -16,7 +16,7 @@ public class AnyAPI {
   public init() {
     self.baseParameters = Parameters()
 
-    self.settings = Settings()
+    self.settings = Settings.sharedSettings
     self.settings.loadSettings()
   }
 
