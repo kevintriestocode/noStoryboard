@@ -10,6 +10,10 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
 
   var zipcodePoint: MKPointAnnotation?
 
+  var currentTempK: Double!
+  var maximumTempK: Double!
+  var minimumTempK: Double!
+
   var lat: Double?
   var lng: Double?
 
@@ -83,11 +87,13 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             self.lat = lat
 //            openWeatherAPICall.baseParameters["lat"] = lat
           }
+
           if let lng = responseObject.results?[0].geometry?.location?.lng {
             print("Lng will = \(lng)")
             self.lng = lng
 //            openWeatherAPICall.baseParameters["lon"] = lng
           }
+
           if let cityName = responseObject.results?[0].addressComponents?[1].shortName {
             self.weatherView.cityNameLabel.text = cityName
           }
@@ -95,7 +101,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
           if let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!) as? CLLocationCoordinate2D {
             self.zipcodePoint?.coordinate = center
             self.zipcodePoint?.title = self.googleAPICall.settings.zipCode
-            
+
             self.map.addAnnotation(self.zipcodePoint!)
             if let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) as? MKCoordinateSpan {
               self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
@@ -122,26 +128,34 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             self.weatherView.descLabel.text = "Invalid Request"
             return
           }
-          // desc Label
+
+          // descLabel
           if let desc = responseObject.weather?[0].main { // Note: "desc" not "description". Also some weird ()'s in JSON...
             self.weatherView.descLabel.text = desc
             print(desc)
           }
-          // Temperature Label
+
+          // currentTempK -> temperatureLabel
           if let temperature = responseObject.main?.temperature! {
-            self.weatherView.temperatureLabel.text = temperature.kelvinToFarenheit() + " ºF"
+            self.currentTempK = temperature
+            self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToFarenheit() + "ºF"
           }
+
           // Time Label
           if let time = responseObject.dt {
             self.weatherView.timeLabel.text = "Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))"
           }
-          // Highs
-          if let maximumTemperature = responseObject.main?.maximumTemperature?.kelvinToFarenheit() {
-            self.weatherView.highsLabel.text = maximumTemperature
+
+          // maximumTempK -> highsLabel
+          if let maximumTemperature = responseObject.main?.maximumTemperature {
+            self.maximumTempK = maximumTemperature
+            self.weatherView.highsLabel.text = self.maximumTempK.kelvinToFarenheit()
           }
-          // Lows
-          if let minimumTemperature = responseObject.main?.minimumTemperature?.kelvinToFarenheit() {
-            self.weatherView.lowsLabel.text = minimumTemperature
+
+          // minimumTempK - lowsLabel
+          if let minimumTemperature = responseObject.main?.minimumTemperature {
+            self.minimumTempK = minimumTemperature
+            self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToFarenheit()
           }
         }
       }
