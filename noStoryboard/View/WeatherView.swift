@@ -165,8 +165,6 @@ class WeatherView: UIScrollView {
     }
 
     toggleCF.tintColor = .white
-//    temperatureControl.insertSegment(withTitle: "C", at: 0, animated: true)
-//    temperatureControl.insertSegment(withTitle: "F", at: 1, animated: true)
     toggleCF.snp.makeConstraints { make in
       make.top.equalTo(self.contentSize).offset(10)
       make.right.equalTo(self.safeAreaLayoutGuide).offset(-10)
