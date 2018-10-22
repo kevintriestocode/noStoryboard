@@ -57,18 +57,18 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   func setupViews() {
     view.addSubview(weatherView)
     
-    weatherView.addSubview(map)
+//    weatherView.addSubview(map)
     weatherView.snp.makeConstraints { make in
       make.edges.equalTo(view)
     }
-
-    map.layer.cornerRadius = Configuration.Label.cornerRadius
-    map.snp.makeConstraints { make in
-      make.left.right.equalTo(view).inset(5)
-      make.top.equalTo(weatherView.lineView.snp.bottom).offset(5)
-      make.centerX.equalTo(view)
-      make.height.equalTo(view.snp.width)
-    }
+//
+//    map.layer.cornerRadius = Configuration.Label.cornerRadius
+//    map.snp.makeConstraints { make in
+//      make.left.right.equalTo(view).inset(5)
+//      make.top.equalTo(weatherView.lineView.snp.bottom).offset(5)
+//      make.centerX.equalTo(view)
+//      make.height.equalTo(view.snp.width)
+//    }
   }
 
   @objc func pushSettings() {

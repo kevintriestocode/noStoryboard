@@ -12,8 +12,10 @@ class WeatherView: UIScrollView {
   var lowsLabel:UILabel!
   
   var lineView: LineView!
-  var timeLabel: UILabel!
+  var hourlyWeather: UIScrollView!
+  var placeholder: UILabel!
 
+  var timeLabel: UILabel!
   var toggleCF: UISegmentedControl!
   
   convenience init() {
@@ -26,10 +28,13 @@ class WeatherView: UIScrollView {
     highsLabel = UILabel()
     lowsLabel = UILabel()
     lineView = LineView()
+    hourlyWeather = UIScrollView()
+    placeholder = UILabel()
     timeLabel = UILabel()
     toggleCF = UISegmentedControl(items: ["C", "F"])
 
     contentSize.height = 1000
+    contentSize.width = self.frame.width
     setupViews()
   }
 
@@ -46,8 +51,10 @@ class WeatherView: UIScrollView {
     self.addSubview(lowsLabel)
     
     self.addSubview(lineView)
-    self.addSubview(timeLabel)
+    self.addSubview(hourlyWeather)
+    hourlyWeather.addSubview(placeholder)
 
+    self.addSubview(timeLabel)
     self.addSubview(toggleCF)
 
     cityNameLabel.text = "City, State"
@@ -143,6 +150,23 @@ class WeatherView: UIScrollView {
       make.top.equalTo(dayLabel.snp.bottom).offset(5)
       make.width.equalTo(self.safeAreaLayoutGuide).inset(5)
       make.centerX.equalTo(self)
+    }
+
+    hourlyWeather.showsHorizontalScrollIndicator = true
+    hourlyWeather.alwaysBounceHorizontal = true
+    hourlyWeather.isScrollEnabled = true
+    hourlyWeather.backgroundColor = .white
+    hourlyWeather.contentSize.width = 2000
+    hourlyWeather.snp.makeConstraints { make in
+      make.top.equalTo(self.lineView.snp.bottom).offset(5)
+      make.height.equalTo(50)
+      make.left.right.equalTo(self.frameLayoutGuide)
+    }
+    placeholder.text = "Test"
+    placeholder.backgroundColor = .gray
+    placeholder.snp.makeConstraints { make in
+      make.top.equalTo(hourlyWeather.contentSize)
+      make.width.equalTo(1000)
     }
 
     timeLabel.text = "Last updated: ..."
