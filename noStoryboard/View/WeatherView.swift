@@ -160,7 +160,7 @@ class WeatherView: UIScrollView {
     hourlyWeather.snp.makeConstraints { make in
       make.top.equalTo(self.lineView.snp.bottom).offset(5)
       make.height.equalTo(50)
-      make.left.right.equalTo(self.frameLayoutGuide)
+      make.left.right.equalTo(self.frameLayoutGuide).inset(5)
     }
     placeholder.text = "Test"
     placeholder.backgroundColor = .gray
