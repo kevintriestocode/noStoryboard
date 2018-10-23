@@ -18,4 +18,14 @@ public class OpenWeatherAPICall: AnyAPI {
     baseParameters["lon"] = "" // Be careful with lon(OpenWeatherMap) vs lng(Google)
     baseParameters["appid"] = settings.weatherAPIKey
   }
+
+  func forecast() -> OpenWeatherAPICall {
+    self.baseURL = URL(string: "https://api.openweathermap.org/data/2.5/forecast?")
+    return self
+  }
+
+  func current() -> OpenWeatherAPICall {
+    self.baseURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?")
+    return self
+  }
 }

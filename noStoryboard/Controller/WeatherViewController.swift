@@ -124,7 +124,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
           openWeatherAPICall.baseParameters["lat"] = self.lat
           openWeatherAPICall.baseParameters["lon"] = self.lng
 
-          self.getWeatherFrom(URL: openWeatherAPICall.URLString()!)
+          self.getWeatherFrom(URL: openWeatherAPICall.current().URLString()!)
         }
       }
     }
@@ -171,6 +171,12 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
           self.updateWeatherView()
         }
       }
+    }
+  }
+
+  func getForecastFrom(URL: String) {
+    Alamofire.request(URL).responseString { response in
+      print(response.result.value!)
     }
   }
 
