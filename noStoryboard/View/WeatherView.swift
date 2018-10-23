@@ -4,20 +4,19 @@ import SnapKit
 class WeatherView: UIScrollView {
   var cityNameLabel: UILabel!
   var descLabel: UILabel!
-  
+
   var temperatureLabel: UILabel!
   var dayLabel: UILabel!
-  
+
   var highsLabel: UILabel!
   var lowsLabel:UILabel!
-  
+
   var lineView: LineView!
-  var hourlyWeather: UIScrollView!
-  var placeholder: UILabel!
+  var hourlyWeather: HourlyWeatherScrollView!
 
   var timeLabel: UILabel!
   var toggleCF: UISegmentedControl!
-  
+
   convenience init() {
     self.init(frame: .zero)
 
@@ -28,8 +27,7 @@ class WeatherView: UIScrollView {
     highsLabel = UILabel()
     lowsLabel = UILabel()
     lineView = LineView()
-    hourlyWeather = UIScrollView()
-    placeholder = UILabel()
+    hourlyWeather = HourlyWeatherScrollView()
     timeLabel = UILabel()
     toggleCF = UISegmentedControl(items: ["C", "F"])
 
@@ -40,19 +38,18 @@ class WeatherView: UIScrollView {
 
   func setupViews() {
     self.backgroundColor = Configuration.Color.backgroundColor
-    
+
     self.addSubview(cityNameLabel)
     self.addSubview(descLabel)
-    
+
     self.addSubview(temperatureLabel)
     self.addSubview(dayLabel)
-    
+
     self.addSubview(highsLabel)
     self.addSubview(lowsLabel)
-    
+
     self.addSubview(lineView)
     self.addSubview(hourlyWeather)
-    hourlyWeather.addSubview(placeholder)
 
     self.addSubview(timeLabel)
     self.addSubview(toggleCF)
@@ -67,7 +64,7 @@ class WeatherView: UIScrollView {
     cityNameLabel.textAlignment = .center
 
     cityNameLabel.snp.makeConstraints { make in
-      make.top.equalTo(self.contentSize).offset(50)
+      make.top.equalTo(self.contentSize).offset(30)
       make.centerX.equalTo(self)
     }
 
@@ -162,11 +159,12 @@ class WeatherView: UIScrollView {
       make.height.equalTo(50)
       make.left.right.equalTo(self.frameLayoutGuide).inset(5)
     }
-    placeholder.text = "Test"
-    placeholder.backgroundColor = .gray
-    placeholder.snp.makeConstraints { make in
+
+    hourlyStack.backgroundColor = .gray
+    hourlyStack.snp.makeConstraints { make in
       make.top.equalTo(hourlyWeather.contentSize)
       make.width.equalTo(1000)
+      make.left.equalTo(hourlyWeather.contentSize)
     }
 
     timeLabel.text = "Last updated: ..."

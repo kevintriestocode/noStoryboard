@@ -17,8 +17,6 @@ class MainViewController: UIViewController {
   var weatherLabel: UILabel!
   var settings: Settings!
 
-  var shadow: NSShadow!
-
   override func viewDidLoad() {
     super.viewDidLoad()
     print("MainViewController did load")
@@ -30,11 +28,6 @@ class MainViewController: UIViewController {
 
     settings = Settings.sharedSettings
     settings.loadSettings()
-
-    shadow = NSShadow()
-    shadow.shadowOffset = CGSize(width: 3, height: 3)
-    shadow.shadowBlurRadius = CGFloat(3)
-    shadow.shadowColor = Configuration.Color.backgroundColor
 
     #if DEBUG
     title = "Debug"
@@ -152,14 +145,14 @@ class MainViewController: UIViewController {
     weatherLabel.isUserInteractionEnabled = true
     weatherLabel.addGestureRecognizer(morePracticeLabelGesture)
   }
-  
+
   public override func viewWillAppear(_ animated: Bool) {
-    
+
   }
   public override func viewWillDisappear(_ animated: Bool) {
     
   }
-  
+
   // MARK: - Push VCs in reponse to tap gesture
   @objc func settingsLabelTapped() {
     let settingsVC = SettingsViewController()
@@ -167,21 +160,21 @@ class MainViewController: UIViewController {
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
+
   @objc func tableViewLabelTapped() {
     let addOnListVC = TableViewController()
     self.navigationController?.pushViewController(addOnListVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
+
   @objc func highlightPracticeLabelTapped() {
     let highlightPracticeVC = HighlightPractiveViewController()
     self.navigationController?.pushViewController(highlightPracticeVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
+
   @objc func weatherLabelTapped() {
     let weatherVC = WeatherViewController()
     self.navigationController?.pushViewController(weatherVC, animated: true)

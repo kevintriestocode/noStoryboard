@@ -70,6 +70,8 @@
 		0AE6DB412178E81E00236D0D /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB402178E81E00236D0D /* AnyAPI.swift */; };
 		0AE6DB422178EFB500236D0D /* OpenWeatherAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */; };
 		0AE6DB432178EFB800236D0D /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB402178E81E00236D0D /* AnyAPI.swift */; };
+		0AE6DB49217F518E00236D0D /* HourlyWeatherScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */; };
+		0AE6DB51217F51C400236D0D /* HourlyWeatherScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */; };
 		0AF091F221715BCC00EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F021715B4D00EA70C2 /* Info.plist */; };
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
 		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
@@ -289,6 +291,7 @@
 		0AE6DB3B2178E7F300236D0D /* GoogleAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPICall.swift; sourceTree = "<group>"; };
 		0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPICall.swift; sourceTree = "<group>"; };
 		0AE6DB402178E81E00236D0D /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
+		0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherScrollView.swift; sourceTree = "<group>"; };
 		0AF091F021715B4D00EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F421715C1200EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
@@ -609,8 +612,9 @@
 			children = (
 				0A13DBF9215048F200929260 /* HighlightPracticeView.swift */,
 				0AD4A55A216A598600F8E543 /* LineView.swift */,
-				0AD4A570216AC64400F8E543 /* WeatherView.swift */,
 				0AD4A5CC21721A4000F8E543 /* SettingsScrollView.swift */,
+				0AD4A570216AC64400F8E543 /* WeatherView.swift */,
+				0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -985,6 +989,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE6DB3C2178E7F300236D0D /* GoogleAPICall.swift in Sources */,
+				0AE6DB49217F518E00236D0D /* HourlyWeatherScrollView.swift in Sources */,
 				0A6D8D08215EB507001FDF7B /* Base.swift in Sources */,
 				0A6D8D102162A257001FDF7B /* Clouds.swift in Sources */,
 				0AE6DB3F2178E80800236D0D /* OpenWeatherAPICall.swift in Sources */,
@@ -1036,6 +1041,7 @@
 				0AD4A5A52171A62D00F8E543 /* Results.swift in Sources */,
 				0AF091F92171604200EA70C2 /* TemperatureConverter.swift in Sources */,
 				0AD4A5B12171A65800F8E543 /* Wind.swift in Sources */,
+				0AE6DB51217F51C400236D0D /* HourlyWeatherScrollView.swift in Sources */,
 				0AD4A5B42171A66000F8E543 /* WeatherView.swift in Sources */,
 				0AD4A5AC2171A64B00F8E543 /* Clouds.swift in Sources */,
 				0A20A6CE217151F100F89006 /* TemperatureConverterTests.swift in Sources */,

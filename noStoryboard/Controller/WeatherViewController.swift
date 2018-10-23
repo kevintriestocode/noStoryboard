@@ -37,7 +37,6 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
 
     map.isZoomEnabled = true
     map.isRotateEnabled = false
-
     map.showsUserLocation = true
 
     zipcodePoint = MKPointAnnotation()
@@ -67,7 +66,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       make.left.right.equalTo(view).inset(5)
       make.top.equalTo(weatherView.hourlyWeather.snp.bottom).offset(5)
       make.centerX.equalTo(view)
-      make.height.equalTo(view.snp.width)
+      make.height.equalTo(self.map.snp.width)
     }
   }
 

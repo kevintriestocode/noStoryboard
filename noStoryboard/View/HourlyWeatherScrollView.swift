@@ -1,23 +1,19 @@
+//
+//  HourlyWeatherScrollView.swift
+//  noStoryboard
+//
+//  Created by Kevin Wang on 10/23/18.
+//  Copyright © 2018 KevinWang. All rights reserved.
+//
+
 import UIKit
-import SnapKit
-
-class TemperatureTimeBlock: UIView {
-  var temperatureLabel: UILabel!
-  var timeLabel: UILabel!
-
-  convenience override init(frame: CGRect) {
-    self.init()
-
-    temperatureLabel = UILabel()
-    timeLabel = UILabel()
-  }
-}
 
 class HourlyWeatherScrollView: UIScrollView {
-  var currentTime: Double? // Seconds since UNIX Epoch
-  var hour: Double = 3600
-
-  convenience override init(frame: CGRect) {
+  var nowLabel
+  
+  convenience init() {
     self.init(frame: .zero)
+
+    
   }
 }
