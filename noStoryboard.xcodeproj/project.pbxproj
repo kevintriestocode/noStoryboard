@@ -72,6 +72,7 @@
 		0AE6DB432178EFB800236D0D /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB402178E81E00236D0D /* AnyAPI.swift */; };
 		0AE6DB49217F518E00236D0D /* HourlyWeatherScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */; };
 		0AE6DB51217F51C400236D0D /* HourlyWeatherScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */; };
+		0AE6DB52217F629400236D0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99DD210B6A4B00901A39 /* Info.plist */; };
 		0AF091F221715BCC00EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F021715B4D00EA70C2 /* Info.plist */; };
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
 		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
@@ -878,6 +879,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE6DB52217F629400236D0D /* Info.plist in Resources */,
 				0A20A6D02171520600F89006 /* Config.xcconfig in Resources */,
 				0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */,
 				0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */,

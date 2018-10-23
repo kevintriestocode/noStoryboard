@@ -160,13 +160,6 @@ class WeatherView: UIScrollView {
       make.left.right.equalTo(self.frameLayoutGuide).inset(5)
     }
 
-    hourlyStack.backgroundColor = .gray
-    hourlyStack.snp.makeConstraints { make in
-      make.top.equalTo(hourlyWeather.contentSize)
-      make.width.equalTo(1000)
-      make.left.equalTo(hourlyWeather.contentSize)
-    }
-
     timeLabel.text = "Last updated: ..."
     timeLabel.textColor = .white
 

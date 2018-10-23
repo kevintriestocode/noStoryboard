@@ -123,6 +123,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
           let openWeatherAPICall = OpenWeatherAPICall()
           openWeatherAPICall.baseParameters["lat"] = self.lat
           openWeatherAPICall.baseParameters["lon"] = self.lng
+
           self.getWeatherFrom(URL: openWeatherAPICall.URLString()!)
         }
       }

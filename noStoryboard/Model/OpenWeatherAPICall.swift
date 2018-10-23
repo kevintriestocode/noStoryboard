@@ -16,6 +16,6 @@ public class OpenWeatherAPICall: AnyAPI {
 
     baseParameters["lat"] = ""
     baseParameters["lon"] = "" // Be careful with lon(OpenWeatherMap) vs lng(Google)
-    baseParameters["appid"] = settings?.weatherAPIKey
+    baseParameters["appid"] = settings.weatherAPIKey
   }
 }

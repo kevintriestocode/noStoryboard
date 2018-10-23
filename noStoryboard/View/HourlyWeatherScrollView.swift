@@ -9,11 +9,7 @@
 import UIKit
 
 class HourlyWeatherScrollView: UIScrollView {
-  var nowLabel
-  
   convenience init() {
     self.init(frame: .zero)
-
-    
   }
 }
