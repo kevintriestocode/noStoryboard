@@ -73,6 +73,7 @@
 		0AE6DB49217F518E00236D0D /* HourlyWeatherScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */; };
 		0AE6DB51217F51C400236D0D /* HourlyWeatherScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */; };
 		0AE6DB52217F629400236D0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A99DD210B6A4B00901A39 /* Info.plist */; };
+		0AE6DB552180F3DC00236D0D /* HourlyWeatherBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB542180F3DC00236D0D /* HourlyWeatherBlockView.swift */; };
 		0AF091F221715BCC00EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F021715B4D00EA70C2 /* Info.plist */; };
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
 		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
@@ -293,6 +294,7 @@
 		0AE6DB3E2178E80800236D0D /* OpenWeatherAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPICall.swift; sourceTree = "<group>"; };
 		0AE6DB402178E81E00236D0D /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
 		0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherScrollView.swift; sourceTree = "<group>"; };
+		0AE6DB542180F3DC00236D0D /* HourlyWeatherBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherBlockView.swift; sourceTree = "<group>"; };
 		0AF091F021715B4D00EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F421715C1200EA70C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 				0AD4A5CC21721A4000F8E543 /* SettingsScrollView.swift */,
 				0AD4A570216AC64400F8E543 /* WeatherView.swift */,
 				0AE6DB48217F518E00236D0D /* HourlyWeatherScrollView.swift */,
+				0AE6DB542180F3DC00236D0D /* HourlyWeatherBlockView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1006,6 +1009,7 @@
 				0AD4A5CD21721A4000F8E543 /* SettingsScrollView.swift in Sources */,
 				0A6D8D142162A520001FDF7B /* Weather.swift in Sources */,
 				0AD4A55B216A598600F8E543 /* LineView.swift in Sources */,
+				0AE6DB552180F3DC00236D0D /* HourlyWeatherBlockView.swift in Sources */,
 				0AE6DB412178E81E00236D0D /* AnyAPI.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A6D8D4F216D2242001FDF7B /* Results.swift in Sources */,
