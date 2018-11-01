@@ -19,17 +19,14 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let foo = UIButton()
-    foo.imageView?.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
-    foo.frame = CGRect(origin: .zero, size: CGSize(width: 40, height: 40))
-    
     print("MainViewController did load")
+
     settingsLabel = UILabel()
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
-    settings = Settings()
-    
+
+    settings = Settings.sharedSettings
     settings.loadSettings()
 
     #if DEBUG
@@ -59,7 +56,8 @@ class MainViewController: UIViewController {
     navigationController?.navigationBar.isHidden = false
 
     // Settings Label
-    settingsLabel.text = "Settings"
+    settingsLabel.attributedText = NSAttributedString(string: "SETTINGS",
+                                                      attributes: [NSAttributedStringKey.kern: 3])
     settingsLabel.textAlignment = .center
 
     settingsLabel.backgroundColor = .white
@@ -74,7 +72,8 @@ class MainViewController: UIViewController {
     }
 
     // Table View Label
-    tableViewLabel.text = "Add On List"
+    tableViewLabel.attributedText = NSAttributedString(string: "TABLE VIEW",
+                                                       attributes: [NSAttributedStringKey.kern: 3])
     tableViewLabel.textAlignment = .center
 
     tableViewLabel.backgroundColor = .white
@@ -89,7 +88,8 @@ class MainViewController: UIViewController {
     }
 
     // Highlight Practice Label
-    highlightPracticeLabel.text = "Core Text Programming Guide 2-1"
+    highlightPracticeLabel.attributedText = NSAttributedString(string: "CORE TEXT 2-1",
+                                                               attributes: [NSAttributedStringKey.kern: 3])
     highlightPracticeLabel.textAlignment = .center
 
     highlightPracticeLabel.backgroundColor = .white
@@ -104,7 +104,8 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - Weather Label
-    weatherLabel.text = "Weather"
+    weatherLabel.attributedText = NSAttributedString(string: "WEATHER",
+                                                     attributes: [NSAttributedStringKey.kern: 3])
     weatherLabel.textAlignment = .center
 
     weatherLabel.backgroundColor = .white
@@ -144,14 +145,14 @@ class MainViewController: UIViewController {
     weatherLabel.isUserInteractionEnabled = true
     weatherLabel.addGestureRecognizer(morePracticeLabelGesture)
   }
-  
+
   public override func viewWillAppear(_ animated: Bool) {
-    
+
   }
   public override func viewWillDisappear(_ animated: Bool) {
     
   }
-  
+
   // MARK: - Push VCs in reponse to tap gesture
   @objc func settingsLabelTapped() {
     let settingsVC = SettingsViewController()
@@ -159,21 +160,21 @@ class MainViewController: UIViewController {
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
+
   @objc func tableViewLabelTapped() {
     let addOnListVC = TableViewController()
     self.navigationController?.pushViewController(addOnListVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .black
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
+
   @objc func highlightPracticeLabelTapped() {
     let highlightPracticeVC = HighlightPractiveViewController()
     self.navigationController?.pushViewController(highlightPracticeVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
     self.navigationController?.navigationBar.tintColor = .white
   }
-  
+
   @objc func weatherLabelTapped() {
     let weatherVC = WeatherViewController()
     self.navigationController?.pushViewController(weatherVC, animated: true)

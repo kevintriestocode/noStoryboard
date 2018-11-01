@@ -5,32 +5,38 @@ import ObjectMapper
 import MapKit
 
 class WeatherViewController: UIViewController, MKMapViewDelegate {
+  var settings: Settings!
   var weatherView: WeatherView!
   var map: MKMapView!
 
   var zipcodePoint: MKPointAnnotation?
 
-  var settings: Settings!
-  var zipcode: String!
+  // From OpenWeatherMap API
+  var currentTempK: Double!
+  var maximumTempK: Double!
+  var minimumTempK: Double!
 
+  // From Google API
   var lat: Double?
   var lng: Double?
+  var cityName: String?
+  var stateName: String?
 
-  var weatherAPIKey: String!
-  var weatherAPICall: String!
-
-  var googleAPIKey: String!
-  var googleAPICall: String!
+  var googleAPICall: GoogleAPICall!
 
   override func viewDidLoad() {
+    settings = Settings.sharedSettings
+    settings.loadSettings()
+
     weatherView = WeatherView()
+    weatherView.toggleCF.selectedSegmentIndex = settings.toggleCF ?? 0
+    weatherView.toggleCF.addTarget(self, action: #selector(toggleCF), for: .valueChanged)
 
     map = MKMapView(frame: .zero)
     map.delegate = self
 
     map.isZoomEnabled = true
     map.isRotateEnabled = false
-
     map.showsUserLocation = true
 
     zipcodePoint = MKPointAnnotation()
@@ -39,39 +45,28 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(pushSettings))
 
     title = "Weather"
-
     setupViews()
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    loadSettings()
-
-    zipcode = settings.zipCode ?? ""
-    weatherAPIKey = settings.weatherAPIKey ?? ""
-    googleAPIKey = settings.googleAPIKey ?? ""
-
-    if let googleAPIKey = googleAPIKey {
-      googleAPICall = "https://maps.googleapis.com/maps/api/geocode/json?&address=" + zipcode + "&key=" + googleAPIKey
-    }
-
-    getLatLngCityFromGoogle(URL: googleAPICall)
-
+    googleAPICall = GoogleAPICall()
+    getLatLngCityFromGoogle(URL: googleAPICall.URLString()!)
   }
 
   func setupViews() {
     view.addSubview(weatherView)
+    
+    weatherView.addSubview(map)
     weatherView.snp.makeConstraints { make in
       make.edges.equalTo(view)
     }
 
-    weatherView.addSubview(map)
-
     map.layer.cornerRadius = Configuration.Label.cornerRadius
     map.snp.makeConstraints { make in
       make.left.right.equalTo(view).inset(5)
-      make.top.equalTo(weatherView.lineView.snp.bottom).offset(5)
+      make.top.equalTo(weatherView.hourlyWeather.snp.bottom).offset(5)
       make.centerX.equalTo(view)
-      make.height.equalTo(view.snp.width)
+      make.height.equalTo(self.map.snp.width)
     }
   }
 
@@ -83,7 +78,9 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   }
 
   func getLatLngCityFromGoogle(URL: String) {
-    Alamofire.request(URL).responseString { response in
+    Alamofire
+      .request(URL)
+      .responseString { response in
       if let jsonString = response.result.value {
         print(jsonString)
         if let responseObject = GoogleResponse(JSONString: jsonString) {
@@ -92,71 +89,120 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
             self.weatherView.descLabel.text = "Invalid Request"
             return
           }
+
           if let lat = responseObject.results?[0].geometry?.location?.lat {
             print("Lat will = \(lat)")
             self.lat = lat
+//            openWeatherAPICall.baseParameters["lat"] = lat
           }
+
           if let lng = responseObject.results?[0].geometry?.location?.lng {
             print("Lng will = \(lng)")
             self.lng = lng
+//            openWeatherAPICall.baseParameters["lon"] = lng
           }
+
           if let cityName = responseObject.results?[0].addressComponents?[1].shortName {
-            self.weatherView.cityNameLabel.text = cityName
+            self.cityName = cityName
+          }
+
+          if let stateName = responseObject.results?[0].addressComponents?[4].shortName {
+            self.stateName = stateName
           }
 
           if let center = CLLocationCoordinate2D(latitude: self.lat!, longitude: self.lng!) as? CLLocationCoordinate2D {
             self.zipcodePoint?.coordinate = center
-            self.zipcodePoint?.title = self.settings.zipCode
-            
+            self.zipcodePoint?.title = self.googleAPICall.settings.zipCode
+
             self.map.addAnnotation(self.zipcodePoint!)
             if let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) as? MKCoordinateSpan {
               self.map.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)
             }
           }
-          self.weatherAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + String(self.lat!) + "&lon=" + String(self.lng!) + "&appid=" + self.weatherAPIKey
-          self.getWeatherFrom(URL: self.weatherAPICall)
+
+          let openWeatherAPICall = OpenWeatherAPICall()
+          openWeatherAPICall.baseParameters["lat"] = self.lat
+          openWeatherAPICall.baseParameters["lon"] = self.lng
+
+          self.getWeatherFrom(URL: openWeatherAPICall.current().URLString()!)
         }
       }
     }
   }
 
   func getWeatherFrom(URL: String) {
-    Alamofire.request(URL).responseString { response in
+    Alamofire.request(URL)
+      .responseString { response in
       if let jsonString = response.result.value {
         print(jsonString)
         if let responseObject = WeatherResponse(JSONString: jsonString) {
           guard responseObject.cod != 401 else {
-            self.weatherView.temperatureLabel.text = "Check your APIKey"
+            self.weatherView.cityNameLabel.text = "OpenWeather Error"
+            self.weatherView.descLabel.text = "Invalid Request"
             return
           }
-          // desc Label
+
+          // descLabel
           if let desc = responseObject.weather?[0].main { // Note: "desc" not "description". Also some weird ()'s in JSON...
             self.weatherView.descLabel.text = desc
             print(desc)
           }
-          // Temperature Label
+
+          // currentTempF -> temperatureLabel
           if let temperature = responseObject.main?.temperature! {
-            self.weatherView.temperatureLabel.text = temperature.kelvinToFarenheit() + " ºF"
+            self.currentTempK = temperature
           }
+
           // Time Label
           if let time = responseObject.dt {
             self.weatherView.timeLabel.text = "Last updated: \(Date(timeIntervalSince1970: time).description(with: Locale.current))"
           }
-          // Highs
-          if let maximumTemperature = responseObject.main?.maximumTemperature?.kelvinToFarenheit() {
-            self.weatherView.highsLabel.text = maximumTemperature
+
+          // maximumTempK -> highsLabel
+          if let maximumTemperature = responseObject.main?.maximumTemperature {
+            self.maximumTempK = maximumTemperature
           }
-          // Lows
-          if let minimumTemperature = responseObject.main?.minimumTemperature?.kelvinToFarenheit() {
-            self.weatherView.lowsLabel.text = minimumTemperature
+
+          // minimumTempK - lowsLabel
+          if let minimumTemperature = responseObject.main?.minimumTemperature {
+            self.minimumTempK = minimumTemperature
           }
+
+          self.updateWeatherView()
         }
       }
     }
   }
 
-  func loadSettings() {
-    self.settings = Settings()
-    self.settings.loadSettings()
+  func getForecastFrom(URL: String) {
+    Alamofire.request(URL).responseString { response in
+      print(response.result.value!)
+    }
+  }
+
+  func updateWeatherView() {
+    self.weatherView.cityNameLabel.text = "\(self.cityName ?? "" ), \(self.stateName ?? "")"
+    toggleCF()
+  }
+
+  @objc func toggleCF() {
+    switch weatherView.toggleCF.selectedSegmentIndex {
+    case 0:
+      self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToCelsius().asString() + " ºC"
+      self.weatherView.highsLabel.text = self.maximumTempK.kelvinToCelsius().asString()
+      self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToCelsius().asString()
+      settings.toggleCF = 0
+      UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
+      
+    case 1:
+      self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToFarenheit().asString() + " ºF"
+      self.weatherView.highsLabel.text = self.maximumTempK.kelvinToFarenheit().asString()
+      self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToFarenheit().asString()
+      settings.toggleCF = 1
+      UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
+      
+    default:
+      return
+    }
   }
 }
