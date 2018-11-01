@@ -34,6 +34,6 @@ extension Double {
   }
 
   func asString() -> String {
-    return String(format: "%.1f", self)
+    return String(Int(self))
   }
 }

@@ -82,7 +82,7 @@ class WeatherView: UIScrollView {
       make.centerX.equalTo(self)
     }
 
-    temperatureLabel.text = "0.0 ºF"
+    temperatureLabel.text = "0 ºF"
     temperatureLabel.textColor = .white
 
     temperatureLabel.font = UIFont.systemFont(ofSize: 48)
