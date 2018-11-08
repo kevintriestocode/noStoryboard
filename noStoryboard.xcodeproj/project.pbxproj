@@ -148,6 +148,13 @@
 			remoteGlobalIDString = F112C860B1D3B938F26BE8100DEF2BBC;
 			remoteInfo = ObjectMapper;
 		};
+		0AC8A7282194CE670037FB87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A0FA8812113875D0045A942 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B86E8796012A8D5207350C433A5F061E;
+			remoteInfo = "lottie-ios";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -370,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				0A6D8CBF215AAD0A001FDF7B /* Alamofire.framework */,
+				0AC8A7292194CE670037FB87 /* Lottie.framework */,
 				0A6D8D06215EB4EA001FDF7B /* ObjectMapper.framework */,
 				0A0FA8FA2113875D0045A942 /* Pods_noStoryboard.framework */,
 				0A0FA8FC2113875D0045A942 /* Pods_noStoryboardTests.framework */,
@@ -878,6 +886,13 @@
 			remoteRef = 0A6D8D05215EB4EA001FDF7B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		0AC8A7292194CE670037FB87 /* Lottie.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Lottie.framework;
+			remoteRef = 0AC8A7282194CE670037FB87 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1219,8 +1234,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3575Y5J9Y8;
 				INFOPLIST_FILE = noStoryboard/Info.plist;
 				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1243,8 +1259,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3575Y5J9Y8;
 				INFOPLIST_FILE = noStoryboard/Info.plist;
 				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (

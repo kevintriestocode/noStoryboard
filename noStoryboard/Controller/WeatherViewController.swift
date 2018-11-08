@@ -197,6 +197,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   }
 
   @objc func toggleCF() {
+    guard self.currentTempK != nil else { return }
     switch weatherView.toggleCF.selectedSegmentIndex {
     case 0:
       self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToCelsius().asString() + " ºC"
@@ -206,6 +207,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
       
     case 1:
+      
       self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToFarenheit().asString() + " ºF"
       self.weatherView.highsLabel.text = self.maximumTempK.kelvinToFarenheit().asString()
       self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToFarenheit().asString()
