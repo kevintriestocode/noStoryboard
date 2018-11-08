@@ -10,9 +10,7 @@ class LineView: UIView {
     self.snp.makeConstraints { make in
       make.height.equalTo(1)
     }
-    
   }
-
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
