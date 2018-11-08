@@ -36,6 +36,9 @@
 		0A6D8D55216D25E3001FDF7B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D54216D25E3001FDF7B /* Location.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
 		0AC8A71E2194C7BA0037FB87 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8A7162194C7BA0037FB87 /* refresh.json */; };
+		0AC8A72B2194E0B50037FB87 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8A72A2194E0B50037FB87 /* data.json */; };
+		0AC8A72D2194E1330037FB87 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8A72C2194E1330037FB87 /* LottieViewController.swift */; };
+		0AC8A72E2194E15C0037FB87 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8A72C2194E1330037FB87 /* LottieViewController.swift */; };
 		0AD4A55B216A598600F8E543 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A55A216A598600F8E543 /* LineView.swift */; };
 		0AD4A571216AC64400F8E543 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A570216AC64400F8E543 /* WeatherView.swift */; };
 		0AD4A5A12171A60500F8E543 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
@@ -295,6 +298,8 @@
 		0A6D8D54216D25E3001FDF7B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0A6F442821385EDF00AC74B3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		0AC8A7162194C7BA0037FB87 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
+		0AC8A72A2194E0B50037FB87 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		0AC8A72C2194E1330037FB87 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		0AD4A55A216A598600F8E543 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		0AD4A570216AC64400F8E543 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		0AD4A5C72171AA7400F8E543 /* LineViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineViewTests.swift; sourceTree = "<group>"; };
@@ -599,6 +604,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC8A7162194C7BA0037FB87 /* refresh.json */,
+				0AC8A72A2194E0B50037FB87 /* data.json */,
 				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
 				0A6D8D222166A2A9001FDF7B /* Helpers */,
 				0A6D8CD8215D41ED001FDF7B /* Model */,
@@ -656,6 +662,7 @@
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
 				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
 				0A13DBF22150486A00929260 /* WeatherViewController.swift */,
+				0AC8A72C2194E1330037FB87 /* LottieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -901,6 +908,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE6DB52217F629400236D0D /* Info.plist in Resources */,
+				0AC8A72B2194E0B50037FB87 /* data.json in Resources */,
 				0A20A6D02171520600F89006 /* Config.xcconfig in Resources */,
 				0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */,
 				0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */,
@@ -1034,6 +1042,7 @@
 				0AE6DB412178E81E00236D0D /* AnyAPI.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A6D8D4F216D2242001FDF7B /* Results.swift in Sources */,
+				0AC8A72D2194E1330037FB87 /* LottieViewController.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
 				0A6D8D2B2166A2DC001FDF7B /* TemperatureConverter.swift in Sources */,
 				0AD4A571216AC64400F8E543 /* WeatherView.swift in Sources */,
@@ -1054,6 +1063,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD4A5A92171A63700F8E543 /* Base.swift in Sources */,
+				0AC8A72E2194E15C0037FB87 /* LottieViewController.swift in Sources */,
 				0AD4A5B82171A66C00F8E543 /* WeatherViewController.swift in Sources */,
 				0AD4A5A62171A62F00F8E543 /* AddressComponents.swift in Sources */,
 				0AD4A5AA2171A64400F8E543 /* Settings.swift in Sources */,
