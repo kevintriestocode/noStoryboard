@@ -46,11 +46,9 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
 
     title = "Weather"
     setupViews()
+    
   }
-
   override func viewWillAppear(_ animated: Bool) {
-    googleAPICall = GoogleAPICall()
-    getLatLngCityFromGoogle(URL: googleAPICall.URLString()!)
   }
 
   func setupViews() {
@@ -183,6 +181,11 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   func updateWeatherView() {
     self.weatherView.cityNameLabel.text = "\(self.cityName ?? "" ), \(self.stateName ?? "")"
     toggleCF()
+  }
+
+  func refresh() {
+    googleAPICall = GoogleAPICall()
+    getLatLngCityFromGoogle(URL: googleAPICall.URLString()!)
   }
 
   @objc func toggleCF() {

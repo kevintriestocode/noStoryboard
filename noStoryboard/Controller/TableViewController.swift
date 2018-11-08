@@ -53,20 +53,20 @@ public class TableViewController: UIViewController, UITableViewDataSource, UITab
   // MARK: - Providing the Table View Data
   // MARK: UITableViewDataSource
   // MARK: Configuring a Table View
-  
+
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-    cell.textLabel?.text = "_"
+    cell.textLabel?.text = "\([indexPath])"
     return cell
   }
   
+  // Tells the data source to return the number of rows in a given section of a table view.
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableData?.count ?? 0
   }
 
   /// Asks the data source for the title of the header of the specified section of the table view.
   public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
     return "Header of section: \(section)"
   }
 
@@ -78,19 +78,16 @@ public class TableViewController: UIViewController, UITableViewDataSource, UITab
   // MARK: Inserting or Deleting Table Rows
   public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      
 
-      
-      
+ 
     }
     if editingStyle == .insert {
-      
-      
 
-      
     }
   }
 
+  public func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+  }
   public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
   }
@@ -117,9 +114,6 @@ public class TableViewController: UIViewController, UITableViewDataSource, UITab
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
   }
-//  public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//    print("You have deselected table row: \(indexPath.row), item name: \(Configuration.dataSource[indexPath.row]).")
-//  }
 
   // MARK: Modifying the Header and Footer of Sections
 

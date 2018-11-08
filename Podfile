@@ -9,6 +9,7 @@ target 'noStoryboard' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'ObjectMapper'
+  pod 'lottie-ios'
 
   # Pods for noStoryboard
 
