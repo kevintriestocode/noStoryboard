@@ -18,7 +18,7 @@ public class AnyAPI {
     self.baseParameters = Parameters()
     self.baseHeaders = HTTPHeaders()
 
-    self.settings = Settings()
+    self.settings = Settings.sharedSettings
     self.settings.loadSettings()
   }
 

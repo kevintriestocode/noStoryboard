@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 public struct Configuration {
-  public static var dataSource = [ "One", "Two", "Three", "Four", "Five" ]
+//  public static var dataSource = [ "One", "Two", "Three", "Four", "Five" ]
 
   // Adobe Color CC
   public struct Color {
