@@ -3,13 +3,16 @@ import SnapKit
 import Alamofire
 import ObjectMapper
 import MapKit
+import Lottie
 
 class WeatherViewController: UIViewController, MKMapViewDelegate {
   var settings: Settings!
   var weatherView: WeatherView!
+  
   var map: MKMapView!
-
   var zipcodePoint: MKPointAnnotation?
+
+  var refresh = LOTAnimationView(name: "refresh", bundle: Bundle.main)
 
   // From OpenWeatherMap API
   var currentTempK: Double!
@@ -41,6 +44,10 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
 
     zipcodePoint = MKPointAnnotation()
 
+    refresh.isUserInteractionEnabled = true
+    let tapRefresh = UITapGestureRecognizer(target: self, action: #selector(refreshData))
+    refresh.addGestureRecognizer(tapRefresh)
+
     print("WeatherViewController did load")
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(pushSettings))
 
@@ -49,12 +56,11 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    googleAPICall = GoogleAPICall()
-    getLatLngCityFromGoogle(URL: googleAPICall.URLString()!)
   }
 
   func setupViews() {
     view.addSubview(weatherView)
+    view.addSubview(refresh)
     
     weatherView.addSubview(map)
     weatherView.snp.makeConstraints { make in
@@ -67,6 +73,11 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       make.top.equalTo(weatherView.hourlyWeather.snp.bottom).offset(5)
       make.centerX.equalTo(view)
       make.height.equalTo(self.map.snp.width)
+    }
+
+    refresh.snp.makeConstraints { make in
+      make.left.equalTo(view).offset(-100)
+      make.top.equalTo(view).offset(10)
     }
   }
 
@@ -204,5 +215,13 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
     default:
       return
     }
+  }
+
+  @objc func refreshData() {
+    self.refresh.play(fromProgress: 0, toProgress: 1) { block in
+      self.googleAPICall = GoogleAPICall()
+      self.getLatLngCityFromGoogle(URL: self.googleAPICall.URLString()!)
+    }
+
   }
 }
