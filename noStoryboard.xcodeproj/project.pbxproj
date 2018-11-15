@@ -82,6 +82,7 @@
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
 		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
 		0AF091F92171604200EA70C2 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */; };
+		0AFA3FEC2199DE9A00A8A61A /* HourlyWeatherBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB542180F3DC00236D0D /* HourlyWeatherBlockView.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
 		ECC5F96BAA2D78BD953AE50E /* Pods_noStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */; };
@@ -1065,6 +1066,7 @@
 				0AD4A5A92171A63700F8E543 /* Base.swift in Sources */,
 				0AC8A72E2194E15C0037FB87 /* LottieViewController.swift in Sources */,
 				0AD4A5B82171A66C00F8E543 /* WeatherViewController.swift in Sources */,
+				0AFA3FEC2199DE9A00A8A61A /* HourlyWeatherBlockView.swift in Sources */,
 				0AD4A5A62171A62F00F8E543 /* AddressComponents.swift in Sources */,
 				0AD4A5AA2171A64400F8E543 /* Settings.swift in Sources */,
 				0AD4A5AB2171A64900F8E543 /* WeatherResponse.swift in Sources */,
