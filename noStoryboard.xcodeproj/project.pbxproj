@@ -658,6 +658,7 @@
 		0A6D8CD9215D4208001FDF7B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
 				0A1A99D0210B6A4000901A39 /* MainViewController.swift */,
 				0A6566DD21246CFC007947C2 /* TableViewController.swift */,
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,

@@ -4,13 +4,13 @@ class Settings: NSObject, NSCoding {
   static let sharedSettings = Settings()
 
   var arbitraryID = "Settings.sharedSettings"
-  
+
   var username: String?
   var weatherAPIKey: String?
   var googleAPIKey: String?
   var zipCode: String?
   var toggleCF: Int?
-
+  var tableData: [Any]?
   override init() {
     super.init()
   }
@@ -21,6 +21,7 @@ class Settings: NSObject, NSCoding {
     googleAPIKey = aDecoder.decodeObject(forKey: "googleAPIKey") as? String
     zipCode = aDecoder.decodeObject(forKey: "zipCode") as? String
     toggleCF = aDecoder.decodeObject(forKey: "toggleCF") as? Int
+    tableData = aDecoder.decodeObject(forKey: "tableData") as? [Any]
   }
 
   func encode(with aCoder: NSCoder) {
@@ -29,6 +30,7 @@ class Settings: NSObject, NSCoding {
     aCoder.encode(googleAPIKey, forKey: "googleAPIKey")
     aCoder.encode(zipCode, forKey: "zipCode")
     aCoder.encode(toggleCF, forKey: "toggleCF")
+    aCoder.encode(tableData, forKey: "tableData")
   }
 
   func settingsKey() -> String {
@@ -41,6 +43,7 @@ class Settings: NSObject, NSCoding {
     UserDefaults.standard.set(googleAPIKey, forKey: "googleAPIKey")
     UserDefaults.standard.set(zipCode, forKey: "zipCode")
     UserDefaults.standard.set(toggleCF, forKey: "toggleCF")
+    UserDefaults.standard.set(tableData, forKey: "tableData")
   }
 
   func loadSettings() {
@@ -49,19 +52,6 @@ class Settings: NSObject, NSCoding {
     googleAPIKey = UserDefaults.standard.string(forKey: "googleAPIKey")
     zipCode = UserDefaults.standard.string(forKey: "zipCode")
     toggleCF = UserDefaults.standard.integer(forKey: "toggleCF")
+    tableData = UserDefaults.standard.array(forKey: "tableData")
   }
-
-//  func loadSettings() {
-//    if let decoded = UserDefaults.standard.object(forKey: settingsKey()) as? Data {
-//      if let loadedSettings = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? Settings {
-//        username = loadedSettings.username
-//        weatherAPIKey = loadedSettings.weatherAPIKey
-//        zipCode = loadedSettings.zipCode
-//      }
-//    } else {
-//      username = UserDefaults.standard.string(forKey: "username")
-//      weatherAPIKey = UserDefaults.standard.string(forKey: "weatherAPIKey")
-//      zipCode = UserDefaults.standard.string(forKey: "zipCode")
-//    }
-//  }
 }
