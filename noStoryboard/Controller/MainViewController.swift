@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
   var tableViewLabel: UILabel!
   var highlightPracticeLabel: UILabel!
   var weatherLabel: UILabel!
+  var lottieLabel: UILabel!
+
   var settings: Settings!
 
   override func viewDidLoad() {
@@ -25,6 +27,7 @@ class MainViewController: UIViewController {
     tableViewLabel = UILabel()
     highlightPracticeLabel = UILabel()
     weatherLabel = UILabel()
+    lottieLabel = UILabel()
 
     settings = Settings.sharedSettings
     settings.loadSettings()
@@ -48,12 +51,12 @@ class MainViewController: UIViewController {
     view.addSubview(highlightPracticeLabel)
     view.addSubview(weatherLabel)
 
+    view.addSubview(lottieLabel)
     view.backgroundColor = Configuration.Color.backgroundColor
 
     // Navigation Controller
     navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.tintColor = .white
-    navigationController?.navigationBar.isHidden = false
 
     // Settings Label
     settingsLabel.attributedText = NSAttributedString(string: "SETTINGS",
@@ -118,6 +121,22 @@ class MainViewController: UIViewController {
       make.height.equalTo(settingsLabel)
       make.centerX.equalTo(view)
     }
+
+    // Lottie Label
+    lottieLabel.attributedText = NSAttributedString(string: "LOTTIE",
+                                                               attributes: [NSAttributedStringKey.kern: 3])
+    lottieLabel.textAlignment = .center
+    
+    lottieLabel.backgroundColor = .white
+    lottieLabel.layer.cornerRadius = Configuration.Label.cornerRadius
+    
+    lottieLabel.layer.masksToBounds = true
+    lottieLabel.snp.makeConstraints { (make) in
+      make.top.equalTo(weatherLabel.snp.bottom).offset(5)
+      make.width.equalTo(view.safeAreaLayoutGuide).inset(5)
+      make.height.equalTo(settingsLabel)
+      make.centerX.equalTo(view)
+    }
   }
 
   func consoleGreeting() {
@@ -141,14 +160,19 @@ class MainViewController: UIViewController {
     highlightPracticeLabel.isUserInteractionEnabled = true
     highlightPracticeLabel.addGestureRecognizer(highlightPracticeLabelGesture)
 
-    let morePracticeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(weatherLabelTapped))
+    let weatherLabelGesture = UITapGestureRecognizer(target: self, action: #selector(weatherLabelTapped))
     weatherLabel.isUserInteractionEnabled = true
-    weatherLabel.addGestureRecognizer(morePracticeLabelGesture)
+    weatherLabel.addGestureRecognizer(weatherLabelGesture)
+
+    let lottieLabelGesture = UITapGestureRecognizer(target: self, action: #selector(lottieLabelTapped))
+    lottieLabel.isUserInteractionEnabled = true
+    lottieLabel.addGestureRecognizer(lottieLabelGesture)
   }
 
   public override func viewWillAppear(_ animated: Bool) {
-
+    navigationController?.setNavigationBarHidden(false, animated: true)
   }
+
   public override func viewWillDisappear(_ animated: Bool) {
     
   }
@@ -180,5 +204,11 @@ class MainViewController: UIViewController {
     self.navigationController?.pushViewController(weatherVC, animated: true)
     self.navigationController?.navigationBar.barStyle = .blackTranslucent
     self.navigationController?.navigationBar.tintColor = .white
+  }
+
+  @objc func lottieLabelTapped() {
+    let lottieVC = LottieViewController()
+    self.navigationController?.pushViewController(lottieVC, animated: true)
+    self.navigationController?.setNavigationBarHidden(true, animated: true)
   }
 }

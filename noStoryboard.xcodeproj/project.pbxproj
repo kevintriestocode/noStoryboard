@@ -35,7 +35,10 @@
 		0A6D8D53216D249C001FDF7B /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D52216D249C001FDF7B /* Geometry.swift */; };
 		0A6D8D55216D25E3001FDF7B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D54216D25E3001FDF7B /* Location.swift */; };
 		0A6F442921385EDF00AC74B3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
-		0AC8A7132194C60E0037FB87 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8A70B2194C60E0037FB87 /* refresh.json */; };
+		0AC8A71E2194C7BA0037FB87 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8A7162194C7BA0037FB87 /* refresh.json */; };
+		0AC8A72B2194E0B50037FB87 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8A72A2194E0B50037FB87 /* data.json */; };
+		0AC8A72D2194E1330037FB87 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8A72C2194E1330037FB87 /* LottieViewController.swift */; };
+		0AC8A72E2194E15C0037FB87 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8A72C2194E1330037FB87 /* LottieViewController.swift */; };
 		0AD4A55B216A598600F8E543 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A55A216A598600F8E543 /* LineView.swift */; };
 		0AD4A571216AC64400F8E543 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4A570216AC64400F8E543 /* WeatherView.swift */; };
 		0AD4A5A12171A60500F8E543 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F442821385EDF00AC74B3 /* Configuration.swift */; };
@@ -79,6 +82,7 @@
 		0AF091F521715C1200EA70C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF091F421715C1200EA70C2 /* Info.plist */; };
 		0AF091F721715EAE00EA70C2 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF091F621715EAE00EA70C2 /* MainViewControllerTests.swift */; };
 		0AF091F92171604200EA70C2 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D8D2A2166A2DC001FDF7B /* TemperatureConverter.swift */; };
+		0AFA3FEC2199DE9A00A8A61A /* HourlyWeatherBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6DB542180F3DC00236D0D /* HourlyWeatherBlockView.swift */; };
 		313A3B54F01E453C68E667B8 /* Pods_noStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C608ECEA09379CC7F48E5F /* Pods_noStoryboard.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3A504F71FAB064A6B6C8FE45 /* Pods_noStoryboardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9B42C255468B65735B0C0A /* Pods_noStoryboardUITests.framework */; };
 		ECC5F96BAA2D78BD953AE50E /* Pods_noStoryboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3658813E8E737AB69DCFC6C8 /* Pods_noStoryboardTests.framework */; };
@@ -147,6 +151,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = F112C860B1D3B938F26BE8100DEF2BBC;
 			remoteInfo = ObjectMapper;
+		};
+		0AC8A7282194CE670037FB87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A0FA8812113875D0045A942 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B86E8796012A8D5207350C433A5F061E;
+			remoteInfo = "lottie-ios";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -287,7 +298,9 @@
 		0A6D8D52216D249C001FDF7B /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		0A6D8D54216D25E3001FDF7B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0A6F442821385EDF00AC74B3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		0AC8A70B2194C60E0037FB87 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
+		0AC8A7162194C7BA0037FB87 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
+		0AC8A72A2194E0B50037FB87 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		0AC8A72C2194E1330037FB87 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		0AD4A55A216A598600F8E543 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		0AD4A570216AC64400F8E543 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		0AD4A5C72171AA7400F8E543 /* LineViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineViewTests.swift; sourceTree = "<group>"; };
@@ -370,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				0A6D8CBF215AAD0A001FDF7B /* Alamofire.framework */,
+				0AC8A7292194CE670037FB87 /* Lottie.framework */,
 				0A6D8D06215EB4EA001FDF7B /* ObjectMapper.framework */,
 				0A0FA8FA2113875D0045A942 /* Pods_noStoryboard.framework */,
 				0A0FA8FC2113875D0045A942 /* Pods_noStoryboardTests.framework */,
@@ -590,7 +604,9 @@
 		0A1A99CD210B6A4000901A39 /* noStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				0AC8A70B2194C60E0037FB87 /* refresh.json */,
+				0AC8A7162194C7BA0037FB87 /* refresh.json */,
+				0AC8A72A2194E0B50037FB87 /* data.json */,
+				0A1A99CE210B6A4000901A39 /* AppDelegate.swift */,
 				0A6D8D222166A2A9001FDF7B /* Helpers */,
 				0A6D8CD8215D41ED001FDF7B /* Model */,
 				0A6D8CD6215D41DC001FDF7B /* View */,
@@ -648,6 +664,7 @@
 				0A36FAA82147ED79008ADF84 /* HighlightPracticeViewController.swift */,
 				0A6566DB212314FF007947C2 /* SettingsViewController.swift */,
 				0A13DBF22150486A00929260 /* WeatherViewController.swift */,
+				0AC8A72C2194E1330037FB87 /* LottieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -878,6 +895,13 @@
 			remoteRef = 0A6D8D05215EB4EA001FDF7B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		0AC8A7292194CE670037FB87 /* Lottie.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Lottie.framework;
+			remoteRef = 0AC8A7282194CE670037FB87 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -886,10 +910,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE6DB52217F629400236D0D /* Info.plist in Resources */,
+				0AC8A72B2194E0B50037FB87 /* data.json in Resources */,
 				0A20A6D02171520600F89006 /* Config.xcconfig in Resources */,
 				0A08F18A211A0A1700F58519 /* LaunchScreen.xib in Resources */,
 				0A1A99D9210B6A4B00901A39 /* Assets.xcassets in Resources */,
-				0AC8A7132194C60E0037FB87 /* refresh.json in Resources */,
+				0AC8A71E2194C7BA0037FB87 /* refresh.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1019,6 +1044,7 @@
 				0AE6DB412178E81E00236D0D /* AnyAPI.swift in Sources */,
 				0A1A99CF210B6A4000901A39 /* AppDelegate.swift in Sources */,
 				0A6D8D4F216D2242001FDF7B /* Results.swift in Sources */,
+				0AC8A72D2194E1330037FB87 /* LottieViewController.swift in Sources */,
 				0A0889432154003A003BD94B /* Settings.swift in Sources */,
 				0A6D8D2B2166A2DC001FDF7B /* TemperatureConverter.swift in Sources */,
 				0AD4A571216AC64400F8E543 /* WeatherView.swift in Sources */,
@@ -1039,7 +1065,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD4A5A92171A63700F8E543 /* Base.swift in Sources */,
+				0AC8A72E2194E15C0037FB87 /* LottieViewController.swift in Sources */,
 				0AD4A5B82171A66C00F8E543 /* WeatherViewController.swift in Sources */,
+				0AFA3FEC2199DE9A00A8A61A /* HourlyWeatherBlockView.swift in Sources */,
 				0AD4A5A62171A62F00F8E543 /* AddressComponents.swift in Sources */,
 				0AD4A5AA2171A64400F8E543 /* Settings.swift in Sources */,
 				0AD4A5AB2171A64900F8E543 /* WeatherResponse.swift in Sources */,
@@ -1219,8 +1247,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3575Y5J9Y8;
 				INFOPLIST_FILE = noStoryboard/Info.plist;
 				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1243,8 +1272,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3575Y5J9Y8;
 				INFOPLIST_FILE = noStoryboard/Info.plist;
 				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = (

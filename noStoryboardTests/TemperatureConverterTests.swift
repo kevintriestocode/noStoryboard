@@ -21,9 +21,9 @@ class TemperatureConverterTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
       let tempKelvin: Double = 273.15
-      let tempC: Double = 0
-      XCTAssertEqual(tempKelvin.kelvinToCelsius(), "\(tempC)")
-      XCTAssertNotEqual(tempKelvin.kelvinToFarenheit(), "0.0")
+      let tempC: Double = 0.0
+      XCTAssertEqual(tempKelvin.kelvinToCelsius(), tempC)
+      XCTAssertNotEqual(tempKelvin.kelvinToFarenheit(), 0.0)
     }
 
     func testPerformanceExample() {
