@@ -8,10 +8,12 @@ To download the project
     git clone https://github.com/kevintriestocode/noStoryboard.git
 
 ## Usage
+### Prerequisites
+Xcode.app
 
     cd noStoryboard
     open noStoryboard.xcworkspace
 
-No guarantees that it will build, nor run. Lol.
+No guarantees that it will build, or run. Lol.
 
 ## Enjoy?
