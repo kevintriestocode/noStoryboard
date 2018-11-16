@@ -12,7 +12,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
   var map: MKMapView!
   var zipcodePoint: MKPointAnnotation?
 
-  var refresh = LOTAnimationView(name: "refresh", bundle: Bundle.main)
+  var refreshAnimation = LOTAnimationView(name: "refresh", bundle: Bundle.main)
 
   // From OpenWeatherMap API
   var currentTempK: Double!
@@ -44,9 +44,9 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
 
     zipcodePoint = MKPointAnnotation()
 
-    refresh.isUserInteractionEnabled = true
+    refreshAnimation.isUserInteractionEnabled = true
     let tapRefresh = UITapGestureRecognizer(target: self, action: #selector(refreshData))
-    refresh.addGestureRecognizer(tapRefresh)
+    refreshAnimation.addGestureRecognizer(tapRefresh)
 
     print("WeatherViewController did load")
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(pushSettings))
@@ -60,7 +60,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
 
   func setupViews() {
     view.addSubview(weatherView)
-    view.addSubview(refresh)
+    view.addSubview(refreshAnimation)
     
     weatherView.addSubview(map)
     weatherView.snp.makeConstraints { make in
@@ -75,7 +75,7 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       make.height.equalTo(self.map.snp.width).inset(40)
     }
 
-    refresh.snp.makeConstraints { make in
+    refreshAnimation.snp.makeConstraints { make in
       make.left.equalTo(view).offset(-100)
       make.top.equalTo(view).offset(10)
     }
@@ -210,22 +210,19 @@ class WeatherViewController: UIViewController, MKMapViewDelegate {
       self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToCelsius().asString()
       settings.toggleCF = 0
       UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
-      
     case 1:
-      
       self.weatherView.temperatureLabel.text = self.currentTempK.kelvinToFarenheit().asString() + " ºF"
       self.weatherView.highsLabel.text = self.maximumTempK.kelvinToFarenheit().asString()
       self.weatherView.lowsLabel.text = self.minimumTempK.kelvinToFarenheit().asString()
       settings.toggleCF = 1
       UserDefaults.standard.set(settings.toggleCF, forKey: "toggleCF")
-      
     default:
       return
     }
   }
 
   @objc func refreshData() {
-    self.refresh.play(fromProgress: 0, toProgress: 1) { block in
+    self.refreshAnimation.play(fromProgress: 0, toProgress: 1) { block in
       self.googleAPICall = GoogleAPICall()
       self.getLatLngCityFromGoogle(URL: self.googleAPICall.URLString()!)
     }
